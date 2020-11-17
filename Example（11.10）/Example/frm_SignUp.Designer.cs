@@ -47,6 +47,7 @@
             // 
             this.txt_Password.Location = new System.Drawing.Point(131, 155);
             this.txt_Password.Name = "txt_Password";
+            this.txt_Password.PasswordChar = '*';
             this.txt_Password.Size = new System.Drawing.Size(184, 28);
             this.txt_Password.TabIndex = 1;
             // 
@@ -101,6 +102,7 @@
             this.Controls.Add(this.txt_UserNumber);
             this.Name = "frm_SignUp";
             this.Text = "注册";
+            this.Load += new System.EventHandler(this.frm_SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

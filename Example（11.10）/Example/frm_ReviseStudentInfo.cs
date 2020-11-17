@@ -17,12 +17,16 @@ namespace Example
         public frm_ReviseStudentInfo()
         {
             InitializeComponent();
+            
+
         }
-        public frm_ReviseStudentInfo(string studentNo) : this()   //将上一窗体的账号传入此窗体
+        public frm_ReviseStudentInfo(string studentNo) : this()   //构造函数，将上一窗体的账号传入此窗体
         {
+            this.txt_Name.Focus();
+            this.txt_Name.SelectAll();
             this.StudentNo = studentNo;
             string commandText =
-                $@"SELECT * FROM tb_StudentInformation WHERE No='{this.StudentNo}';";
+                $@"SELECT * FROM tb_StudentInformation WHERE No='{studentNo}';";
             SqlHelper sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
             if (sqlHelper.HasRecord)
@@ -35,26 +39,45 @@ namespace Example
                 this.txt_Answer2.Text = sqlHelper["Answer_2"].ToString();
             }
         }
-        
+
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
-            string commandText=
-                $@"INSERT tb_User(PasswordProtectProblem_1, PasswordProtectProblem_2,Answer_1,Answer_2)
-                   VALUES
-                   ('{txt_PasswordProtectProblem1.Text.Trim()}', '{txt_PasswordProtectProblem2.Text.Trim()}'
-                    ,'{txt_Answer1.Text.Trim()}','{txt_Answer2.Text.Trim()}');";
-            SqlHelper sqlHelper = new SqlHelper();
-            int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
-            if (rowAffected == 1)
+            txt_PasswordProtectProblem1.Text = null;
+            txt_PasswordProtectProblem2.Text = null;
+            txt_Answer1.Text = null;
+            txt_Answer2.Text = null;
+            txt_PasswordProtectProblem1.Focus();
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show("重置成功！");
+                string commandText =
+                    $@"UPDATE tb_StudentInformation
+                    SET PasswordProtectProblem_1='{txt_PasswordProtectProblem1.Text.Trim()}',
+                    PasswordProtectProblem_2='{txt_PasswordProtectProblem2.Text.Trim()}',
+                    Answer_1='{txt_Answer1.Text.Trim()}',
+                    Answer_2='{txt_Answer2.Text.Trim()}'
+                    WHERE No='{txt_StudentNumber.Text}';";
+                SqlHelper sqlHelper = new SqlHelper();
+                int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
+                if (rowAffected == 1 && txt_PasswordProtectProblem1.Text != null && txt_PasswordProtectProblem2.Text != null
+                    && txt_Answer1.Text != null && txt_Answer2.Text != null) 
+                {
+                    MessageBox.Show("保存成功！");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("重置失败！");
+                MessageBox.Show("保存失败！");
             }
-            
+        }
+
+        private void frm_ReviseStudentInfo_Load(object sender, EventArgs e)
+        {
+           //UserControl f1 = new UserControl();//实例化f1
         }
     }
 }

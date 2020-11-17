@@ -21,18 +21,22 @@ namespace Example
 
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
-            string commandText =
-                $@"INSERT tb_User(No, Password)
+            try
+            {
+                string commandText =
+                                $@"INSERT tb_User(No, Password)
                    VALUES
                    ('{txt_UserNumber.Text.Trim()}', '{txt_Password.Text.Trim()}');";
-            SqlHelper sqlHelper = new SqlHelper();
-            int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
-            if (rowAffected == 1) 
-            {
-               MessageBox.Show("注册成功！");
+                SqlHelper sqlHelper = new SqlHelper();
+                int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
+                if (rowAffected == 1)
+                {
+                    MessageBox.Show("注册成功！");
+                }
             }
-            else
+            catch (Exception)
             {
+
                 MessageBox.Show("注册失败！");
             }
         }
@@ -45,11 +49,18 @@ namespace Example
                    WHERE NO='{txt_UserNumber.Text.Trim()}' AND Password='{txt_Password.Text.Trim()}';";
             SqlHelper sqlHelper = new SqlHelper();
             int result = sqlHelper.QuickReturn<int>(commandText);
-            if (result==1)
+            if (result == 1)
             {
                 MessageBox.Show("登录成功！");
-                frm_ReviseStudentInfo reviseStudentInfo = new frm_ReviseStudentInfo(txt_UserNumber.Text );
-                reviseStudentInfo.ShowDialog();
+                //frm_ReviseStudentInfo reviseStudentInfo = new frm_ReviseStudentInfo(txt_UserNumber.Text);
+                //reviseStudentInfo.ShowDialog();
+                frm_SchoolSystem schoolManageSystem = new frm_SchoolSystem(txt_UserNumber.Text);
+                schoolManageSystem.ShowDialog();
+                //frm_RevisePassword revisePassword = new frm_RevisePassword(txt_UserNumber.Text);
+                //revisePassword.ShowDialog();
+                //frm_NoticesAndMessages noticesAndMessages = new frm_NoticesAndMessages();
+                //noticesAndMessages.ShowDialog();
+
             }
             else
             {
@@ -57,6 +68,11 @@ namespace Example
                 this.txt_Password.Focus();
                 this.txt_Password.SelectAll();
             }
+        }
+
+        private void frm_SignUp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

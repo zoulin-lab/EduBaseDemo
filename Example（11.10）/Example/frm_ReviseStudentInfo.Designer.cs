@@ -49,6 +49,7 @@
             // 
             this.txt_StudentNumber.Location = new System.Drawing.Point(232, 66);
             this.txt_StudentNumber.Name = "txt_StudentNumber";
+            this.txt_StudentNumber.ReadOnly = true;
             this.txt_StudentNumber.Size = new System.Drawing.Size(189, 28);
             this.txt_StudentNumber.TabIndex = 0;
             // 
@@ -159,6 +160,7 @@
             this.btn_Save.TabIndex = 13;
             this.btn_Save.Text = "保存";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // label1
             // 
@@ -174,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 502);
+            this.ClientSize = new System.Drawing.Size(711, 516);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_Reset);
@@ -192,6 +194,7 @@
             this.Controls.Add(this.txt_StudentNumber);
             this.Name = "frm_ReviseStudentInfo";
             this.Text = "修改个人信息";
+            this.Load += new System.EventHandler(this.frm_ReviseStudentInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -22,5 +22,15 @@ namespace Example.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=EduBaseBigHomework;Integrated Security=True")]
+        public string EduBaseBigHomeworkConnectionString {
+            get {
+                return ((string)(this["EduBaseBigHomeworkConnectionString"]));
+            }
+        }
     }
 }
