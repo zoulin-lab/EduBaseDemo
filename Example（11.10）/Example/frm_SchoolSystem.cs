@@ -19,7 +19,52 @@ namespace Example
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            
+            this.LoadStuClasses();
+            this.LoadStuNations();
+            this.LoadStuMajors();
+            this.LoadStuDepartments();
+
+        }
+
+        private void LoadStuClasses()//向下拉框载入班级名称
+        {
+            string commandText = "SELECT * FROM tb_StuClass ";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord)
+            {
+                this.cbxStuClass.Items.Add(sqlHelper["Name"]);
+            }
+        }
+        private void LoadStuNations()//向下拉框载入民族名称
+        {
+            string commandText = "SELECT * FROM tb_StuNation";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord)
+            {
+                this.cbxStuNation.Items.Add(sqlHelper["Name"]);
+            }
+        }
+        private void LoadStuMajors()//向下拉框载入专业名称
+        {
+            string commandText = "SELECT * FROM tb_StuMajor ";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord)
+            {
+                this.cbxStuMajor.Items.Add(sqlHelper["Name"]);
+            }
+        }
+        private void LoadStuDepartments()//向下拉框载入院系名称
+        {
+            string commandText = "SELECT * FROM tb_StuDepartment";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord)
+            {
+                this.cbxStuDepertment.Items.Add(sqlHelper["Name"]);
+            }
         }
 
         public frm_SchoolSystem(string studentNo) : this()//构造函数
@@ -61,13 +106,14 @@ namespace Example
             {
                 txtStuNo.Text = sqlHelper3["No"].ToString();
                 txtStuName.Text= sqlHelper3["StuName"].ToString();
-                txtStuGender.Text= sqlHelper3["StuGender"].ToString();
-                txtStuBirthday.Text= sqlHelper3["StuBirthday"].ToString();
-                txtStuNation.Text= sqlHelper3["StuNation"].ToString();
-                txtStuClass.Text= sqlHelper3["StuClass"].ToString();
-                txtStuMajor.Text= sqlHelper3["StuMajor"].ToString();
-                txtStuDepartment.Text= sqlHelper3["StuDepartment"].ToString();
-                txtStuToSchool.Text= sqlHelper3["StuTOSchoolDatetime"].ToString();
+                this.rdbFemale.Checked = !(bool)sqlHelper3["StuGender"];//传入性别
+                this.rdbMale.Checked = (bool)sqlHelper3["StuGender"];
+                dtpStuBirthday.Value = (DateTime)sqlHelper3["StuBirthday"];
+                cbxStuNation.Text= sqlHelper3["StuNation"].ToString();
+                cbxStuClass.Text= sqlHelper3["StuClass"].ToString();
+                cbxStuMajor.Text= sqlHelper3["StuMajor"].ToString();
+                cbxStuDepertment.Text= sqlHelper3["StuDepartment"].ToString();
+                dtpStuToSchoolTime.Value= (DateTime)sqlHelper3["StuTOSchoolDatetime"];
                 txtStuLengthOfSchooling.Text= sqlHelper3["StuLengthOfSchooling"].ToString();
                 txtStuMajorDirection.Text= sqlHelper3["StuMajorDirection"].ToString();
                 txtStuPoliticsStatus.Text = sqlHelper3["StuPoliticsStatus"].ToString();
