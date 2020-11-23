@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SmartLinli.DatabaseDevelopement;
 
 namespace Example
 {
@@ -21,9 +22,64 @@ namespace Example
             
         }
 
-        public frm_SchoolSystem(string studentNo) :this()
+        public frm_SchoolSystem(string studentNo) : this()//构造函数
         {
+            //修改个人信息页面
             this.StudentNo = studentNo;
+            string commandText1 =
+                $@"SELECT * FROM tb_StudentInformation WHERE No='{studentNo}';";
+            SqlHelper sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText1);
+            if (sqlHelper.HasRecord)
+            {
+                this.txt_StudentNo.Text = sqlHelper["No"].ToString();
+                this.txt_Name.Text = sqlHelper["Name"].ToString();
+                this.txt_PasswordProtectProblem1.Text = sqlHelper["PasswordProtectProblem_1"].ToString();
+                this.txt_PasswordProtectProblem2.Text = sqlHelper["PasswordProtectProblem_2"].ToString();
+                this.txt_Answer1.Text = sqlHelper["Answer_1"].ToString();
+                this.txt_Answer2.Text = sqlHelper["Answer_2"].ToString();
+                this.txtMyName.Text= sqlHelper["Name"].ToString();
+                this.txtMyNumber.Text= sqlHelper["No"].ToString();
+            }
+            //修改密码页面
+            string commandText2 =
+                    $@"SELECT *
+                    FROM tb_User WHERE No={studentNo}";
+            SqlHelper sqlHelper2 = new SqlHelper();
+            sqlHelper2.QuickRead(commandText2);
+            if (sqlHelper2.HasRecord)
+            {
+                txt_StudentNumber.Text = sqlHelper2["No"].ToString();
+                txt_ProviousPassword.Text = sqlHelper2["Password"].ToString();
+            }
+            //学籍卡片页面
+            string commandText3 =
+                $@"SELECT * FROM tb_StatusCard AS SC WHERE SC.No='{studentNo}'";
+            SqlHelper sqlHelper3 = new SqlHelper();
+            sqlHelper3.QuickRead(commandText3);
+            if (sqlHelper3.HasRecord)
+            {
+                txtStuNo.Text = sqlHelper3["No"].ToString();
+                txtStuName.Text= sqlHelper3["StuName"].ToString();
+                txtStuGender.Text= sqlHelper3["StuGender"].ToString();
+                txtStuBirthday.Text= sqlHelper3["StuBirthday"].ToString();
+                txtStuNation.Text= sqlHelper3["StuNation"].ToString();
+                txtStuClass.Text= sqlHelper3["StuClass"].ToString();
+                txtStuMajor.Text= sqlHelper3["StuMajor"].ToString();
+                txtStuDepartment.Text= sqlHelper3["StuDepartment"].ToString();
+                txtStuToSchool.Text= sqlHelper3["StuTOSchoolDatetime"].ToString();
+                txtStuLengthOfSchooling.Text= sqlHelper3["StuLengthOfSchooling"].ToString();
+                txtStuMajorDirection.Text= sqlHelper3["StuMajorDirection"].ToString();
+                txtStuPoliticsStatus.Text = sqlHelper3["StuPoliticsStatus"].ToString();
+                txtStuLearningHierarchy.Text= sqlHelper3["StuLearningHierarchy"].ToString();
+                txtStuHomePhone.Text= sqlHelper3["StuHomePhone"].ToString();
+                txtStuHomeAddress.Text= sqlHelper3["StuHomeAddress"].ToString();
+                txtStuRailwayStation.Text= sqlHelper3["StuRailwayStation"].ToString();
+                txtStuPhone.Text= sqlHelper3["StuPhone"].ToString();
+                txtStuId.Text= sqlHelper3["StuId"].ToString();
+
+            }
+
         }
         private void button_PickCourse_Click(object sender, EventArgs e)
         {
@@ -45,14 +101,12 @@ namespace Example
 
         private void button_ReceivedMessage_Click(object sender, EventArgs e)
         {
-            //公告留言 gong告留言 = new 公告留言();
-            //gong告留言.ShowDialog();
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[1];
         }
 
         private void button_ReceivedNotice_Click(object sender, EventArgs e)
         {
-            //公告留言 gong告留言 = new 公告留言();
-            //gong告留言.ShowDialog();
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[0];
         }
 
         private void button_CourseGradeInquire_Click(object sender, EventArgs e)
@@ -63,42 +117,33 @@ namespace Example
 
         private void button_MyCourseGradeInquire_Click(object sender, EventArgs e)
         {
-            //课程成绩查询 ke程成绩查询 = new 课程成绩查询();
-            //ke程成绩查询.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[8];
         }
 
         private void button_MyReceivedMessage_Click(object sender, EventArgs e)
         {
-            frm_NoticesAndMessages noticesAndMessages = new frm_NoticesAndMessages();
-            noticesAndMessages.ShowDialog();
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[1];
         }
 
         private void button_MyReceivedNotice_Click(object sender, EventArgs e)
         {
-            frm_NoticesAndMessages noticesAndMessages = new frm_NoticesAndMessages();
-            noticesAndMessages.ShowDialog();
+
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[0];
         }
 
         private void button_ChangePersonalInformation_Click(object sender, EventArgs e)
         {
-            //frm_ReviseStudentInfo f1 = new frm_ReviseStudentInfo();
-            //f1.Show();//将窗体一进行显示
-            //panel1.Controls.Clear();//清空原容器上的控件
-            //panel1.Controls.Add(f1);//将窗体一加入容器panel1
-            frm_ReviseStudentInfo reviseStudentInfo = new frm_ReviseStudentInfo(StudentNo);
-            reviseStudentInfo.ShowDialog();
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[2];
         }
 
         private void button_ChangeCode_Click(object sender, EventArgs e)
         {
-            frm_RevisePassword revisePassword = new frm_RevisePassword(StudentNo);
-            revisePassword.ShowDialog();
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[3];
         }
 
         private void button_SeeMyTeachingWeek_Click(object sender, EventArgs e)
         {
-            //教学周历查看 jiao学周历查看 = new 教学周历查看();
-            //jiao学周历查看.ShowDialog();
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[4];
         }
 
         private void button_TeachingWeek_Click(object sender, EventArgs e)
@@ -169,7 +214,7 @@ namespace Example
 
         private void panel_StudentEvaluation_Paint(object sender, PaintEventArgs e)
         {
-                
+
         }
 
         private void button_TestGrade_Click(object sender, EventArgs e)
@@ -180,14 +225,12 @@ namespace Example
 
         private void button_MyClassTestGrade_Click(object sender, EventArgs e)
         {
-            //等级考试成绩 deng级考试成绩 = new 等级考试成绩();
-            //deng级考试成绩.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[9];
         }
 
         private void button_MyOSCEGrade_Click(object sender, EventArgs e)
         {
-            //OSCE成绩 osce成绩 = new OSCE成绩();
-            //osce成绩.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[10];
         }
 
         private void button_StudentStatusInforationCard_Click(object sender, EventArgs e)
@@ -198,8 +241,7 @@ namespace Example
 
         private void button_MyStatusCard_Click(object sender, EventArgs e)
         {
-            //学籍卡片 xue级卡片 = new 学籍卡片();
-            //xue级卡片.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[0];
         }
 
         private void button_SocialTestRegistration_Click(object sender, EventArgs e)
@@ -216,50 +258,42 @@ namespace Example
 
         private void button_MyStatusManagement_Click(object sender, EventArgs e)
         {
-            //学籍信息管理 xue级信息管理 = new 学籍信息管理();
-            //xue级信息管理.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[1];
         }
 
         private void button_MyStatusEarningInquire_Click(object sender, EventArgs e)
         {
-            //学籍预警查询 xue籍预警查询 = new 学籍预警查询();
-            //xue籍预警查询.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[2];
         }
 
         private void button_MyStatusDynamicInformatonn_Click(object sender, EventArgs e)
         {
-            //学籍异动信息 xue籍异动信息 = new 学籍异动信息();
-            //xue籍异动信息.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
         }
 
         private void button_ProfessionalShunt_Click(object sender, EventArgs e)
         {
-            //专业分流 zhuan业分流 = new 专业分流();
-            //zhuan业分流.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[4];
         }
 
         private void button_ExchangeStudentApplication_Click(object sender, EventArgs e)
         {
-            //申请交换生 shen请交换生 = new 申请交换生();
-            //shen请交换生.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[5];
         }
 
         private void button_ExchangeStudentGrade_Click(object sender, EventArgs e)
         {
-            //交换生成绩 jiao换生成绩 = new 交换生成绩();
-            //jiao换生成绩.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[6];
         }
 
         private void button_ExchangeStudentPickCourse_Click(object sender, EventArgs e)
         {
-            //交换生选课 jiao换生选课 = new 交换生选课();
-            //jiao换生选课.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[7];
         }
 
         private void button_MyGradeFirmlyBelieve_Click(object sender, EventArgs e)
         {
-            //成绩认定 cheng级认定 = new 成绩认定();
-            //cheng级认定.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[11];
         }
 
         private void button_InquirePickCourse_Click(object sender, EventArgs e)
@@ -434,6 +468,96 @@ namespace Example
         {
             //毕业报告 bi业报告 = new 毕业报告();
             //bi业报告.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frm_SchoolSystem_Load(object sender, EventArgs e)
+        {
+            // TODO: 这行代码将数据加载到表“eduBaseBigHomeworkDataSet.tb_NoticeAndMessage”中。您可以根据需要移动或删除它。
+            this.tb_NoticeAndMessageTableAdapter.Fill(this.eduBaseBigHomeworkDataSet.tb_NoticeAndMessage);
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)//保存个人信息
+        {
+            //try
+            //{
+                string commandText =
+                    $@"UPDATE tb_StudentInformation
+                    SET PasswordProtectProblem_1='{txt_PasswordProtectProblem1.Text.Trim()}',
+                    PasswordProtectProblem_2='{txt_PasswordProtectProblem2.Text.Trim()}',
+                    Answer_1='{txt_Answer1.Text.Trim()}',
+                    Answer_2='{txt_Answer2.Text.Trim()}'
+                    WHERE No='{txt_StudentNumber.Text}';";
+                SqlHelper sqlHelper = new SqlHelper();
+                int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
+                if (rowAffected == 1 &&( txt_PasswordProtectProblem1.Text != null || txt_PasswordProtectProblem2.Text != null
+                    || txt_Answer1.Text != null || txt_Answer2.Text != null))
+                {
+                    MessageBox.Show("保存成功！");
+                }
+                else
+                {
+                    MessageBox.Show("问题或回答为空,保存失败！");
+                }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("保存失败！");
+            //}
+        }
+
+        private void btnReSet_Click(object sender, EventArgs e)//重置个人信息
+        {
+            txt_PasswordProtectProblem1.Text = null;
+            txt_PasswordProtectProblem2.Text = null;
+            txt_Answer1.Text = null;
+            txt_Answer2.Text = null;
+            txt_PasswordProtectProblem1.Focus();
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)//保存密码
+        {
+            string commandText =
+                                $@"UPDATE tb_User
+                    SET Password='{txt_NewPassword.Text.Trim()}'
+                    WHERE No='{txt_StudentNumber.Text.Trim()}';";
+            SqlHelper sqlHelper = new SqlHelper();
+            //try
+            //{
+                int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
+                if (rowAffected == 1 && txt_ConfirmNewPassword.Text == txt_NewPassword.Text && (txt_NewPassword.Text != null || txt_ConfirmNewPassword != null)) 
+                {
+                    MessageBox.Show("保存成功！");
+
+                }
+                else
+                {
+                    MessageBox.Show("保存失败！");
+                }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("保存失败！");
+            //}
+            
+        }
+
+        private void btn_Reset_Click(object sender, EventArgs e)//重置密码
+        {
+            SqlHelper sqlHelper = new SqlHelper();
+            txt_NewPassword.Text = null;
+            txt_ConfirmNewPassword.Text = null;
+            //txt_ProviousPassword.Text = sqlHelper["Password"].ToString();
+        }
+
+        private void tpPassword_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

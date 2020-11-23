@@ -34,18 +34,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_SignUp = new System.Windows.Forms.Button();
             this.btn_Login = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_UserNumber
             // 
-            this.txt_UserNumber.Location = new System.Drawing.Point(131, 93);
+            this.txt_UserNumber.Location = new System.Drawing.Point(416, 92);
             this.txt_UserNumber.Name = "txt_UserNumber";
             this.txt_UserNumber.Size = new System.Drawing.Size(184, 28);
             this.txt_UserNumber.TabIndex = 0;
             // 
             // txt_Password
             // 
-            this.txt_Password.Location = new System.Drawing.Point(131, 155);
+            this.txt_Password.Location = new System.Drawing.Point(416, 162);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.PasswordChar = '*';
             this.txt_Password.Size = new System.Drawing.Size(184, 28);
@@ -54,7 +56,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 102);
+            this.label1.Location = new System.Drawing.Point(348, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 18);
             this.label1.TabIndex = 2;
@@ -63,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 165);
+            this.label2.Location = new System.Drawing.Point(348, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 18);
             this.label2.TabIndex = 3;
@@ -71,7 +73,7 @@
             // 
             // btn_SignUp
             // 
-            this.btn_SignUp.Location = new System.Drawing.Point(131, 226);
+            this.btn_SignUp.Location = new System.Drawing.Point(416, 226);
             this.btn_SignUp.Name = "btn_SignUp";
             this.btn_SignUp.Size = new System.Drawing.Size(75, 34);
             this.btn_SignUp.TabIndex = 4;
@@ -81,7 +83,7 @@
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(240, 226);
+            this.btn_Login.Location = new System.Drawing.Point(525, 226);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 34);
             this.btn_Login.TabIndex = 5;
@@ -89,11 +91,22 @@
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Example.Properties.Resources._1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(342, 296);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // frm_SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 285);
+            this.ClientSize = new System.Drawing.Size(638, 292);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.btn_SignUp);
             this.Controls.Add(this.label2);
@@ -101,8 +114,9 @@
             this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.txt_UserNumber);
             this.Name = "frm_SignUp";
-            this.Text = "注册";
+            this.Text = "登录注册";
             this.Load += new System.EventHandler(this.frm_SignUp_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,6 +130,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_SignUp;
         private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

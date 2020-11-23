@@ -52,14 +52,8 @@ namespace Example
             if (result == 1)
             {
                 MessageBox.Show("登录成功！");
-                //frm_ReviseStudentInfo reviseStudentInfo = new frm_ReviseStudentInfo(txt_UserNumber.Text);
-                //reviseStudentInfo.ShowDialog();
                 frm_SchoolSystem schoolManageSystem = new frm_SchoolSystem(txt_UserNumber.Text);
                 schoolManageSystem.ShowDialog();
-                //frm_RevisePassword revisePassword = new frm_RevisePassword(txt_UserNumber.Text);
-                //revisePassword.ShowDialog();
-                //frm_NoticesAndMessages noticesAndMessages = new frm_NoticesAndMessages();
-                //noticesAndMessages.ShowDialog();
 
             }
             else

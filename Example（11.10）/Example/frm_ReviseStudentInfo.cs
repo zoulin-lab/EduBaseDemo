@@ -18,6 +18,7 @@ namespace Example
         {
             InitializeComponent();
             
+            
 
         }
         public frm_ReviseStudentInfo(string studentNo) : this()   //构造函数，将上一窗体的账号传入此窗体
@@ -77,7 +78,7 @@ namespace Example
 
         private void frm_ReviseStudentInfo_Load(object sender, EventArgs e)
         {
-           //UserControl f1 = new UserControl();//实例化f1
+           
         }
     }
 }

@@ -47,7 +47,7 @@
             // 
             // txt_StudentNumber
             // 
-            this.txt_StudentNumber.Location = new System.Drawing.Point(232, 66);
+            this.txt_StudentNumber.Location = new System.Drawing.Point(232, 31);
             this.txt_StudentNumber.Name = "txt_StudentNumber";
             this.txt_StudentNumber.ReadOnly = true;
             this.txt_StudentNumber.Size = new System.Drawing.Size(189, 28);
@@ -55,35 +55,35 @@
             // 
             // txt_Answer1
             // 
-            this.txt_Answer1.Location = new System.Drawing.Point(232, 247);
+            this.txt_Answer1.Location = new System.Drawing.Point(232, 164);
             this.txt_Answer1.Name = "txt_Answer1";
             this.txt_Answer1.Size = new System.Drawing.Size(275, 28);
             this.txt_Answer1.TabIndex = 1;
             // 
             // txt_PasswordProtectProblem2
             // 
-            this.txt_PasswordProtectProblem2.Location = new System.Drawing.Point(232, 310);
+            this.txt_PasswordProtectProblem2.Location = new System.Drawing.Point(232, 214);
             this.txt_PasswordProtectProblem2.Name = "txt_PasswordProtectProblem2";
             this.txt_PasswordProtectProblem2.Size = new System.Drawing.Size(275, 28);
             this.txt_PasswordProtectProblem2.TabIndex = 2;
             // 
             // txt_Answer2
             // 
-            this.txt_Answer2.Location = new System.Drawing.Point(232, 375);
+            this.txt_Answer2.Location = new System.Drawing.Point(232, 267);
             this.txt_Answer2.Name = "txt_Answer2";
             this.txt_Answer2.Size = new System.Drawing.Size(275, 28);
             this.txt_Answer2.TabIndex = 3;
             // 
             // txt_PasswordProtectProblem1
             // 
-            this.txt_PasswordProtectProblem1.Location = new System.Drawing.Point(232, 184);
+            this.txt_PasswordProtectProblem1.Location = new System.Drawing.Point(232, 118);
             this.txt_PasswordProtectProblem1.Name = "txt_PasswordProtectProblem1";
             this.txt_PasswordProtectProblem1.Size = new System.Drawing.Size(275, 28);
             this.txt_PasswordProtectProblem1.TabIndex = 4;
             // 
             // txt_Name
             // 
-            this.txt_Name.Location = new System.Drawing.Point(232, 125);
+            this.txt_Name.Location = new System.Drawing.Point(232, 74);
             this.txt_Name.Name = "txt_Name";
             this.txt_Name.Size = new System.Drawing.Size(189, 28);
             this.txt_Name.TabIndex = 5;
@@ -91,7 +91,7 @@
             // lbl_StudentNumber
             // 
             this.lbl_StudentNumber.AutoSize = true;
-            this.lbl_StudentNumber.Location = new System.Drawing.Point(113, 76);
+            this.lbl_StudentNumber.Location = new System.Drawing.Point(113, 41);
             this.lbl_StudentNumber.Name = "lbl_StudentNumber";
             this.lbl_StudentNumber.Size = new System.Drawing.Size(98, 18);
             this.lbl_StudentNumber.TabIndex = 6;
@@ -100,7 +100,7 @@
             // lbl_Name
             // 
             this.lbl_Name.AutoSize = true;
-            this.lbl_Name.Location = new System.Drawing.Point(113, 135);
+            this.lbl_Name.Location = new System.Drawing.Point(113, 84);
             this.lbl_Name.Name = "lbl_Name";
             this.lbl_Name.Size = new System.Drawing.Size(98, 18);
             this.lbl_Name.TabIndex = 7;
@@ -109,7 +109,7 @@
             // lbl_PasswordProtectProblem1
             // 
             this.lbl_PasswordProtectProblem1.AutoSize = true;
-            this.lbl_PasswordProtectProblem1.Location = new System.Drawing.Point(68, 194);
+            this.lbl_PasswordProtectProblem1.Location = new System.Drawing.Point(68, 128);
             this.lbl_PasswordProtectProblem1.Name = "lbl_PasswordProtectProblem1";
             this.lbl_PasswordProtectProblem1.Size = new System.Drawing.Size(143, 18);
             this.lbl_PasswordProtectProblem1.TabIndex = 8;
@@ -118,7 +118,7 @@
             // lbl_Answer1
             // 
             this.lbl_Answer1.AutoSize = true;
-            this.lbl_Answer1.Location = new System.Drawing.Point(140, 267);
+            this.lbl_Answer1.Location = new System.Drawing.Point(140, 174);
             this.lbl_Answer1.Name = "lbl_Answer1";
             this.lbl_Answer1.Size = new System.Drawing.Size(71, 18);
             this.lbl_Answer1.TabIndex = 9;
@@ -127,7 +127,7 @@
             // lbl_PasswordProtectProblem2
             // 
             this.lbl_PasswordProtectProblem2.AutoSize = true;
-            this.lbl_PasswordProtectProblem2.Location = new System.Drawing.Point(68, 320);
+            this.lbl_PasswordProtectProblem2.Location = new System.Drawing.Point(68, 217);
             this.lbl_PasswordProtectProblem2.Name = "lbl_PasswordProtectProblem2";
             this.lbl_PasswordProtectProblem2.Size = new System.Drawing.Size(143, 18);
             this.lbl_PasswordProtectProblem2.TabIndex = 10;
@@ -136,7 +136,7 @@
             // lbl_Answer2
             // 
             this.lbl_Answer2.AutoSize = true;
-            this.lbl_Answer2.Location = new System.Drawing.Point(140, 385);
+            this.lbl_Answer2.Location = new System.Drawing.Point(140, 270);
             this.lbl_Answer2.Name = "lbl_Answer2";
             this.lbl_Answer2.Size = new System.Drawing.Size(71, 18);
             this.lbl_Answer2.TabIndex = 11;
@@ -144,7 +144,7 @@
             // 
             // btn_Reset
             // 
-            this.btn_Reset.Location = new System.Drawing.Point(346, 451);
+            this.btn_Reset.Location = new System.Drawing.Point(346, 320);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(75, 39);
             this.btn_Reset.TabIndex = 12;
@@ -154,7 +154,7 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(232, 451);
+            this.btn_Save.Location = new System.Drawing.Point(232, 320);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 39);
             this.btn_Save.TabIndex = 13;
@@ -166,7 +166,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(427, 128);
+            this.label1.Location = new System.Drawing.Point(427, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 18);
             this.label1.TabIndex = 14;
@@ -176,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 516);
+            this.ClientSize = new System.Drawing.Size(711, 416);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_Reset);
