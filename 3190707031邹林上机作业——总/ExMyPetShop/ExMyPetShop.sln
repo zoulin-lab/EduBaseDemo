@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MyPetShop.Web", "MyPetShop.Web\", "{DB6D79BD-5133-49AF-A068-D1C86A0FDF26}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{0c579133-c220-4721-9d71-f5efd2815d4c}|MyPetShop.BLL.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55794"
+		Debug.AspNetCompiler.PhysicalPath = "MyPetShop.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55794\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55794"
+		Release.AspNetCompiler.PhysicalPath = "MyPetShop.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55794\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55794"
+		SlnRelativePath = "MyPetShop.Web\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPetShop.BLL", "MyPetShop.BLL\MyPetShop.BLL.csproj", "{0C579133-C220-4721-9D71-F5EFD2815D4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPetShop.DAL", "MyPetShop.DAL\MyPetShop.DAL.csproj", "{0AABF00C-2000-475F-86ED-E8D8EC5724C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB6D79BD-5133-49AF-A068-D1C86A0FDF26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB6D79BD-5133-49AF-A068-D1C86A0FDF26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB6D79BD-5133-49AF-A068-D1C86A0FDF26}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB6D79BD-5133-49AF-A068-D1C86A0FDF26}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{0C579133-C220-4721-9D71-F5EFD2815D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C579133-C220-4721-9D71-F5EFD2815D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C579133-C220-4721-9D71-F5EFD2815D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C579133-C220-4721-9D71-F5EFD2815D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AABF00C-2000-475F-86ED-E8D8EC5724C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AABF00C-2000-475F-86ED-E8D8EC5724C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AABF00C-2000-475F-86ED-E8D8EC5724C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AABF00C-2000-475F-86ED-E8D8EC5724C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DD1C942-14D5-4AC5-8ADD-F939E0130B9C}
+	EndGlobalSection
+EndGlobal

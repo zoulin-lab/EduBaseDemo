@@ -49,22 +49,12 @@
             this.tcp_MydDesktop = new System.Windows.Forms.TabPage();
             this.tcMyDesktop = new System.Windows.Forms.TabControl();
             this.tpNotice = new System.Windows.Forms.TabPage();
-            this.dgvNotice = new System.Windows.Forms.DataGridView();
-            this.noDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.senderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transmitTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvHasReadNotice = new System.Windows.Forms.DataGridView();
             this.tbNoticeAndMessageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eduBaseBigHomeworkDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eduBaseBigHomeworkDataSet = new Example.EduBaseBigHomeworkDataSet();
             this.tpMessage = new System.Windows.Forms.TabPage();
-            this.dgvMessage = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvHasReadMessage = new System.Windows.Forms.DataGridView();
             this.tpStudentInfo = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -107,6 +97,14 @@
             this.tcp_StudentAchievement = new System.Windows.Forms.TabPage();
             this.tcStudentAchievement = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbxStuNation = new System.Windows.Forms.ComboBox();
+            this.cbxStuDepertment = new System.Windows.Forms.ComboBox();
+            this.cbxStuMajor = new System.Windows.Forms.ComboBox();
+            this.cbxStuClass = new System.Windows.Forms.ComboBox();
+            this.dtpStuBirthday = new System.Windows.Forms.DateTimePicker();
+            this.dtpStuToSchoolTime = new System.Windows.Forms.DateTimePicker();
+            this.rdbFemale = new System.Windows.Forms.RadioButton();
+            this.rdbMale = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.txtStuId = new System.Windows.Forms.TextBox();
@@ -232,26 +230,26 @@
             this.button_yishouliuyan = new System.Windows.Forms.Button();
             this.gerenxinxi = new System.Windows.Forms.Label();
             this.tb_NoticeAndMessageTableAdapter = new Example.EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter();
-            this.rdbMale = new System.Windows.Forms.RadioButton();
-            this.rdbFemale = new System.Windows.Forms.RadioButton();
-            this.dtpStuToSchoolTime = new System.Windows.Forms.DateTimePicker();
-            this.dtpStuBirthday = new System.Windows.Forms.DateTimePicker();
-            this.cbxStuClass = new System.Windows.Forms.ComboBox();
-            this.cbxStuMajor = new System.Windows.Forms.ComboBox();
-            this.cbxStuDepertment = new System.Windows.Forms.ComboBox();
-            this.cbxStuNation = new System.Windows.Forms.ComboBox();
+            this.dgvNoReadNotice = new System.Windows.Forms.DataGridView();
+            this.dgvNoReadMessage = new System.Windows.Forms.DataGridView();
+            this.btnReadNotice = new System.Windows.Forms.Button();
+            this.btnAnswerNotice = new System.Windows.Forms.Button();
+            this.btnReadMessage = new System.Windows.Forms.Button();
+            this.btnAnswerMessage = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnResetStuInfo = new System.Windows.Forms.Button();
             this.tpc_FirstManageSystem.SuspendLayout();
             this.tcp_FirstPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMyInfo)).BeginInit();
             this.tcp_MydDesktop.SuspendLayout();
             this.tcMyDesktop.SuspendLayout();
             this.tpNotice.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadNotice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).BeginInit();
             this.tpMessage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMessage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadMessage)).BeginInit();
             this.tpStudentInfo.SuspendLayout();
             this.tpPassword.SuspendLayout();
             this.gbx_TeachingCalendar.SuspendLayout();
@@ -270,6 +268,8 @@
             this.tcp_TestRegistration.SuspendLayout();
             this.tcp_InternshipAndPracticiialTraining.SuspendLayout();
             this.tcp_TeachingEvaluation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadNotice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadMessage)).BeginInit();
             this.SuspendLayout();
             // 
             // tpc_FirstManageSystem
@@ -494,7 +494,10 @@
             // 
             // tpNotice
             // 
-            this.tpNotice.Controls.Add(this.dgvNotice);
+            this.tpNotice.Controls.Add(this.btnAnswerNotice);
+            this.tpNotice.Controls.Add(this.btnReadNotice);
+            this.tpNotice.Controls.Add(this.dgvNoReadNotice);
+            this.tpNotice.Controls.Add(this.dgvHasReadNotice);
             this.tpNotice.Location = new System.Drawing.Point(4, 28);
             this.tpNotice.Name = "tpNotice";
             this.tpNotice.Padding = new System.Windows.Forms.Padding(3);
@@ -503,60 +506,15 @@
             this.tpNotice.Text = "已收公告";
             this.tpNotice.UseVisualStyleBackColor = true;
             // 
-            // dgvNotice
+            // dgvHasReadNotice
             // 
-            this.dgvNotice.AutoGenerateColumns = false;
-            this.dgvNotice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvNotice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotice.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.noDataGridViewTextBoxColumn,
-            this.titleDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn,
-            this.senderDataGridViewTextBoxColumn,
-            this.transmitTimeDataGridViewTextBoxColumn});
-            this.dgvNotice.DataSource = this.tbNoticeAndMessageBindingSource;
-            this.dgvNotice.Location = new System.Drawing.Point(64, 60);
-            this.dgvNotice.Name = "dgvNotice";
-            this.dgvNotice.RowTemplate.Height = 30;
-            this.dgvNotice.Size = new System.Drawing.Size(576, 337);
-            this.dgvNotice.TabIndex = 0;
-            // 
-            // noDataGridViewTextBoxColumn
-            // 
-            this.noDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.noDataGridViewTextBoxColumn.DataPropertyName = "No";
-            this.noDataGridViewTextBoxColumn.FillWeight = 110F;
-            this.noDataGridViewTextBoxColumn.HeaderText = "No";
-            this.noDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.noDataGridViewTextBoxColumn.Name = "noDataGridViewTextBoxColumn";
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.Width = 116;
-            // 
-            // senderDataGridViewTextBoxColumn
-            // 
-            this.senderDataGridViewTextBoxColumn.DataPropertyName = "Sender";
-            this.senderDataGridViewTextBoxColumn.HeaderText = "Sender";
-            this.senderDataGridViewTextBoxColumn.Name = "senderDataGridViewTextBoxColumn";
-            this.senderDataGridViewTextBoxColumn.Width = 98;
-            // 
-            // transmitTimeDataGridViewTextBoxColumn
-            // 
-            this.transmitTimeDataGridViewTextBoxColumn.DataPropertyName = "TransmitTime";
-            this.transmitTimeDataGridViewTextBoxColumn.HeaderText = "TransmitTime";
-            this.transmitTimeDataGridViewTextBoxColumn.Name = "transmitTimeDataGridViewTextBoxColumn";
-            this.transmitTimeDataGridViewTextBoxColumn.Width = 152;
+            this.dgvHasReadNotice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvHasReadNotice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHasReadNotice.Location = new System.Drawing.Point(64, 35);
+            this.dgvHasReadNotice.Name = "dgvHasReadNotice";
+            this.dgvHasReadNotice.RowTemplate.Height = 30;
+            this.dgvHasReadNotice.Size = new System.Drawing.Size(664, 204);
+            this.dgvHasReadNotice.TabIndex = 0;
             // 
             // tbNoticeAndMessageBindingSource
             // 
@@ -575,7 +533,10 @@
             // 
             // tpMessage
             // 
-            this.tpMessage.Controls.Add(this.dgvMessage);
+            this.tpMessage.Controls.Add(this.btnAnswerMessage);
+            this.tpMessage.Controls.Add(this.btnReadMessage);
+            this.tpMessage.Controls.Add(this.dgvNoReadMessage);
+            this.tpMessage.Controls.Add(this.dgvHasReadMessage);
             this.tpMessage.Location = new System.Drawing.Point(4, 28);
             this.tpMessage.Name = "tpMessage";
             this.tpMessage.Padding = new System.Windows.Forms.Padding(3);
@@ -584,58 +545,16 @@
             this.tpMessage.Text = "已收留言";
             this.tpMessage.UseVisualStyleBackColor = true;
             // 
-            // dgvMessage
+            // dgvHasReadMessage
             // 
-            this.dgvMessage.AutoGenerateColumns = false;
-            this.dgvMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMessage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.dgvMessage.DataSource = this.tbNoticeAndMessageBindingSource;
-            this.dgvMessage.Location = new System.Drawing.Point(62, 73);
-            this.dgvMessage.Name = "dgvMessage";
-            this.dgvMessage.RowTemplate.Height = 30;
-            this.dgvMessage.Size = new System.Drawing.Size(585, 358);
-            this.dgvMessage.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "No";
-            this.dataGridViewTextBoxColumn1.HeaderText = "No";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 89;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 116;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Sender";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Sender";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 98;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TransmitTime";
-            this.dataGridViewTextBoxColumn5.HeaderText = "TransmitTime";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 152;
+            this.dgvHasReadMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvHasReadMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHasReadMessage.Location = new System.Drawing.Point(62, 36);
+            this.dgvHasReadMessage.Name = "dgvHasReadMessage";
+            this.dgvHasReadMessage.RowTemplate.Height = 30;
+            this.dgvHasReadMessage.ShowCellToolTips = false;
+            this.dgvHasReadMessage.Size = new System.Drawing.Size(659, 203);
+            this.dgvHasReadMessage.TabIndex = 1;
             // 
             // tpStudentInfo
             // 
@@ -1054,6 +973,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnResetStuInfo);
+            this.tabPage1.Controls.Add(this.btnUpdate);
             this.tabPage1.Controls.Add(this.cbxStuNation);
             this.tabPage1.Controls.Add(this.cbxStuDepertment);
             this.tabPage1.Controls.Add(this.cbxStuMajor);
@@ -1099,6 +1020,74 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cbxStuNation
+            // 
+            this.cbxStuNation.FormattingEnabled = true;
+            this.cbxStuNation.Location = new System.Drawing.Point(112, 289);
+            this.cbxStuNation.Name = "cbxStuNation";
+            this.cbxStuNation.Size = new System.Drawing.Size(205, 26);
+            this.cbxStuNation.TabIndex = 44;
+            // 
+            // cbxStuDepertment
+            // 
+            this.cbxStuDepertment.FormattingEnabled = true;
+            this.cbxStuDepertment.Location = new System.Drawing.Point(112, 436);
+            this.cbxStuDepertment.Name = "cbxStuDepertment";
+            this.cbxStuDepertment.Size = new System.Drawing.Size(205, 26);
+            this.cbxStuDepertment.TabIndex = 43;
+            // 
+            // cbxStuMajor
+            // 
+            this.cbxStuMajor.FormattingEnabled = true;
+            this.cbxStuMajor.Location = new System.Drawing.Point(112, 388);
+            this.cbxStuMajor.Name = "cbxStuMajor";
+            this.cbxStuMajor.Size = new System.Drawing.Size(205, 26);
+            this.cbxStuMajor.TabIndex = 42;
+            // 
+            // cbxStuClass
+            // 
+            this.cbxStuClass.FormattingEnabled = true;
+            this.cbxStuClass.Location = new System.Drawing.Point(112, 336);
+            this.cbxStuClass.Name = "cbxStuClass";
+            this.cbxStuClass.Size = new System.Drawing.Size(205, 26);
+            this.cbxStuClass.TabIndex = 41;
+            // 
+            // dtpStuBirthday
+            // 
+            this.dtpStuBirthday.Location = new System.Drawing.Point(112, 232);
+            this.dtpStuBirthday.Name = "dtpStuBirthday";
+            this.dtpStuBirthday.Size = new System.Drawing.Size(205, 28);
+            this.dtpStuBirthday.TabIndex = 40;
+            // 
+            // dtpStuToSchoolTime
+            // 
+            this.dtpStuToSchoolTime.Location = new System.Drawing.Point(112, 481);
+            this.dtpStuToSchoolTime.Name = "dtpStuToSchoolTime";
+            this.dtpStuToSchoolTime.Size = new System.Drawing.Size(205, 28);
+            this.dtpStuToSchoolTime.TabIndex = 39;
+            // 
+            // rdbFemale
+            // 
+            this.rdbFemale.AutoSize = true;
+            this.rdbFemale.Location = new System.Drawing.Point(189, 187);
+            this.rdbFemale.Name = "rdbFemale";
+            this.rdbFemale.Size = new System.Drawing.Size(51, 22);
+            this.rdbFemale.TabIndex = 38;
+            this.rdbFemale.TabStop = true;
+            this.rdbFemale.Text = "女";
+            this.rdbFemale.UseVisualStyleBackColor = true;
+            // 
+            // rdbMale
+            // 
+            this.rdbMale.AutoSize = true;
+            this.rdbMale.Location = new System.Drawing.Point(112, 187);
+            this.rdbMale.Name = "rdbMale";
+            this.rdbMale.Size = new System.Drawing.Size(51, 22);
+            this.rdbMale.TabIndex = 37;
+            this.rdbMale.TabStop = true;
+            this.rdbMale.Text = "男";
+            this.rdbMale.UseVisualStyleBackColor = true;
             // 
             // label19
             // 
@@ -2329,73 +2318,81 @@
             // 
             this.tb_NoticeAndMessageTableAdapter.ClearBeforeFill = true;
             // 
-            // rdbMale
+            // dgvNoReadNotice
             // 
-            this.rdbMale.AutoSize = true;
-            this.rdbMale.Location = new System.Drawing.Point(112, 187);
-            this.rdbMale.Name = "rdbMale";
-            this.rdbMale.Size = new System.Drawing.Size(51, 22);
-            this.rdbMale.TabIndex = 37;
-            this.rdbMale.TabStop = true;
-            this.rdbMale.Text = "男";
-            this.rdbMale.UseVisualStyleBackColor = true;
+            this.dgvNoReadNotice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvNoReadNotice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNoReadNotice.Location = new System.Drawing.Point(64, 319);
+            this.dgvNoReadNotice.Name = "dgvNoReadNotice";
+            this.dgvNoReadNotice.RowTemplate.Height = 30;
+            this.dgvNoReadNotice.Size = new System.Drawing.Size(664, 229);
+            this.dgvNoReadNotice.TabIndex = 1;
             // 
-            // rdbFemale
+            // dgvNoReadMessage
             // 
-            this.rdbFemale.AutoSize = true;
-            this.rdbFemale.Location = new System.Drawing.Point(189, 187);
-            this.rdbFemale.Name = "rdbFemale";
-            this.rdbFemale.Size = new System.Drawing.Size(51, 22);
-            this.rdbFemale.TabIndex = 38;
-            this.rdbFemale.TabStop = true;
-            this.rdbFemale.Text = "女";
-            this.rdbFemale.UseVisualStyleBackColor = true;
+            this.dgvNoReadMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvNoReadMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNoReadMessage.Location = new System.Drawing.Point(62, 331);
+            this.dgvNoReadMessage.Name = "dgvNoReadMessage";
+            this.dgvNoReadMessage.RowTemplate.Height = 30;
+            this.dgvNoReadMessage.Size = new System.Drawing.Size(659, 211);
+            this.dgvNoReadMessage.TabIndex = 2;
             // 
-            // dtpStuToSchoolTime
+            // btnReadNotice
             // 
-            this.dtpStuToSchoolTime.Location = new System.Drawing.Point(112, 481);
-            this.dtpStuToSchoolTime.Name = "dtpStuToSchoolTime";
-            this.dtpStuToSchoolTime.Size = new System.Drawing.Size(205, 28);
-            this.dtpStuToSchoolTime.TabIndex = 39;
+            this.btnReadNotice.Location = new System.Drawing.Point(64, 256);
+            this.btnReadNotice.Name = "btnReadNotice";
+            this.btnReadNotice.Size = new System.Drawing.Size(75, 31);
+            this.btnReadNotice.TabIndex = 2;
+            this.btnReadNotice.Text = "查看";
+            this.btnReadNotice.UseVisualStyleBackColor = true;
+            this.btnReadNotice.Click += new System.EventHandler(this.btnReadNotice_Click);
             // 
-            // dtpStuBirthday
+            // btnAnswerNotice
             // 
-            this.dtpStuBirthday.Location = new System.Drawing.Point(112, 232);
-            this.dtpStuBirthday.Name = "dtpStuBirthday";
-            this.dtpStuBirthday.Size = new System.Drawing.Size(205, 28);
-            this.dtpStuBirthday.TabIndex = 40;
+            this.btnAnswerNotice.Location = new System.Drawing.Point(653, 256);
+            this.btnAnswerNotice.Name = "btnAnswerNotice";
+            this.btnAnswerNotice.Size = new System.Drawing.Size(75, 31);
+            this.btnAnswerNotice.TabIndex = 3;
+            this.btnAnswerNotice.Text = "回复";
+            this.btnAnswerNotice.UseVisualStyleBackColor = true;
             // 
-            // cbxStuClass
+            // btnReadMessage
             // 
-            this.cbxStuClass.FormattingEnabled = true;
-            this.cbxStuClass.Location = new System.Drawing.Point(112, 336);
-            this.cbxStuClass.Name = "cbxStuClass";
-            this.cbxStuClass.Size = new System.Drawing.Size(205, 26);
-            this.cbxStuClass.TabIndex = 41;
+            this.btnReadMessage.Location = new System.Drawing.Point(62, 268);
+            this.btnReadMessage.Name = "btnReadMessage";
+            this.btnReadMessage.Size = new System.Drawing.Size(75, 31);
+            this.btnReadMessage.TabIndex = 3;
+            this.btnReadMessage.Text = "查看";
+            this.btnReadMessage.UseVisualStyleBackColor = true;
+            this.btnReadMessage.Click += new System.EventHandler(this.btnReadMessage_Click);
             // 
-            // cbxStuMajor
+            // btnAnswerMessage
             // 
-            this.cbxStuMajor.FormattingEnabled = true;
-            this.cbxStuMajor.Location = new System.Drawing.Point(112, 388);
-            this.cbxStuMajor.Name = "cbxStuMajor";
-            this.cbxStuMajor.Size = new System.Drawing.Size(205, 26);
-            this.cbxStuMajor.TabIndex = 42;
+            this.btnAnswerMessage.Location = new System.Drawing.Point(646, 268);
+            this.btnAnswerMessage.Name = "btnAnswerMessage";
+            this.btnAnswerMessage.Size = new System.Drawing.Size(75, 31);
+            this.btnAnswerMessage.TabIndex = 4;
+            this.btnAnswerMessage.Text = "回复";
+            this.btnAnswerMessage.UseVisualStyleBackColor = true;
             // 
-            // cbxStuDepertment
+            // btnUpdate
             // 
-            this.cbxStuDepertment.FormattingEnabled = true;
-            this.cbxStuDepertment.Location = new System.Drawing.Point(112, 436);
-            this.cbxStuDepertment.Name = "cbxStuDepertment";
-            this.cbxStuDepertment.Size = new System.Drawing.Size(205, 26);
-            this.cbxStuDepertment.TabIndex = 43;
+            this.btnUpdate.Location = new System.Drawing.Point(771, 489);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(94, 28);
+            this.btnUpdate.TabIndex = 45;
+            this.btnUpdate.Text = "更新";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // cbxStuNation
+            // btnResetStuInfo
             // 
-            this.cbxStuNation.FormattingEnabled = true;
-            this.cbxStuNation.Location = new System.Drawing.Point(112, 289);
-            this.cbxStuNation.Name = "cbxStuNation";
-            this.cbxStuNation.Size = new System.Drawing.Size(205, 26);
-            this.cbxStuNation.TabIndex = 44;
+            this.btnResetStuInfo.Location = new System.Drawing.Point(771, 436);
+            this.btnResetStuInfo.Name = "btnResetStuInfo";
+            this.btnResetStuInfo.Size = new System.Drawing.Size(94, 28);
+            this.btnResetStuInfo.TabIndex = 46;
+            this.btnResetStuInfo.Text = "重置";
+            this.btnResetStuInfo.UseVisualStyleBackColor = true;
             // 
             // frm_SchoolSystem
             // 
@@ -2413,12 +2410,12 @@
             this.tcp_MydDesktop.ResumeLayout(false);
             this.tcMyDesktop.ResumeLayout(false);
             this.tpNotice.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadNotice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).EndInit();
             this.tpMessage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMessage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadMessage)).EndInit();
             this.tpStudentInfo.ResumeLayout(false);
             this.tpStudentInfo.PerformLayout();
             this.tpPassword.ResumeLayout(false);
@@ -2444,6 +2441,8 @@
             this.tcp_InternshipAndPracticiialTraining.ResumeLayout(false);
             this.tcp_InternshipAndPracticiialTraining.PerformLayout();
             this.tcp_TeachingEvaluation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadNotice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadMessage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2576,28 +2575,18 @@
         private System.Windows.Forms.TextBox txt_PasswordProtectProblem2;
         private System.Windows.Forms.TextBox txt_Answer1;
         private System.Windows.Forms.TextBox txt_StudentNo;
-        private System.Windows.Forms.DataGridView dgvNotice;
+        private System.Windows.Forms.DataGridView dgvHasReadNotice;
         private System.Windows.Forms.BindingSource eduBaseBigHomeworkDataSetBindingSource;
         private EduBaseBigHomeworkDataSet eduBaseBigHomeworkDataSet;
         private System.Windows.Forms.BindingSource tbNoticeAndMessageBindingSource;
         private EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter tb_NoticeAndMessageTableAdapter;
         private System.Windows.Forms.Button button_StudentEvaluation;
-        private System.Windows.Forms.DataGridView dgvMessage;
+        private System.Windows.Forms.DataGridView dgvHasReadMessage;
         private System.Windows.Forms.TabControl tcStudentAchievement;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox gpbMyGrade;
         private System.Windows.Forms.GroupBox gpbStudentStatusManage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn senderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transmitTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.TextBox txtMyNumber;
         private System.Windows.Forms.TextBox txtMyName;
         private System.Windows.Forms.PictureBox pbMyInfo;
@@ -2660,6 +2649,14 @@
         private System.Windows.Forms.DateTimePicker dtpStuToSchoolTime;
         private System.Windows.Forms.RadioButton rdbFemale;
         private System.Windows.Forms.RadioButton rdbMale;
+        private System.Windows.Forms.DataGridView dgvNoReadNotice;
+        private System.Windows.Forms.DataGridView dgvNoReadMessage;
+        private System.Windows.Forms.Button btnAnswerNotice;
+        private System.Windows.Forms.Button btnReadNotice;
+        private System.Windows.Forms.Button btnAnswerMessage;
+        private System.Windows.Forms.Button btnReadMessage;
+        private System.Windows.Forms.Button btnResetStuInfo;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

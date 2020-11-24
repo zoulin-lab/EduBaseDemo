@@ -23,7 +23,55 @@ namespace Example
             this.LoadStuNations();
             this.LoadStuMajors();
             this.LoadStuDepartments();
+            this.LoadHasReadNotice();
+            this.LoadNoReadNotice();
+            this.LoadHasReadMessage();
+            this.LoadNoReadMessage();
+            
+            
+           
+            
 
+        }
+        private void LoadHasReadNotice()//向表格载入已读公告
+        {
+            string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
+                                        FROM tb_NoticeAndMessage AS NM 
+                                        JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                        WHERE NM.Category='公告' AND NMD.Status='已读'";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickFill(commandText, dgvHasReadNotice);
+            dgvHasReadNotice.CurrentCell = null;dgvHasReadNotice.Rows[0].Cells[0].Selected = false;
+        }
+        private void LoadNoReadNotice()//向表格载入未读公告
+        {
+            string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
+                                        FROM tb_NoticeAndMessage AS NM 
+                                        JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                        WHERE NM.Category='公告' AND NMD.Status='未读'";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickFill(commandText, dgvNoReadNotice);
+            dgvNoReadNotice.CurrentCell = null;dgvNoReadNotice.Rows[0].Cells[0].Selected = false;
+        }
+        private void LoadHasReadMessage()//向表格载入已读留言
+        {
+            string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
+                                        FROM tb_NoticeAndMessage AS NM 
+                                        JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                        WHERE NM.Category='留言' AND NMD.Status='已读'";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickFill(commandText, dgvHasReadMessage);
+            dgvHasReadMessage.CurrentCell = null;dgvHasReadMessage.Rows[0].Cells[0].Selected = false;
+        }
+        private void LoadNoReadMessage()//向表格载入未读留言
+        {
+            string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
+                                        FROM tb_NoticeAndMessage AS NM 
+                                        JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                        WHERE NM.Category='留言' AND NMD.Status='未读'";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickFill(commandText, dgvNoReadMessage);
+            dgvNoReadMessage.CurrentCell = null; dgvNoReadMessage.Rows[0].Cells[0].Selected = false;
         }
 
         private void LoadStuClasses()//向下拉框载入班级名称
@@ -83,8 +131,8 @@ namespace Example
                 this.txt_PasswordProtectProblem2.Text = sqlHelper["PasswordProtectProblem_2"].ToString();
                 this.txt_Answer1.Text = sqlHelper["Answer_1"].ToString();
                 this.txt_Answer2.Text = sqlHelper["Answer_2"].ToString();
-                this.txtMyName.Text= sqlHelper["Name"].ToString();
-                this.txtMyNumber.Text= sqlHelper["No"].ToString();
+                this.txtMyName.Text = sqlHelper["Name"].ToString();
+                this.txtMyNumber.Text = sqlHelper["No"].ToString();
             }
             //修改密码页面
             string commandText2 =
@@ -105,24 +153,24 @@ namespace Example
             if (sqlHelper3.HasRecord)
             {
                 txtStuNo.Text = sqlHelper3["No"].ToString();
-                txtStuName.Text= sqlHelper3["StuName"].ToString();
+                txtStuName.Text = sqlHelper3["StuName"].ToString();
                 this.rdbFemale.Checked = !(bool)sqlHelper3["StuGender"];//传入性别
                 this.rdbMale.Checked = (bool)sqlHelper3["StuGender"];
                 dtpStuBirthday.Value = (DateTime)sqlHelper3["StuBirthday"];
-                cbxStuNation.Text= sqlHelper3["StuNation"].ToString();
-                cbxStuClass.Text= sqlHelper3["StuClass"].ToString();
-                cbxStuMajor.Text= sqlHelper3["StuMajor"].ToString();
-                cbxStuDepertment.Text= sqlHelper3["StuDepartment"].ToString();
-                dtpStuToSchoolTime.Value= (DateTime)sqlHelper3["StuTOSchoolDatetime"];
-                txtStuLengthOfSchooling.Text= sqlHelper3["StuLengthOfSchooling"].ToString();
-                txtStuMajorDirection.Text= sqlHelper3["StuMajorDirection"].ToString();
+                cbxStuNation.Text = sqlHelper3["StuNation"].ToString();
+                cbxStuClass.Text = sqlHelper3["StuClass"].ToString();
+                cbxStuMajor.Text = sqlHelper3["StuMajor"].ToString();
+                cbxStuDepertment.Text = sqlHelper3["StuDepartment"].ToString();
+                dtpStuToSchoolTime.Value = (DateTime)sqlHelper3["StuTOSchoolDatetime"];
+                txtStuLengthOfSchooling.Text = sqlHelper3["StuLengthOfSchooling"].ToString();
+                txtStuMajorDirection.Text = sqlHelper3["StuMajorDirection"].ToString();
                 txtStuPoliticsStatus.Text = sqlHelper3["StuPoliticsStatus"].ToString();
-                txtStuLearningHierarchy.Text= sqlHelper3["StuLearningHierarchy"].ToString();
-                txtStuHomePhone.Text= sqlHelper3["StuHomePhone"].ToString();
-                txtStuHomeAddress.Text= sqlHelper3["StuHomeAddress"].ToString();
-                txtStuRailwayStation.Text= sqlHelper3["StuRailwayStation"].ToString();
-                txtStuPhone.Text= sqlHelper3["StuPhone"].ToString();
-                txtStuId.Text= sqlHelper3["StuId"].ToString();
+                txtStuLearningHierarchy.Text = sqlHelper3["StuLearningHierarchy"].ToString();
+                txtStuHomePhone.Text = sqlHelper3["StuHomePhone"].ToString();
+                txtStuHomeAddress.Text = sqlHelper3["StuHomeAddress"].ToString();
+                txtStuRailwayStation.Text = sqlHelper3["StuRailwayStation"].ToString();
+                txtStuPhone.Text = sqlHelper3["StuPhone"].ToString();
+                txtStuId.Text = sqlHelper3["StuId"].ToString();
 
             }
 
@@ -532,24 +580,24 @@ namespace Example
         {
             //try
             //{
-                string commandText =
-                    $@"UPDATE tb_StudentInformation
+            string commandText =
+                $@"UPDATE tb_StudentInformation
                     SET PasswordProtectProblem_1='{txt_PasswordProtectProblem1.Text.Trim()}',
                     PasswordProtectProblem_2='{txt_PasswordProtectProblem2.Text.Trim()}',
                     Answer_1='{txt_Answer1.Text.Trim()}',
                     Answer_2='{txt_Answer2.Text.Trim()}'
                     WHERE No='{txt_StudentNumber.Text}';";
-                SqlHelper sqlHelper = new SqlHelper();
-                int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
-                if (rowAffected == 1 &&( txt_PasswordProtectProblem1.Text != null || txt_PasswordProtectProblem2.Text != null
-                    || txt_Answer1.Text != null || txt_Answer2.Text != null))
-                {
-                    MessageBox.Show("保存成功！");
-                }
-                else
-                {
-                    MessageBox.Show("问题或回答为空,保存失败！");
-                }
+            SqlHelper sqlHelper = new SqlHelper();
+            int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
+            if (rowAffected == 1 && (txt_PasswordProtectProblem1.Text != null || txt_PasswordProtectProblem2.Text != null
+                || txt_Answer1.Text != null || txt_Answer2.Text != null))
+            {
+                MessageBox.Show("保存成功！");
+            }
+            else
+            {
+                MessageBox.Show("问题或回答为空,保存失败！");
+            }
             //}
             //catch (Exception)
             //{
@@ -575,22 +623,22 @@ namespace Example
             SqlHelper sqlHelper = new SqlHelper();
             //try
             //{
-                int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
-                if (rowAffected == 1 && txt_ConfirmNewPassword.Text == txt_NewPassword.Text && (txt_NewPassword.Text != null || txt_ConfirmNewPassword != null)) 
-                {
-                    MessageBox.Show("保存成功！");
+            int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
+            if (rowAffected == 1 && txt_ConfirmNewPassword.Text == txt_NewPassword.Text && (txt_NewPassword.Text != null || txt_ConfirmNewPassword != null))
+            {
+                MessageBox.Show("保存成功！");
 
-                }
-                else
-                {
-                    MessageBox.Show("保存失败！");
-                }
+            }
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
             //}
             //catch (Exception)
             //{
             //    MessageBox.Show("保存失败！");
             //}
-            
+
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)//重置密码
@@ -603,7 +651,60 @@ namespace Example
 
         private void tpPassword_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void btnReadMessage_Click(object sender, EventArgs e)//查看留言
+        {
+
+            string status1 = this.dgvHasReadMessage.CurrentRow.Cells["Status"].Value.ToString();
+            string status2 = this.dgvNoReadMessage.CurrentRow.Cells["Status"].Value.ToString();
+            SqlHelper sqlHelper1 = new SqlHelper();
+            string commandText1 = $@"SELECT NMD.Content
+                                             FROM tb_NoticeAndMessage AS NM 
+                                             JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                             WHERE NM.Category='留言' AND NM.No={this.dgvHasReadMessage.CurrentRow.Cells["No"].Value.ToString()}";
+
+            if (status1 == "已读")
+            {
+                sqlHelper1.QuickRead(commandText1);
+                if (sqlHelper1.HasRecord)
+                {
+                    MessageBox.Show($"该留言已读，内容为{sqlHelper1["Content"]}");
+                }
+                return;
+            }
+            SqlHelper sqlHelper2 = new SqlHelper();
+            string commandText2 = $@"SELECT NMD.Content
+                                             FROM tb_NoticeAndMessage AS NM 
+                                             JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                             WHERE NM.Category='留言' AND NM.No={this.dgvNoReadMessage.CurrentRow.Cells["No"].Value.ToString()}";
+            if (status2 == "未读")
+            {
+                sqlHelper2.QuickRead(commandText2);
+                if (sqlHelper2.HasRecord)
+                {
+                    MessageBox.Show($"该留言未读，内容为{sqlHelper2["Content"]}");
+                }
+            }
+            SqlHelper sqlHelper3 = new SqlHelper();
+            string commandText3 = $@"UPDATE tb_NoticeAndMessageDetails
+                    SET Status='已读'
+                    WHERE No='{this.dgvNoReadMessage.CurrentRow.Cells["No"]}'";
+            sqlHelper3.QuickRead(commandText3);
+            if (sqlHelper3.HasRecord)
+            {
+                this.LoadHasReadMessage();
+                this.LoadNoReadMessage();
+            }
+
+
+
+        }
+
+        private void btnReadNotice_Click(object sender, EventArgs e)//查看公告
+        {
+
         }
     }
 }
