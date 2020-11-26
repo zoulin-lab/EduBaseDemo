@@ -23,56 +23,33 @@ namespace Example
             this.LoadStuNations();
             this.LoadStuMajors();
             this.LoadStuDepartments();
-            this.LoadHasReadNotice();
-            this.LoadNoReadNotice();
-            this.LoadHasReadMessage();
-            this.LoadNoReadMessage();
-            
-            
-           
-            
+            this.LoadNotice();
+            this.LoadMessage();
 
         }
-        private void LoadHasReadNotice()//向表格载入已读公告
+        private void LoadNotice()//向表格载入公告
         {
             string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
                                         FROM tb_NoticeAndMessage AS NM 
                                         JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                        WHERE NM.Category='公告' AND NMD.Status='已读'";
+                                        WHERE NM.Category='公告'";            
             var sqlHelper = new SqlHelper();
-            sqlHelper.QuickFill(commandText, dgvHasReadNotice);
-            dgvHasReadNotice.CurrentCell = null;dgvHasReadNotice.Rows[0].Cells[0].Selected = false;
+            sqlHelper.QuickFill(commandText, dgvNotice);
         }
-        private void LoadNoReadNotice()//向表格载入未读公告
+
+
+
+        private void LoadMessage()//向表格载入留言
         {
             string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
                                         FROM tb_NoticeAndMessage AS NM 
                                         JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                        WHERE NM.Category='公告' AND NMD.Status='未读'";
+                                        WHERE NM.Category='留言' ";
             var sqlHelper = new SqlHelper();
-            sqlHelper.QuickFill(commandText, dgvNoReadNotice);
-            dgvNoReadNotice.CurrentCell = null;dgvNoReadNotice.Rows[0].Cells[0].Selected = false;
+            sqlHelper.QuickFill(commandText, dgvMessage);
         }
-        private void LoadHasReadMessage()//向表格载入已读留言
-        {
-            string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
-                                        FROM tb_NoticeAndMessage AS NM 
-                                        JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                        WHERE NM.Category='留言' AND NMD.Status='已读'";
-            var sqlHelper = new SqlHelper();
-            sqlHelper.QuickFill(commandText, dgvHasReadMessage);
-            dgvHasReadMessage.CurrentCell = null;dgvHasReadMessage.Rows[0].Cells[0].Selected = false;
-        }
-        private void LoadNoReadMessage()//向表格载入未读留言
-        {
-            string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NM.TransmitTime,NMD.Status
-                                        FROM tb_NoticeAndMessage AS NM 
-                                        JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                        WHERE NM.Category='留言' AND NMD.Status='未读'";
-            var sqlHelper = new SqlHelper();
-            sqlHelper.QuickFill(commandText, dgvNoReadMessage);
-            dgvNoReadMessage.CurrentCell = null; dgvNoReadMessage.Rows[0].Cells[0].Selected = false;
-        }
+
+
 
         private void LoadStuClasses()//向下拉框载入班级名称
         {
@@ -657,52 +634,134 @@ namespace Example
         private void btnReadMessage_Click(object sender, EventArgs e)//查看留言
         {
 
-            string status1 = this.dgvHasReadMessage.CurrentRow.Cells["Status"].Value.ToString();
-            string status2 = this.dgvNoReadMessage.CurrentRow.Cells["Status"].Value.ToString();
-            SqlHelper sqlHelper1 = new SqlHelper();
-            string commandText1 = $@"SELECT NMD.Content
+            if (this.dgvMessage.SelectedCells != null)
+            {
+                string status1 = this.dgvMessage.CurrentRow.Cells["Status"].Value.ToString();
+                if (status1 == "已读")
+                {
+                    SqlHelper sqlHelper1 = new SqlHelper();
+                    string commandText1 = $@"SELECT NMD.Content
                                              FROM tb_NoticeAndMessage AS NM 
                                              JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                             WHERE NM.Category='留言' AND NM.No={this.dgvHasReadMessage.CurrentRow.Cells["No"].Value.ToString()}";
-
-            if (status1 == "已读")
-            {
-                sqlHelper1.QuickRead(commandText1);
-                if (sqlHelper1.HasRecord)
-                {
-                    MessageBox.Show($"该留言已读，内容为{sqlHelper1["Content"]}");
+                                             WHERE NM.Category='留言' AND NM.No={this.dgvMessage.CurrentRow.Cells["No"].Value.ToString()}";
+                    sqlHelper1.QuickRead(commandText1);
+                    if (sqlHelper1.HasRecord)
+                    {
+                        MessageBox.Show($"该留言已读，内容为{sqlHelper1["Content"]}");
+                    }
+                    return;
                 }
+                if (status1== "未读")
+                {
+                    SqlHelper sqlHelper2 = new SqlHelper();
+                    string commandText2 = $@"SELECT NMD.Content
+                                                     FROM tb_NoticeAndMessage AS NM 
+                                                     JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                                     WHERE NM.Category='留言' AND NM.No={this.dgvMessage.CurrentRow.Cells["No"].Value.ToString()}";
+                    sqlHelper2.QuickRead(commandText2);
+                    if (sqlHelper2.HasRecord)
+                    {
+                        int n = int.Parse(this.dgvMessage.CurrentRow.Cells["No"].Value.ToString());
+                        MessageBox.Show($"该留言未读，内容为{sqlHelper2["Content"]}");
+                        SqlHelper sqlHelper3 = new SqlHelper();
+                        string commandText3 = $@"UPDATE tb_NoticeAndMessageDetails
+                                                     SET Status='已读'
+                                                     WHERE No={n} ";
+                        sqlHelper3.QuickFill(commandText3, dgvMessage);
+                        MessageBox.Show($"修改成功 {n}");
+                        this.LoadMessage();
+
+                    }
+                }
+            }
+            else
+            {
                 return;
             }
-            SqlHelper sqlHelper2 = new SqlHelper();
-            string commandText2 = $@"SELECT NMD.Content
-                                             FROM tb_NoticeAndMessage AS NM 
-                                             JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                             WHERE NM.Category='留言' AND NM.No={this.dgvNoReadMessage.CurrentRow.Cells["No"].Value.ToString()}";
-            if (status2 == "未读")
-            {
-                sqlHelper2.QuickRead(commandText2);
-                if (sqlHelper2.HasRecord)
-                {
-                    MessageBox.Show($"该留言未读，内容为{sqlHelper2["Content"]}");
-                }
-            }
-            SqlHelper sqlHelper3 = new SqlHelper();
-            string commandText3 = $@"UPDATE tb_NoticeAndMessageDetails
-                    SET Status='已读'
-                    WHERE No='{this.dgvNoReadMessage.CurrentRow.Cells["No"]}'";
-            sqlHelper3.QuickRead(commandText3);
-            if (sqlHelper3.HasRecord)
-            {
-                this.LoadHasReadMessage();
-                this.LoadNoReadMessage();
-            }
-
-
-
         }
 
         private void btnReadNotice_Click(object sender, EventArgs e)//查看公告
+        {
+            if (this.dgvNotice.SelectedCells != null)
+            {
+                string status1 = this.dgvNotice.CurrentRow.Cells["Status"].Value.ToString();
+                if (status1 == "已读")
+                {
+                    SqlHelper sqlHelper1 = new SqlHelper();
+                    string commandText1 = $@"SELECT NMD.Content
+                                             FROM tb_NoticeAndMessage AS NM 
+                                             JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                             WHERE NM.Category='公告' AND NM.No={this.dgvNotice.CurrentRow.Cells["No"].Value.ToString()}";
+                    sqlHelper1.QuickRead(commandText1);
+                    if (sqlHelper1.HasRecord)
+                    {
+                        MessageBox.Show($"该公告已读，内容为{sqlHelper1["Content"]}");
+                    }
+                    return;
+                }
+                if (status1 == "未读")
+                {
+                    SqlHelper sqlHelper2 = new SqlHelper();
+                    string commandText2 = $@"SELECT NMD.Content
+                                                     FROM tb_NoticeAndMessage AS NM 
+                                                     JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
+                                                     WHERE NM.Category='公告' AND NM.No={this.dgvNotice.CurrentRow.Cells["No"].Value.ToString()}";
+                    sqlHelper2.QuickRead(commandText2);
+                    if (sqlHelper2.HasRecord)
+                    {
+                        int n = int.Parse(this.dgvNotice.CurrentRow.Cells["No"].Value.ToString());
+                        MessageBox.Show($"该公告未读，内容为{sqlHelper2["Content"]}");
+                        SqlHelper sqlHelper3 = new SqlHelper();
+                        string commandText3 = $@"UPDATE tb_NoticeAndMessageDetails
+                                                     SET Status='已读'
+                                                     WHERE No={n} ";
+                        sqlHelper3.QuickFill(commandText3,dgvNotice);
+                        MessageBox.Show($"修改成功 {n}");
+                        this.LoadNotice();
+
+                    }
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void tpMessage_Click(object sender, EventArgs e)
+        {
+            //this.LoadMessage();
+            this.dgvMessage.CurrentCell = null; 
+            
+
+        }
+
+        private void tpNotice_Click(object sender, EventArgs e)
+        {
+            //this.LoadNotice();
+            this.dgvNotice.CurrentCell = null;
+            
+        }
+
+        private void btnAnswerNotice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnResetStuInfo_Click(object sender, EventArgs e)
+        {
+            txtStuName.Text = null;txtStuLearningHierarchy.Text=null;
+            rdbFemale.Checked = false;txtStuLengthOfSchooling.Text = null;
+            rdbMale.Checked = false;txtStuHomeAddress.Text = null;
+            dtpStuBirthday.Text = null;txtStuHomePhone.Text = null;
+            dtpStuToSchoolTime.Text = null;txtStuId.Text = null;
+            cbxStuNation.Text = null;txtStuMajorDirection.Text = null;
+            cbxStuMajor.Text = null;txtStuPoliticsStatus.Text = null;
+            cbxStuDepertment.Text = null;txtStuRailwayStation.Text = null;
+            cbxStuClass.Text = null;txtStuPhone.Text = null;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
 
         }

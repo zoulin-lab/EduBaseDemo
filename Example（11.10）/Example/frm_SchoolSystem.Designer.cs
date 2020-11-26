@@ -49,12 +49,13 @@
             this.tcp_MydDesktop = new System.Windows.Forms.TabPage();
             this.tcMyDesktop = new System.Windows.Forms.TabControl();
             this.tpNotice = new System.Windows.Forms.TabPage();
-            this.dgvHasReadNotice = new System.Windows.Forms.DataGridView();
-            this.tbNoticeAndMessageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eduBaseBigHomeworkDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eduBaseBigHomeworkDataSet = new Example.EduBaseBigHomeworkDataSet();
+            this.btnAnswerNotice = new System.Windows.Forms.Button();
+            this.btnReadNotice = new System.Windows.Forms.Button();
+            this.dgvNotice = new System.Windows.Forms.DataGridView();
             this.tpMessage = new System.Windows.Forms.TabPage();
-            this.dgvHasReadMessage = new System.Windows.Forms.DataGridView();
+            this.btnAnswerMessage = new System.Windows.Forms.Button();
+            this.btnReadMessage = new System.Windows.Forms.Button();
+            this.dgvMessage = new System.Windows.Forms.DataGridView();
             this.tpStudentInfo = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -97,6 +98,8 @@
             this.tcp_StudentAchievement = new System.Windows.Forms.TabPage();
             this.tcStudentAchievement = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnResetStuInfo = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.cbxStuNation = new System.Windows.Forms.ComboBox();
             this.cbxStuDepertment = new System.Windows.Forms.ComboBox();
             this.cbxStuMajor = new System.Windows.Forms.ComboBox();
@@ -145,7 +148,6 @@
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.btnSelect = new System.Windows.Forms.Button();
             this.cbxDisplayWay = new System.Windows.Forms.ComboBox();
-            this.cbxCourseName = new System.Windows.Forms.ComboBox();
             this.cbxCourseNature = new System.Windows.Forms.ComboBox();
             this.cbxOpenCourseTime = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -225,31 +227,24 @@
             this.label_ExperimentTeach = new System.Windows.Forms.Label();
             this.tcp_TeachingEvaluation = new System.Windows.Forms.TabPage();
             this.button_MyEvaluation = new System.Windows.Forms.Button();
+            this.tbNoticeAndMessageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eduBaseBigHomeworkDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eduBaseBigHomeworkDataSet = new Example.EduBaseBigHomeworkDataSet();
             this.label_gonggaoliuyan = new System.Windows.Forms.Label();
             this.button_yishougonggao = new System.Windows.Forms.Button();
             this.button_yishouliuyan = new System.Windows.Forms.Button();
             this.gerenxinxi = new System.Windows.Forms.Label();
             this.tb_NoticeAndMessageTableAdapter = new Example.EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter();
-            this.dgvNoReadNotice = new System.Windows.Forms.DataGridView();
-            this.dgvNoReadMessage = new System.Windows.Forms.DataGridView();
-            this.btnReadNotice = new System.Windows.Forms.Button();
-            this.btnAnswerNotice = new System.Windows.Forms.Button();
-            this.btnReadMessage = new System.Windows.Forms.Button();
-            this.btnAnswerMessage = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnResetStuInfo = new System.Windows.Forms.Button();
+            this.txtCourseName = new System.Windows.Forms.TextBox();
             this.tpc_FirstManageSystem.SuspendLayout();
             this.tcp_FirstPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMyInfo)).BeginInit();
             this.tcp_MydDesktop.SuspendLayout();
             this.tcMyDesktop.SuspendLayout();
             this.tpNotice.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadNotice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotice)).BeginInit();
             this.tpMessage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadMessage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMessage)).BeginInit();
             this.tpStudentInfo.SuspendLayout();
             this.tpPassword.SuspendLayout();
             this.gbx_TeachingCalendar.SuspendLayout();
@@ -268,8 +263,9 @@
             this.tcp_TestRegistration.SuspendLayout();
             this.tcp_InternshipAndPracticiialTraining.SuspendLayout();
             this.tcp_TeachingEvaluation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadNotice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadMessage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tpc_FirstManageSystem
@@ -496,8 +492,7 @@
             // 
             this.tpNotice.Controls.Add(this.btnAnswerNotice);
             this.tpNotice.Controls.Add(this.btnReadNotice);
-            this.tpNotice.Controls.Add(this.dgvNoReadNotice);
-            this.tpNotice.Controls.Add(this.dgvHasReadNotice);
+            this.tpNotice.Controls.Add(this.dgvNotice);
             this.tpNotice.Location = new System.Drawing.Point(4, 28);
             this.tpNotice.Name = "tpNotice";
             this.tpNotice.Padding = new System.Windows.Forms.Padding(3);
@@ -505,38 +500,43 @@
             this.tpNotice.TabIndex = 0;
             this.tpNotice.Text = "已收公告";
             this.tpNotice.UseVisualStyleBackColor = true;
+            this.tpNotice.Click += new System.EventHandler(this.tpNotice_Click);
             // 
-            // dgvHasReadNotice
+            // btnAnswerNotice
             // 
-            this.dgvHasReadNotice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvHasReadNotice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHasReadNotice.Location = new System.Drawing.Point(64, 35);
-            this.dgvHasReadNotice.Name = "dgvHasReadNotice";
-            this.dgvHasReadNotice.RowTemplate.Height = 30;
-            this.dgvHasReadNotice.Size = new System.Drawing.Size(664, 204);
-            this.dgvHasReadNotice.TabIndex = 0;
+            this.btnAnswerNotice.Location = new System.Drawing.Point(653, 424);
+            this.btnAnswerNotice.Name = "btnAnswerNotice";
+            this.btnAnswerNotice.Size = new System.Drawing.Size(75, 31);
+            this.btnAnswerNotice.TabIndex = 3;
+            this.btnAnswerNotice.Text = "回复";
+            this.btnAnswerNotice.UseVisualStyleBackColor = true;
+            this.btnAnswerNotice.Click += new System.EventHandler(this.btnAnswerNotice_Click);
             // 
-            // tbNoticeAndMessageBindingSource
+            // btnReadNotice
             // 
-            this.tbNoticeAndMessageBindingSource.DataMember = "tb_NoticeAndMessage";
-            this.tbNoticeAndMessageBindingSource.DataSource = this.eduBaseBigHomeworkDataSetBindingSource;
+            this.btnReadNotice.Location = new System.Drawing.Point(64, 424);
+            this.btnReadNotice.Name = "btnReadNotice";
+            this.btnReadNotice.Size = new System.Drawing.Size(75, 31);
+            this.btnReadNotice.TabIndex = 2;
+            this.btnReadNotice.Text = "查看";
+            this.btnReadNotice.UseVisualStyleBackColor = true;
+            this.btnReadNotice.Click += new System.EventHandler(this.btnReadNotice_Click);
             // 
-            // eduBaseBigHomeworkDataSetBindingSource
+            // dgvNotice
             // 
-            this.eduBaseBigHomeworkDataSetBindingSource.DataSource = this.eduBaseBigHomeworkDataSet;
-            this.eduBaseBigHomeworkDataSetBindingSource.Position = 0;
-            // 
-            // eduBaseBigHomeworkDataSet
-            // 
-            this.eduBaseBigHomeworkDataSet.DataSetName = "EduBaseBigHomeworkDataSet";
-            this.eduBaseBigHomeworkDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dgvNotice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvNotice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotice.Location = new System.Drawing.Point(64, 35);
+            this.dgvNotice.Name = "dgvNotice";
+            this.dgvNotice.RowTemplate.Height = 30;
+            this.dgvNotice.Size = new System.Drawing.Size(664, 367);
+            this.dgvNotice.TabIndex = 0;
             // 
             // tpMessage
             // 
             this.tpMessage.Controls.Add(this.btnAnswerMessage);
             this.tpMessage.Controls.Add(this.btnReadMessage);
-            this.tpMessage.Controls.Add(this.dgvNoReadMessage);
-            this.tpMessage.Controls.Add(this.dgvHasReadMessage);
+            this.tpMessage.Controls.Add(this.dgvMessage);
             this.tpMessage.Location = new System.Drawing.Point(4, 28);
             this.tpMessage.Name = "tpMessage";
             this.tpMessage.Padding = new System.Windows.Forms.Padding(3);
@@ -544,17 +544,37 @@
             this.tpMessage.TabIndex = 1;
             this.tpMessage.Text = "已收留言";
             this.tpMessage.UseVisualStyleBackColor = true;
+            this.tpMessage.Click += new System.EventHandler(this.tpMessage_Click);
             // 
-            // dgvHasReadMessage
+            // btnAnswerMessage
             // 
-            this.dgvHasReadMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvHasReadMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHasReadMessage.Location = new System.Drawing.Point(62, 36);
-            this.dgvHasReadMessage.Name = "dgvHasReadMessage";
-            this.dgvHasReadMessage.RowTemplate.Height = 30;
-            this.dgvHasReadMessage.ShowCellToolTips = false;
-            this.dgvHasReadMessage.Size = new System.Drawing.Size(659, 203);
-            this.dgvHasReadMessage.TabIndex = 1;
+            this.btnAnswerMessage.Location = new System.Drawing.Point(646, 424);
+            this.btnAnswerMessage.Name = "btnAnswerMessage";
+            this.btnAnswerMessage.Size = new System.Drawing.Size(75, 31);
+            this.btnAnswerMessage.TabIndex = 4;
+            this.btnAnswerMessage.Text = "回复";
+            this.btnAnswerMessage.UseVisualStyleBackColor = true;
+            // 
+            // btnReadMessage
+            // 
+            this.btnReadMessage.Location = new System.Drawing.Point(62, 424);
+            this.btnReadMessage.Name = "btnReadMessage";
+            this.btnReadMessage.Size = new System.Drawing.Size(75, 31);
+            this.btnReadMessage.TabIndex = 3;
+            this.btnReadMessage.Text = "查看";
+            this.btnReadMessage.UseVisualStyleBackColor = true;
+            this.btnReadMessage.Click += new System.EventHandler(this.btnReadMessage_Click);
+            // 
+            // dgvMessage
+            // 
+            this.dgvMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMessage.Location = new System.Drawing.Point(62, 36);
+            this.dgvMessage.Name = "dgvMessage";
+            this.dgvMessage.RowTemplate.Height = 30;
+            this.dgvMessage.ShowCellToolTips = false;
+            this.dgvMessage.Size = new System.Drawing.Size(659, 360);
+            this.dgvMessage.TabIndex = 1;
             // 
             // tpStudentInfo
             // 
@@ -1021,6 +1041,26 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnResetStuInfo
+            // 
+            this.btnResetStuInfo.Location = new System.Drawing.Point(771, 425);
+            this.btnResetStuInfo.Name = "btnResetStuInfo";
+            this.btnResetStuInfo.Size = new System.Drawing.Size(94, 39);
+            this.btnResetStuInfo.TabIndex = 46;
+            this.btnResetStuInfo.Text = "重置";
+            this.btnResetStuInfo.UseVisualStyleBackColor = true;
+            this.btnResetStuInfo.Click += new System.EventHandler(this.btnResetStuInfo_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(771, 489);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(94, 39);
+            this.btnUpdate.TabIndex = 45;
+            this.btnUpdate.Text = "更新";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // cbxStuNation
             // 
             this.cbxStuNation.FormattingEnabled = true;
@@ -1411,9 +1451,9 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this.txtCourseName);
             this.tabPage11.Controls.Add(this.btnSelect);
             this.tabPage11.Controls.Add(this.cbxDisplayWay);
-            this.tabPage11.Controls.Add(this.cbxCourseName);
             this.tabPage11.Controls.Add(this.cbxCourseNature);
             this.tabPage11.Controls.Add(this.cbxOpenCourseTime);
             this.tabPage11.Controls.Add(this.label24);
@@ -1444,14 +1484,6 @@
             this.cbxDisplayWay.Name = "cbxDisplayWay";
             this.cbxDisplayWay.Size = new System.Drawing.Size(195, 26);
             this.cbxDisplayWay.TabIndex = 7;
-            // 
-            // cbxCourseName
-            // 
-            this.cbxCourseName.FormattingEnabled = true;
-            this.cbxCourseName.Location = new System.Drawing.Point(240, 227);
-            this.cbxCourseName.Name = "cbxCourseName";
-            this.cbxCourseName.Size = new System.Drawing.Size(195, 26);
-            this.cbxCourseName.TabIndex = 6;
             // 
             // cbxCourseNature
             // 
@@ -2280,6 +2312,21 @@
             this.button_MyEvaluation.UseVisualStyleBackColor = true;
             this.button_MyEvaluation.Click += new System.EventHandler(this.button_MyEvaluation_Click);
             // 
+            // tbNoticeAndMessageBindingSource
+            // 
+            this.tbNoticeAndMessageBindingSource.DataMember = "tb_NoticeAndMessage";
+            this.tbNoticeAndMessageBindingSource.DataSource = this.eduBaseBigHomeworkDataSetBindingSource;
+            // 
+            // eduBaseBigHomeworkDataSetBindingSource
+            // 
+            this.eduBaseBigHomeworkDataSetBindingSource.DataSource = this.eduBaseBigHomeworkDataSet;
+            this.eduBaseBigHomeworkDataSetBindingSource.Position = 0;
+            // 
+            // eduBaseBigHomeworkDataSet
+            // 
+            this.eduBaseBigHomeworkDataSet.DataSetName = "EduBaseBigHomeworkDataSet";
+            this.eduBaseBigHomeworkDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label_gonggaoliuyan
             // 
             this.label_gonggaoliuyan.AutoSize = true;
@@ -2318,81 +2365,12 @@
             // 
             this.tb_NoticeAndMessageTableAdapter.ClearBeforeFill = true;
             // 
-            // dgvNoReadNotice
+            // txtCourseName
             // 
-            this.dgvNoReadNotice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvNoReadNotice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNoReadNotice.Location = new System.Drawing.Point(64, 319);
-            this.dgvNoReadNotice.Name = "dgvNoReadNotice";
-            this.dgvNoReadNotice.RowTemplate.Height = 30;
-            this.dgvNoReadNotice.Size = new System.Drawing.Size(664, 229);
-            this.dgvNoReadNotice.TabIndex = 1;
-            // 
-            // dgvNoReadMessage
-            // 
-            this.dgvNoReadMessage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvNoReadMessage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNoReadMessage.Location = new System.Drawing.Point(62, 331);
-            this.dgvNoReadMessage.Name = "dgvNoReadMessage";
-            this.dgvNoReadMessage.RowTemplate.Height = 30;
-            this.dgvNoReadMessage.Size = new System.Drawing.Size(659, 211);
-            this.dgvNoReadMessage.TabIndex = 2;
-            // 
-            // btnReadNotice
-            // 
-            this.btnReadNotice.Location = new System.Drawing.Point(64, 256);
-            this.btnReadNotice.Name = "btnReadNotice";
-            this.btnReadNotice.Size = new System.Drawing.Size(75, 31);
-            this.btnReadNotice.TabIndex = 2;
-            this.btnReadNotice.Text = "查看";
-            this.btnReadNotice.UseVisualStyleBackColor = true;
-            this.btnReadNotice.Click += new System.EventHandler(this.btnReadNotice_Click);
-            // 
-            // btnAnswerNotice
-            // 
-            this.btnAnswerNotice.Location = new System.Drawing.Point(653, 256);
-            this.btnAnswerNotice.Name = "btnAnswerNotice";
-            this.btnAnswerNotice.Size = new System.Drawing.Size(75, 31);
-            this.btnAnswerNotice.TabIndex = 3;
-            this.btnAnswerNotice.Text = "回复";
-            this.btnAnswerNotice.UseVisualStyleBackColor = true;
-            // 
-            // btnReadMessage
-            // 
-            this.btnReadMessage.Location = new System.Drawing.Point(62, 268);
-            this.btnReadMessage.Name = "btnReadMessage";
-            this.btnReadMessage.Size = new System.Drawing.Size(75, 31);
-            this.btnReadMessage.TabIndex = 3;
-            this.btnReadMessage.Text = "查看";
-            this.btnReadMessage.UseVisualStyleBackColor = true;
-            this.btnReadMessage.Click += new System.EventHandler(this.btnReadMessage_Click);
-            // 
-            // btnAnswerMessage
-            // 
-            this.btnAnswerMessage.Location = new System.Drawing.Point(646, 268);
-            this.btnAnswerMessage.Name = "btnAnswerMessage";
-            this.btnAnswerMessage.Size = new System.Drawing.Size(75, 31);
-            this.btnAnswerMessage.TabIndex = 4;
-            this.btnAnswerMessage.Text = "回复";
-            this.btnAnswerMessage.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(771, 489);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(94, 28);
-            this.btnUpdate.TabIndex = 45;
-            this.btnUpdate.Text = "更新";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnResetStuInfo
-            // 
-            this.btnResetStuInfo.Location = new System.Drawing.Point(771, 436);
-            this.btnResetStuInfo.Name = "btnResetStuInfo";
-            this.btnResetStuInfo.Size = new System.Drawing.Size(94, 28);
-            this.btnResetStuInfo.TabIndex = 46;
-            this.btnResetStuInfo.Text = "重置";
-            this.btnResetStuInfo.UseVisualStyleBackColor = true;
+            this.txtCourseName.Location = new System.Drawing.Point(240, 224);
+            this.txtCourseName.Name = "txtCourseName";
+            this.txtCourseName.Size = new System.Drawing.Size(195, 28);
+            this.txtCourseName.TabIndex = 9;
             // 
             // frm_SchoolSystem
             // 
@@ -2410,12 +2388,9 @@
             this.tcp_MydDesktop.ResumeLayout(false);
             this.tcMyDesktop.ResumeLayout(false);
             this.tpNotice.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadNotice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotice)).EndInit();
             this.tpMessage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHasReadMessage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMessage)).EndInit();
             this.tpStudentInfo.ResumeLayout(false);
             this.tpStudentInfo.PerformLayout();
             this.tpPassword.ResumeLayout(false);
@@ -2441,8 +2416,9 @@
             this.tcp_InternshipAndPracticiialTraining.ResumeLayout(false);
             this.tcp_InternshipAndPracticiialTraining.PerformLayout();
             this.tcp_TeachingEvaluation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadNotice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNoReadMessage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2575,13 +2551,13 @@
         private System.Windows.Forms.TextBox txt_PasswordProtectProblem2;
         private System.Windows.Forms.TextBox txt_Answer1;
         private System.Windows.Forms.TextBox txt_StudentNo;
-        private System.Windows.Forms.DataGridView dgvHasReadNotice;
+        private System.Windows.Forms.DataGridView dgvNotice;
         private System.Windows.Forms.BindingSource eduBaseBigHomeworkDataSetBindingSource;
         private EduBaseBigHomeworkDataSet eduBaseBigHomeworkDataSet;
         private System.Windows.Forms.BindingSource tbNoticeAndMessageBindingSource;
         private EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter tb_NoticeAndMessageTableAdapter;
         private System.Windows.Forms.Button button_StudentEvaluation;
-        private System.Windows.Forms.DataGridView dgvHasReadMessage;
+        private System.Windows.Forms.DataGridView dgvMessage;
         private System.Windows.Forms.TabControl tcStudentAchievement;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -2633,7 +2609,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.ComboBox cbxDisplayWay;
-        private System.Windows.Forms.ComboBox cbxCourseName;
         private System.Windows.Forms.ComboBox cbxCourseNature;
         private System.Windows.Forms.ComboBox cbxOpenCourseTime;
         private System.Windows.Forms.Label label24;
@@ -2649,14 +2624,13 @@
         private System.Windows.Forms.DateTimePicker dtpStuToSchoolTime;
         private System.Windows.Forms.RadioButton rdbFemale;
         private System.Windows.Forms.RadioButton rdbMale;
-        private System.Windows.Forms.DataGridView dgvNoReadNotice;
-        private System.Windows.Forms.DataGridView dgvNoReadMessage;
         private System.Windows.Forms.Button btnAnswerNotice;
         private System.Windows.Forms.Button btnReadNotice;
         private System.Windows.Forms.Button btnAnswerMessage;
         private System.Windows.Forms.Button btnReadMessage;
         private System.Windows.Forms.Button btnResetStuInfo;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox txtCourseName;
     }
 }
 
