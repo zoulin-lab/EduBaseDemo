@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MyPetShop.DAL;
 namespace MyPetShop.BLL
 {
-    class ProductService
+    public class ProductService
     {
         MyPetShopDataContext db = new MyPetShopDataContext();
 

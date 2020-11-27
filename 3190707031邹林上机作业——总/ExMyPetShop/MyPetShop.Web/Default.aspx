@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <link href="../Styles/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="../Styles/Style.css" rel="stylesheet" type="text/css" />
+    <title>商品展示</title>
+    <link href="Styles/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/Style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,10 +18,10 @@
                    <asp:LinkButton ID="lnkbtnDefault" ForeColor="White" runat="server" CausesValidation="False" PostBackUrl="~/Default.aspx">首页</asp:LinkButton>
                </li>
                <li class ="navDark">
-                   <asp:LinkButton ID="lnkbtnRegister" ForeColor="White" runat="server" CausesValidation="False">注册</asp:LinkButton>
+                   <asp:LinkButton ID="lnkbtnRegister" ForeColor="White" runat="server" CausesValidation="False" OnClick ="lnkbtnRegister_Click">注册</asp:LinkButton>
                </li>
                <li class ="navDark">
-                   <asp:LinkButton ID="lnkbtnLogin" ForeColor="White" runat="server" CausesValidation="False">登录</asp:LinkButton>
+                   <asp:LinkButton ID="lnkbtnLogin" ForeColor="White" runat="server" CausesValidation="False" OnClick ="lnkbtnLogin_Click">登录</asp:LinkButton>
                </li>
                <li class ="navDark">
                    <asp:LinkButton ID="lnkbtnCart" ForeColor="White" runat="server" CausesValidation="False" PostBackUrl="~/ShopCart.aspx">购物车</asp:LinkButton>
@@ -35,7 +35,7 @@
                <asp:LinkButton ID="lnkbtnPwd" runat="server" CausesValidation="False" ForeColor="White" PostBackUrl="~/ChangePwd.aspx" Visible="False">密码修改</asp:LinkButton>
                <asp:LinkButton ID="lnkbtnManange" runat="server" ForeColor="White" PostBackUrl="~/Admin/Default.aspx" Visible="False">系统管理</asp:LinkButton>
                <asp:LinkButton ID="lnkbtnOrder" runat="server" CausesValidation="False" ForeColor="White" PostBackUrl="~/OrderList.aspx" Visible="False">购物记录</asp:LinkButton>
-               <asp:LinkButton ID="lnkbtnLogout" runat="server" CausesValidation="False" ForeColor="White" Visible="False">退出登录</asp:LinkButton>
+               <asp:LinkButton ID="lnkbtnLogout" runat="server" CausesValidation="False" ForeColor="White" Visible="False" OnClick ="lnkbtnLogout_Click">退出登录</asp:LinkButton>
                </div>
        </header>
        <nav class ="sitemap">
@@ -46,36 +46,36 @@
             分类名：<asp:DropDownList ID="ddl_Category" runat="server" AutoPostBack="True" DataTextField="Name" DataValueField="CategoryId" OnSelectedIndexChanged="ddl_Category_SelectedIndexChanged">
             </asp:DropDownList>
         </p>
-        <asp:GridView ID="gv_Product" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="1" Height="274px" OnSelectedIndexChanging="gv_Product_PageIndexChanging" Width="555px">
+        <asp:GridView ID="gv_Product" runat="server" AllowPaging="True" AutoGenerateColumns="False" PagerSettings-Mode="NextPrevious" PageSize="1"  OnSelectedIndexChanging="gv_Product_PageIndexChanging" Width="100%">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <table class="auto-style1">
+                        <table style="border:1px solid #808080;width :100%;">
                             <tr>
-                                <td class="auto-style3" rowspan="4">
-                                    <asp:Image ID="img_Product" runat="server" ImageUrl='<%# Bind("Image") %>' Height="87px" Width="119px" />
+                                <td  rowspan="7" style ="text-align:center;border :1px;vertical-align:middle;width :40%;">
+                                    <asp:Image ID="img_Product" runat="server" ImageUrl='<%# Bind("Image") %>' Height="60px" Width="60px" />
                                 </td>
-                                <td class="auto-style8">商品名称：</td>
-                                <td>
+                                <td style="border :1px solid #808080;">商品名称：</td>
+                                <td style="border :1px solid #808080;">
                                     <asp:Label ID="lbl_Name" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style8">商品价格：</td>
-                                <td>
-                                    <asp:Label ID="lbl_ListPrice" runat="server" Text='<%# Bind("ListPrice") %>'></asp:Label>
+                                <td style="border :1px solid #808080;">商品价格：</td>
+                                <td style="border :1px solid #808080;">
+                                    <asp:Label ID="lblListPrice" runat="server" Text='<%# Bind("ListPrice") %>'></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style9">商品描述：</td>
-                                <td class="auto-style5">
-                                    <asp:Label ID="lbl_Descn" runat="server" Text='<%# Bind("Descn") %>'></asp:Label>
+                                <td style="border :1px solid #808080;">商品描述：</td>
+                                <td style="border :1px solid #808080;">
+                                    <asp:Label ID="lblDescn" runat="server" Text='<%# Bind("Descn") %>'></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style9">库存：</td>
-                                <td class="auto-style5">
-                                    <asp:Label ID="lbl_Qty" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
+                                <td style="border :1px solid #808080;">库存：</td>
+                                <td style="border :1px solid #808080;">
+                                    <asp:Label ID="lblQty" runat="server" Text='<%# Bind("Qty") %>'></asp:Label>
                                 </td>
                             </tr>
                         </table>

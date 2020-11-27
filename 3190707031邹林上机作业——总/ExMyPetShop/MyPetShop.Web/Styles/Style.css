@@ -48,6 +48,10 @@ form {
     background-color:#ccccd4;
 }
 .mainbody{
-    width :778px;margin :0 auto ;padding:2px;
+    width:778px;margin :0 auto ;padding:2px;
     background-color:#fff;text-align:left;
+}
+.footer{
+    width:778px;margin:5px auto ;text-align:left;padding:6px;
+    border:2px solid #fff;color :#fff;
 }
