@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{36D8F65D-7FE2-4E64-9438-56B51917DB31}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FoodDelivery", "FoodDelivery\", "{B76592BA-0875-41E0-907E-20B22C997CF0}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62285"
+		Debug.AspNetCompiler.PhysicalPath = "FoodDelivery\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62285\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62285"
+		Release.AspNetCompiler.PhysicalPath = "FoodDelivery\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62285\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62285"
+		SlnRelativePath = "FoodDelivery\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +31,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{36D8F65D-7FE2-4E64-9438-56B51917DB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36D8F65D-7FE2-4E64-9438-56B51917DB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36D8F65D-7FE2-4E64-9438-56B51917DB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36D8F65D-7FE2-4E64-9438-56B51917DB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B76592BA-0875-41E0-907E-20B22C997CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76592BA-0875-41E0-907E-20B22C997CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B76592BA-0875-41E0-907E-20B22C997CF0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76592BA-0875-41E0-907E-20B22C997CF0}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

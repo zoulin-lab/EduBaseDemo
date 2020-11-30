@@ -761,6 +761,8 @@ namespace Example
 
         private void btnAnswerNotice_Click(object sender, EventArgs e)
         {
+            TextBox answer;
+            MessageBox.Show(answer);
             //string answer1 = dgvNotice.CurrentRow.Cells["Answer"].Value.ToString();
             //if (answer1==null)
             //{
