@@ -62,3 +62,14 @@ form {
     border: 2px solid #fcfafa;
     color: #fcfafa;
 }
+.rightside {
+    width: 533px;
+    float: right;
+    padding-bottom: 4px;
+}
+.leftside {
+    width: 224px;
+    float: left;
+    padding: 2px;
+    background-color: #f2f3f7;
+}

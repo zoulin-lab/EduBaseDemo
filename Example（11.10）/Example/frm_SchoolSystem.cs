@@ -33,7 +33,7 @@ namespace Example
             string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NMD.Receiver,NM.TransmitTime,NMD.Status,NMD.Answer
                                           FROM tb_NoticeAndMessage AS NM 
                                           JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                          WHERE NM.Category='公告'AND NMD.ReceiverNo='{txt_StudentNo.Text}'  ";           
+                                          WHERE NM.Category='公告'AND NMD.ReceiverNo='{txt_StudentNo.Text}'  ";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickFill(commandText, dgvNotice);
         }
@@ -43,7 +43,7 @@ namespace Example
             string commandText = $@"SELECT NM.No,NM.Title,NM.Category,NM.Sender,NMD.Receiver,NM.TransmitTime,NMD.Status,NMD.Answer
                                           FROM tb_NoticeAndMessage AS NM 
                                           JOIN tb_NoticeAndMessageDetails AS NMD ON NM.No=NMD.NAndMNo
-                                          WHERE NM.Category='留言' AND NMD.ReceiverNo='{txt_StudentNo.Text}'"; 
+                                          WHERE NM.Category='留言' AND NMD.ReceiverNo='{txt_StudentNo.Text}'";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickFill(commandText, dgvMessage);
         }
@@ -376,8 +376,10 @@ namespace Example
 
         private void button_StudentPickCoursePlace_Click(object sender, EventArgs e)
         {
-            //学生选课中心 xue生选课中心 = new 学生选课中心();
-            //xue生选课中心.ShowDialog();
+            string commandText = $@"SELECT * FROM tb_PublicElectiveCourse";
+            SqlHelper sqlHelper = new SqlHelper();
+            sqlHelper.QuickFill(commandText, dgvStudentChooseCourse);
+            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[5];
         }
 
         private void button_StudentPreselectionManagement_Click(object sender, EventArgs e)
@@ -394,8 +396,7 @@ namespace Example
 
         private void button_TheTeachingSchedule_Click(object sender, EventArgs e)
         {
-            //授课计划查询 shou课计划查询 = new 授课计划查询();
-            //shou课计划查询.ShowDialog();
+            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[3];
         }
 
         private void button_TeachingProcessConclusion_Click(object sender, EventArgs e)
@@ -422,7 +423,7 @@ namespace Example
                                        SS.CourseQuality";
             SqlHelper sqlHelper2 = new SqlHelper();
             sqlHelper2.QuickFill(commandText2, dgvStuationTwo);
-            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[3];
+            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[2];
         }
 
         private void button_StudentTextbookPick_Click(object sender, EventArgs e)
@@ -761,16 +762,20 @@ namespace Example
 
         private void btnAnswerNotice_Click(object sender, EventArgs e)
         {
-            TextBox answer;
-            MessageBox.Show(answer);
-            //string answer1 = dgvNotice.CurrentRow.Cells["Answer"].Value.ToString();
-            //if (answer1==null)
-            //{
-            //    string commandText = $@"UPDATE tb_NoticeAndMessageDetails
-            //                                    SET Answer='{txtMyName.Text}已读'";
-            //    SqlHelper sqlHelper = new SqlHelper();
-            //    sqlHelper.QuickFill(commandText, dgvNotice);
-            //}
+            string status1 = this.dgvNotice.CurrentRow.Cells["Answer"].Value.ToString();
+            string status2 = this.dgvNotice.CurrentRow.Cells["Status"].Value.ToString();
+            if (status2 == "未读")
+            {
+                MessageBox.Show("该公告未读，请先读取再回复！");
+            }
+            if (status2 == "已读" && status1 != "")
+            {
+                MessageBox.Show("该公告已读，已回复！");
+            }
+            if (status2 == "已读" && status1 == "")
+            {
+                tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[5];
+            }
         }
 
         private void btnResetStuInfo_Click(object sender, EventArgs e)
@@ -788,7 +793,21 @@ namespace Example
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            string commandText=$@"UPDATE tb_StatusCard
+	                                 SET StuName='{txtStuName.Text}',StuGender='{(bool)rdbFemale.Checked}',StuBirthday='{dtpStuBirthday.Text}',StuNation='{cbxStuNation.SelectedItem.ToString()}',
+                                     StuClass='{cbxStuClass.SelectedItem.ToString()}',StuMajor='{cbxStuMajor.SelectedItem.ToString()}',StuDepartment='{cbxStuDepertment.SelectedItem.ToString()}',
+                                     StuTOSchoolDatetime='{dtpStuToSchoolTime.Text}',StuLengthOfSchooling='{txtStuLengthOfSchooling.Text}',
+	                                 StuMajorDirection='{txtStuMajorDirection.Text}',StuPoliticsStatus='{txtStuPoliticsStatus.Text}',StuLearningHierarchy='{txtStuLearningHierarchy.Text}',StuHomePhone='{txtStuHomePhone.Text}',
+                                     StuHomeAddress='{txtStuHomeAddress.Text}',StuRailwayStation='{txtStuRailwayStation.Text}',StuPhone='{txtStuPhone.Text}',StuId='{txtStuId.Text}'
+                                   	 WHERE No='{txtStuNo.Text}'";
+            SqlHelper sqlHelper = new SqlHelper();
+            int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
+            MessageBox.Show($"{txtStuNo.Text},更新成功");
+            if (rowAffected != 0) 
+            {
+                MessageBox.Show("更新成功！");
+            }
+            
         }
 
         private void btnSelectCourse_Click(object sender, EventArgs e)
@@ -838,7 +857,7 @@ namespace Example
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (cbxOpenCourseTime.Text == "---请选择---" && cbxCourseNature.Text == "---请选择---") 
+            if (cbxOpenCourseTime.Text == "---请选择---" && cbxCourseNature.Text == "---请选择---")
             {
                 string commandText1 = $@"SELECT * FROM tb_StudentScore";
                 SqlHelper sqlHelper1 = new SqlHelper();
@@ -854,7 +873,7 @@ namespace Example
                 tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[9];
                 return;
             }
-            if (txtCourseName.Text == null ) 
+            if (txtCourseName.Text == null)
             {
                 string commandText3 = $@"SELECT SS.* 
                                               FROM tb_StudentScore AS SS WHERE SS.StartTerm='{cbxOpenCourseTime.SelectedItem.ToString()}' 
@@ -863,6 +882,92 @@ namespace Example
                 sqlHelper3.QuickFill(commandText3, dgvDisplayGrade);
                 tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[9];
                 return;
+            }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)//回复公告
+        {
+            String Number = this.dgvNotice.CurrentRow.Cells["No"].Value.ToString();
+            string commandText = $@"UPDATE tb_NoticeAndMessageDetails
+                                            SET Answer='{txtReplay.Text}'
+                                            WHERE No='{int.Parse(Number)}'";
+            SqlHelper sqlHelper = new SqlHelper();
+            sqlHelper.QuickFill(commandText, dgvNotice);
+            this.LoadNotice();
+            MessageBox.Show("回复成功！");
+        }
+
+        private void btnAnswerMessage_Click(object sender, EventArgs e)
+        {
+            string status1 = this.dgvMessage.CurrentRow.Cells["Answer"].Value.ToString();
+            string status2 = this.dgvMessage.CurrentRow.Cells["Status"].Value.ToString();
+            if (status2 == "未读")
+            {
+                MessageBox.Show("该留言未读，请先读取再回复！");
+            }
+            if (status2 == "已读" && status1 != "")
+            {
+                MessageBox.Show("该留言已读，已回复！");           //????为什么在为空时也会弹出信息。
+            }
+            if (status2 == "已读" && status1 == "")
+            {
+                tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[5];
+            }
+        }
+
+        private void btnReplyMessage_Click(object sender, EventArgs e)//回复留言
+        {
+            String Number = this.dgvMessage.CurrentRow.Cells["No"].Value.ToString();
+            string commandText = $@"UPDATE tb_NoticeAndMessageDetails
+                                            SET Answer='{txtReplay.Text}'
+                                            WHERE No='{int.Parse(Number)}'";
+            SqlHelper sqlHelper = new SqlHelper();
+            sqlHelper.QuickFill(commandText, dgvMessage);
+            this.LoadMessage();
+            MessageBox.Show("回复成功！");
+        }
+
+        private void btnChooseCourse_Click(object sender, EventArgs e)
+        {
+            string status = this.dgvStudentChooseCourse.CurrentRow.Cells["Status"].Value.ToString();
+            string status2 = this.dgvStudentChooseCourse.CurrentRow.Cells["No"].Value.ToString();
+            if (status == "已选")
+            {
+                MessageBox.Show("该课程已选，不能重复选课！");
+            }
+            if (status == "未选")
+            {
+                string commandText = $@"UPDATE tb_PublicElectiveCourse
+                                          SET Status='已选'
+                                          WHERE No='{status2.ToString()}'";
+                SqlHelper sqlHelper = new SqlHelper();
+                sqlHelper.QuickFill(commandText, dgvStudentChooseCourse);
+                MessageBox.Show("选课成功！");
+                string commandText2 = $@"SELECT * FROM tb_PublicElectiveCourse";
+                SqlHelper sqlHelper2 = new SqlHelper();
+                sqlHelper2.QuickFill(commandText2, dgvStudentChooseCourse);
+            }
+        }
+
+        private void btnReturnChooseCourse_Click(object sender, EventArgs e)
+        {
+            string status = this.dgvStudentChooseCourse.CurrentRow.Cells["Status"].Value.ToString();
+            string status2 = this.dgvStudentChooseCourse.CurrentRow.Cells["No"].Value.ToString();
+            if (status == "未选")
+            {
+                MessageBox.Show("您并未选修该课程！");
+            }
+            if (status == "已选")
+            {
+                string commandText = $@"UPDATE tb_PublicElectiveCourse
+                                          SET Status='未选'
+                                          WHERE No='{status2.ToString()}'";
+                SqlHelper sqlHelper = new SqlHelper();
+                sqlHelper.QuickFill(commandText, dgvStudentChooseCourse);
+                MessageBox.Show("退选成功！");
+                string commandText2 = $@"SELECT * FROM tb_PublicElectiveCourse";
+                SqlHelper sqlHelper2 = new SqlHelper();
+                sqlHelper2.QuickFill(commandText2, dgvStudentChooseCourse);
             }
         }
     }
