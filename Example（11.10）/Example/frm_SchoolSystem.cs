@@ -154,8 +154,8 @@ namespace Example
 
         private void button_PickCourse_Click(object sender, EventArgs e)
         {
-            //学生选课中心 studentpickcourse = new 学生选课中心();
-            //studentpickcourse.ShowDialog();
+            this.LoadAllCourse();
+            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[5];
         }
 
         private void button_StudentEvaluation_Click(object sender, EventArgs e)
@@ -182,13 +182,12 @@ namespace Example
 
         private void button_CourseGradeInquire_Click(object sender, EventArgs e)
         {
-            //课程成绩查询 ke程成绩查询 = new 课程成绩查询();
-            //ke程成绩查询.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[2];
         }
 
         private void button_MyCourseGradeInquire_Click(object sender, EventArgs e)
         {
-            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[8];
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[2];
         }
 
         private void button_MyReceivedMessage_Click(object sender, EventArgs e)
@@ -198,7 +197,6 @@ namespace Example
 
         private void button_MyReceivedNotice_Click(object sender, EventArgs e)
         {
-
             tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[0];
         }
 
@@ -298,7 +296,7 @@ namespace Example
             string commandText = $@"SELECT * FROM tb_RankTest";
             SqlHelper sqlHelper = new SqlHelper();
             sqlHelper.QuickFill(commandText, dgvRankTest);
-            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[7];
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[1];
         }
 
         private void button_MyOSCEGrade_Click(object sender, EventArgs e)
@@ -308,8 +306,7 @@ namespace Example
 
         private void button_StudentStatusInforationCard_Click(object sender, EventArgs e)
         {
-            //学籍卡片 xue级卡片 = new 学籍卡片();
-            //xue级卡片.ShowDialog();
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[0];
         }
 
         private void button_MyStatusCard_Click(object sender, EventArgs e)
@@ -376,9 +373,7 @@ namespace Example
 
         private void button_StudentPickCoursePlace_Click(object sender, EventArgs e)
         {
-            string commandText = $@"SELECT * FROM tb_PublicElectiveCourse";
-            SqlHelper sqlHelper = new SqlHelper();
-            sqlHelper.QuickFill(commandText, dgvStudentChooseCourse);
+            this.LoadAllCourse();
             tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[5];
         }
 
@@ -793,6 +788,8 @@ namespace Example
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            SqlHelper sqlHelper = new SqlHelper();
+            MessageBox.Show($"{txtStuNo.Text},更新成功,{(bool)rdbFemale.Checked}");
             string commandText=$@"UPDATE tb_StatusCard
 	                                 SET StuName='{txtStuName.Text}',StuGender='{(bool)rdbFemale.Checked}',StuBirthday='{dtpStuBirthday.Text}',StuNation='{cbxStuNation.SelectedItem.ToString()}',
                                      StuClass='{cbxStuClass.SelectedItem.ToString()}',StuMajor='{cbxStuMajor.SelectedItem.ToString()}',StuDepartment='{cbxStuDepertment.SelectedItem.ToString()}',
@@ -800,9 +797,9 @@ namespace Example
 	                                 StuMajorDirection='{txtStuMajorDirection.Text}',StuPoliticsStatus='{txtStuPoliticsStatus.Text}',StuLearningHierarchy='{txtStuLearningHierarchy.Text}',StuHomePhone='{txtStuHomePhone.Text}',
                                      StuHomeAddress='{txtStuHomeAddress.Text}',StuRailwayStation='{txtStuRailwayStation.Text}',StuPhone='{txtStuPhone.Text}',StuId='{txtStuId.Text}'
                                    	 WHERE No='{txtStuNo.Text}'";
-            SqlHelper sqlHelper = new SqlHelper();
+
             int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit(commandText);
-            MessageBox.Show($"{txtStuNo.Text},更新成功");
+
             if (rowAffected != 0) 
             {
                 MessageBox.Show("更新成功！");
@@ -852,40 +849,80 @@ namespace Example
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[8];
+            tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[2];
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (cbxOpenCourseTime.Text == "---请选择---" && cbxCourseNature.Text == "---请选择---")
+            string commandText = $@"SELECT * FROM tb_StudentScore WHERE StudentNo='{StudentNo}'";
+            SqlHelper sqlHelper = new SqlHelper();
+
+            if (cbxOpenCourseTime.SelectedIndex == -1 && cbxCourseNature.SelectedIndex == -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedItem.ToString() == "显示全部成绩") //全部成绩
             {
-                string commandText1 = $@"SELECT * FROM tb_StudentScore";
-                SqlHelper sqlHelper1 = new SqlHelper();
-                sqlHelper1.QuickFill(commandText1, dgvDisplayGrade);
-                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[9];
+                sqlHelper.QuickFill(commandText, dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
                 return;
             }
-            if (cbxCourseNature.Text != null)
+            if (cbxOpenCourseTime.SelectedIndex == -1 && cbxCourseNature.SelectedIndex == -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedIndex == 1)//全部成绩最好成绩
             {
-                string commandText2 = $@"SELECT SS.* FROM tb_StudentScore AS SS WHERE SS.CourseName='{txtCourseName.Text}'";
-                SqlHelper sqlHelper2 = new SqlHelper();
-                sqlHelper2.QuickFill(commandText2, dgvDisplayGrade);
-                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[9];
+                string commandText2 = $@"SELECT TOP 1 * FROM tb_StudentScore WHERE StudentNo='{StudentNo}' ORDER BY Grade DESC";
+                sqlHelper.QuickFill(commandText2, dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
                 return;
             }
-            if (txtCourseName.Text == null)
+            if (cbxCourseNature.SelectedIndex != -1 && cbxOpenCourseTime.SelectedIndex == -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedItem.ToString() == "显示全部成绩")//课程性质
             {
-                string commandText3 = $@"SELECT SS.* 
-                                              FROM tb_StudentScore AS SS WHERE SS.StartTerm='{cbxOpenCourseTime.SelectedItem.ToString()}' 
-                                              AND SS.CourseNature='{cbxCourseNature.SelectedItem.ToString()}'";
-                SqlHelper sqlHelper3 = new SqlHelper();
-                sqlHelper3.QuickFill(commandText3, dgvDisplayGrade);
-                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[9];
+                sqlHelper.QuickFill(commandText += $@"AND CourseNature='{cbxCourseNature.Text.Trim()}'", dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
                 return;
             }
+            if (cbxCourseNature.SelectedIndex != -1 && cbxOpenCourseTime.SelectedIndex == -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedIndex == 1)//课程性质最好成绩
+            {
+                string commandText3 = $@"SELECT TOP 1 * FROM tb_StudentScore WHERE StudentNo='{StudentNo}'
+                                         AND CourseNature='{cbxCourseNature.Text.Trim()}' ORDER BY Grade DESC";
+                sqlHelper.QuickFill(commandText3, dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
+                return;
+            }
+            if (cbxOpenCourseTime.SelectedIndex != -1 && cbxCourseNature.SelectedIndex == -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedItem.ToString() == "显示全部成绩") //开课时间
+            {
+                sqlHelper.QuickFill(commandText += $@"AND StartTerm='{cbxOpenCourseTime.Text.Trim()}' ", dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
+                return;
+            }
+            if (cbxOpenCourseTime.SelectedIndex != -1 && cbxCourseNature.SelectedIndex == -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedIndex == 1) //开课时间最好成绩
+            {
+                string commandText4 = $@"SELECT TOP 1 * FROM tb_StudentScore WHERE StudentNo='{StudentNo}'
+                                         AND StartTerm='{cbxOpenCourseTime.Text.Trim()}' ORDER BY Grade DESC";
+                sqlHelper.QuickFill(commandText4, dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
+                return;
+            }
+            if (cbxOpenCourseTime.SelectedIndex != -1 && cbxCourseNature.SelectedIndex != -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedItem.ToString() == "显示全部成绩")//开课时间和课程性质
+            {
+                sqlHelper.QuickFill(commandText += $@"AND StartTerm='{cbxOpenCourseTime.Text.Trim()}'
+                                                    AND CourseNature='{cbxCourseNature.Text.Trim()}' ", dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
+                return;
+            }
+            if (cbxOpenCourseTime.SelectedIndex != -1 && cbxCourseNature.SelectedIndex != -1 && txtCourseName.Text == "" && cbxDisplayWay.SelectedIndex == 1)//开课时间和课程性质最好成绩
+            {
+                string commandText5 = $@"SELECT TOP 1 * FROM tb_StudentScore WHERE StudentNo='{StudentNo}'
+                                         AND CourseNature='{cbxCourseNature.Text.Trim()}' AND StartTerm='{cbxOpenCourseTime.Text.Trim()}' ORDER BY Grade DESC";
+                sqlHelper.QuickFill(commandText5, dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
+                return;
+            }
+            if (cbxOpenCourseTime.SelectedIndex == -1 && cbxCourseNature.SelectedIndex == -1 && txtCourseName.Text != "") //课程名称
+            {
+                sqlHelper.QuickFill(commandText += $@" AND CourseName='{txtCourseName.Text.Trim()}'",dgvDisplayGrade);
+                tcStudentAchievement.SelectedTab = tcStudentAchievement.TabPages[3];
+                return;
+            }
+            
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)//回复公告
+        private void btnSubmit_Click(object sender, EventArgs e)          //回复公告
         {
             String Number = this.dgvNotice.CurrentRow.Cells["No"].Value.ToString();
             string commandText = $@"UPDATE tb_NoticeAndMessageDetails
@@ -907,7 +944,7 @@ namespace Example
             }
             if (status2 == "已读" && status1 != "")
             {
-                MessageBox.Show("该留言已读，已回复！");           //????为什么在为空时也会弹出信息。
+                MessageBox.Show("该留言已读，已回复！");           
             }
             if (status2 == "已读" && status1 == "")
             {
@@ -915,7 +952,7 @@ namespace Example
             }
         }
 
-        private void btnReplyMessage_Click(object sender, EventArgs e)//回复留言
+        private void btnReplyMessage_Click(object sender, EventArgs e)      //回复留言
         {
             String Number = this.dgvMessage.CurrentRow.Cells["No"].Value.ToString();
             string commandText = $@"UPDATE tb_NoticeAndMessageDetails
@@ -927,48 +964,75 @@ namespace Example
             MessageBox.Show("回复成功！");
         }
 
-        private void btnChooseCourse_Click(object sender, EventArgs e)
+        private void LoadAllCourse()          //载入选课
+        {
+            string commandText1 = $@"SELECT PEC.No,PEC.CourseName,PEC.CourseSeries,PEC.Period,PEC.Credit,PEC.Teachers,PEC.ChooseLimitedNumber,
+	                                                     IIF(SS.Grade IS NOT NULL,'不可退','可退') AS Status
+	                                                     FROM tb_PublicElectiveCourse AS PEC LEFT
+	                                                     JOIN tb_StudentScore AS SS 
+	                                                     ON SS.CourseNo=PEC.No 
+	                                                     WHERE PEC.Status='已选' ";
+            SqlHelper sqlHelper1 = new SqlHelper();
+            sqlHelper1.QuickFill(commandText1, dgvStudentNotChooseCourse);
+            string commandText2 = $@"SELECT No,CourseName,CourseSeries,Period,Credit,Teachers,ChooseLimitedNumber,Status FROM tb_PublicElectiveCourse ";
+            SqlHelper sqlHelper2 = new SqlHelper();
+            sqlHelper2.QuickFill(commandText2, dgvStudentChooseCourse);
+        }
+
+        private void btnChooseCourse_Click(object sender, EventArgs e)       //进行选课
         {
             string status = this.dgvStudentChooseCourse.CurrentRow.Cells["Status"].Value.ToString();
-            string status2 = this.dgvStudentChooseCourse.CurrentRow.Cells["No"].Value.ToString();
+            string CurrentCourseNo = this.dgvStudentChooseCourse.CurrentRow.Cells["No"].Value.ToString();
             if (status == "已选")
             {
                 MessageBox.Show("该课程已选，不能重复选课！");
+                return;
             }
             if (status == "未选")
             {
                 string commandText = $@"UPDATE tb_PublicElectiveCourse
                                           SET Status='已选'
-                                          WHERE No='{status2.ToString()}'";
+                                          WHERE No='{CurrentCourseNo }'";
+
                 SqlHelper sqlHelper = new SqlHelper();
                 sqlHelper.QuickFill(commandText, dgvStudentChooseCourse);
+                sqlHelper.QuickSubmit($"INSERT tb_StudentScore(StudentNo,CourseNo) VALUES('{StudentNo}','{CurrentCourseNo }');");
                 MessageBox.Show("选课成功！");
-                string commandText2 = $@"SELECT * FROM tb_PublicElectiveCourse";
-                SqlHelper sqlHelper2 = new SqlHelper();
-                sqlHelper2.QuickFill(commandText2, dgvStudentChooseCourse);
+                this.LoadAllCourse();
+
             }
         }
 
-        private void btnReturnChooseCourse_Click(object sender, EventArgs e)
+        private void btnReturnChooseCourse_Click(object sender, EventArgs e)       //进行退选
         {
-            string status = this.dgvStudentChooseCourse.CurrentRow.Cells["Status"].Value.ToString();
-            string status2 = this.dgvStudentChooseCourse.CurrentRow.Cells["No"].Value.ToString();
-            if (status == "未选")
+            string status = this.dgvStudentNotChooseCourse.CurrentRow.Cells["Status"].Value.ToString();
+            string currentCourseNumber = this.dgvStudentNotChooseCourse.CurrentRow.Cells["No"].Value.ToString();
+            if (status == "不可退")
             {
-                MessageBox.Show("您并未选修该课程！");
+                MessageBox.Show("该课已有成绩，不可退选！");
+                return;
             }
-            if (status == "已选")
+            if (status == "可退")
             {
                 string commandText = $@"UPDATE tb_PublicElectiveCourse
                                           SET Status='未选'
-                                          WHERE No='{status2.ToString()}'";
+                                          WHERE No='{currentCourseNumber.ToString()}'";
                 SqlHelper sqlHelper = new SqlHelper();
                 sqlHelper.QuickFill(commandText, dgvStudentChooseCourse);
+                sqlHelper.QuickSubmit($"DELETE tb_StudentScore WHERE StudentNo='{StudentNo}' AND CourseNo='{currentCourseNumber}';");
                 MessageBox.Show("退选成功！");
-                string commandText2 = $@"SELECT * FROM tb_PublicElectiveCourse";
-                SqlHelper sqlHelper2 = new SqlHelper();
-                sqlHelper2.QuickFill(commandText2, dgvStudentChooseCourse);
+                this.LoadAllCourse();
             }
+        }
+
+        private void tcp_TrainingAndManagement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcp_StudentAchievement_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

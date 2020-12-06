@@ -143,12 +143,6 @@
             this.txtStuName = new System.Windows.Forms.TextBox();
             this.txtStuNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.dgvRankTest = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -210,6 +204,12 @@
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.lblTerm = new System.Windows.Forms.Label();
             this.dgvLessonInformation = new System.Windows.Forms.DataGridView();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.dgvStudentNotChooseCourse = new System.Windows.Forms.DataGridView();
+            this.label35 = new System.Windows.Forms.Label();
+            this.btnReturnChooseCourse = new System.Windows.Forms.Button();
+            this.btnChooseCourse = new System.Windows.Forms.Button();
+            this.dgvStudentChooseCourse = new System.Windows.Forms.DataGridView();
             this.gpbTextbookManagement = new System.Windows.Forms.GroupBox();
             this.button_StudentTextbookPick = new System.Windows.Forms.Button();
             this.button_TextbookAccountingInformation = new System.Windows.Forms.Button();
@@ -270,11 +270,6 @@
             this.button_yishouliuyan = new System.Windows.Forms.Button();
             this.gerenxinxi = new System.Windows.Forms.Label();
             this.tb_NoticeAndMessageTableAdapter = new Example.EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter();
-            this.tabPage20 = new System.Windows.Forms.TabPage();
-            this.dgvStudentChooseCourse = new System.Windows.Forms.DataGridView();
-            this.btnChooseCourse = new System.Windows.Forms.Button();
-            this.btnReturnChooseCourse = new System.Windows.Forms.Button();
-            this.label35 = new System.Windows.Forms.Label();
             this.tpc_FirstManageSystem.SuspendLayout();
             this.tcp_FirstPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMyInfo)).BeginInit();
@@ -312,6 +307,9 @@
             this.tabPage18.SuspendLayout();
             this.tabPage15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLessonInformation)).BeginInit();
+            this.tabPage20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentNotChooseCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentChooseCourse)).BeginInit();
             this.gpbTextbookManagement.SuspendLayout();
             this.gpbPickCourseManagement.SuspendLayout();
             this.gpbMyClassSchedule.SuspendLayout();
@@ -322,8 +320,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).BeginInit();
-            this.tabPage20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentChooseCourse)).BeginInit();
             this.SuspendLayout();
             // 
             // tpc_FirstManageSystem
@@ -465,7 +461,7 @@
             // 
             this.button_ReceivedNotice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_ReceivedNotice.BackgroundImage")));
             this.button_ReceivedNotice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button_ReceivedNotice.Location = new System.Drawing.Point(895, 224);
+            this.button_ReceivedNotice.Location = new System.Drawing.Point(904, 235);
             this.button_ReceivedNotice.Name = "button_ReceivedNotice";
             this.button_ReceivedNotice.Size = new System.Drawing.Size(457, 210);
             this.button_ReceivedNotice.TabIndex = 1;
@@ -596,10 +592,10 @@
             this.tpMessage.Controls.Add(this.btnAnswerMessage);
             this.tpMessage.Controls.Add(this.btnReadMessage);
             this.tpMessage.Controls.Add(this.dgvMessage);
-            this.tpMessage.Location = new System.Drawing.Point(4, 28);
+            this.tpMessage.Location = new System.Drawing.Point(4, 5);
             this.tpMessage.Name = "tpMessage";
             this.tpMessage.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMessage.Size = new System.Drawing.Size(931, 582);
+            this.tpMessage.Size = new System.Drawing.Size(931, 605);
             this.tpMessage.TabIndex = 1;
             this.tpMessage.Text = "已收留言";
             this.tpMessage.UseVisualStyleBackColor = true;
@@ -653,10 +649,10 @@
             this.tpStudentInfo.Controls.Add(this.txt_PasswordProtectProblem2);
             this.tpStudentInfo.Controls.Add(this.txt_Answer1);
             this.tpStudentInfo.Controls.Add(this.txt_StudentNo);
-            this.tpStudentInfo.Location = new System.Drawing.Point(4, 28);
+            this.tpStudentInfo.Location = new System.Drawing.Point(4, 5);
             this.tpStudentInfo.Name = "tpStudentInfo";
             this.tpStudentInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpStudentInfo.Size = new System.Drawing.Size(931, 582);
+            this.tpStudentInfo.Size = new System.Drawing.Size(931, 605);
             this.tpStudentInfo.TabIndex = 2;
             this.tpStudentInfo.Text = "修改个人信息";
             this.tpStudentInfo.UseVisualStyleBackColor = true;
@@ -801,10 +797,10 @@
             this.tpPassword.Controls.Add(this.lbl_ProviousPassword);
             this.tpPassword.Controls.Add(this.txt_StudentNumber);
             this.tpPassword.Controls.Add(this.lbl_StudentNumber);
-            this.tpPassword.Location = new System.Drawing.Point(4, 28);
+            this.tpPassword.Location = new System.Drawing.Point(4, 5);
             this.tpPassword.Name = "tpPassword";
             this.tpPassword.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPassword.Size = new System.Drawing.Size(931, 582);
+            this.tpPassword.Size = new System.Drawing.Size(931, 605);
             this.tpPassword.TabIndex = 3;
             this.tpPassword.Text = "修改密码";
             this.tpPassword.UseVisualStyleBackColor = true;
@@ -897,10 +893,10 @@
             // 
             // eachingCalender
             // 
-            this.eachingCalender.Location = new System.Drawing.Point(4, 28);
+            this.eachingCalender.Location = new System.Drawing.Point(4, 5);
             this.eachingCalender.Name = "eachingCalender";
             this.eachingCalender.Padding = new System.Windows.Forms.Padding(3);
-            this.eachingCalender.Size = new System.Drawing.Size(931, 582);
+            this.eachingCalender.Size = new System.Drawing.Size(931, 605);
             this.eachingCalender.TabIndex = 4;
             this.eachingCalender.Text = "教学周历查看";
             this.eachingCalender.UseVisualStyleBackColor = true;
@@ -911,10 +907,10 @@
             this.tabPage19.Controls.Add(this.txtReplay);
             this.tabPage19.Controls.Add(this.label34);
             this.tabPage19.Controls.Add(this.btnReplyNotice);
-            this.tabPage19.Location = new System.Drawing.Point(4, 28);
+            this.tabPage19.Location = new System.Drawing.Point(4, 5);
             this.tabPage19.Name = "tabPage19";
             this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage19.Size = new System.Drawing.Size(931, 582);
+            this.tabPage19.Size = new System.Drawing.Size(931, 605);
             this.tabPage19.TabIndex = 5;
             this.tabPage19.Text = "tabPage19";
             this.tabPage19.UseVisualStyleBackColor = true;
@@ -1080,16 +1076,11 @@
             this.tcp_StudentAchievement.TabIndex = 2;
             this.tcp_StudentAchievement.Text = "学籍成绩";
             this.tcp_StudentAchievement.UseVisualStyleBackColor = true;
+            this.tcp_StudentAchievement.Click += new System.EventHandler(this.tcp_StudentAchievement_Click);
             // 
             // tcStudentAchievement
             // 
             this.tcStudentAchievement.Controls.Add(this.tabPage1);
-            this.tcStudentAchievement.Controls.Add(this.tabPage2);
-            this.tcStudentAchievement.Controls.Add(this.tabPage3);
-            this.tcStudentAchievement.Controls.Add(this.tabPage6);
-            this.tcStudentAchievement.Controls.Add(this.tabPage7);
-            this.tcStudentAchievement.Controls.Add(this.tabPage8);
-            this.tcStudentAchievement.Controls.Add(this.tabPage9);
             this.tcStudentAchievement.Controls.Add(this.tabPage10);
             this.tcStudentAchievement.Controls.Add(this.tabPage11);
             this.tcStudentAchievement.Controls.Add(this.tabPage12);
@@ -1489,66 +1480,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "学籍卡片";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1092, 610);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1092, 610);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 28);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1092, 610);
-            this.tabPage6.TabIndex = 3;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 28);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1092, 610);
-            this.tabPage7.TabIndex = 4;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 28);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1092, 610);
-            this.tabPage8.TabIndex = 5;
-            this.tabPage8.Text = "tabPage8";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 28);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1092, 610);
-            this.tabPage9.TabIndex = 6;
-            this.tabPage9.Text = "tabPage9";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
             // tabPage10
             // 
             this.tabPage10.Controls.Add(this.dgvRankTest);
@@ -1898,6 +1829,7 @@
             this.tcp_TrainingAndManagement.TabIndex = 3;
             this.tcp_TrainingAndManagement.Text = "培养管理";
             this.tcp_TrainingAndManagement.UseVisualStyleBackColor = true;
+            this.tcp_TrainingAndManagement.Click += new System.EventHandler(this.tcp_TrainingAndManagement_Click);
             // 
             // tcTrainingAndManagement
             // 
@@ -2206,6 +2138,68 @@
             this.dgvLessonInformation.RowTemplate.Height = 30;
             this.dgvLessonInformation.Size = new System.Drawing.Size(759, 364);
             this.dgvLessonInformation.TabIndex = 0;
+            // 
+            // tabPage20
+            // 
+            this.tabPage20.Controls.Add(this.dgvStudentNotChooseCourse);
+            this.tabPage20.Controls.Add(this.label35);
+            this.tabPage20.Controls.Add(this.btnReturnChooseCourse);
+            this.tabPage20.Controls.Add(this.btnChooseCourse);
+            this.tabPage20.Controls.Add(this.dgvStudentChooseCourse);
+            this.tabPage20.Location = new System.Drawing.Point(4, 28);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(1025, 831);
+            this.tabPage20.TabIndex = 5;
+            this.tabPage20.Text = "tabPage20";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // dgvStudentNotChooseCourse
+            // 
+            this.dgvStudentNotChooseCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudentNotChooseCourse.Location = new System.Drawing.Point(50, 353);
+            this.dgvStudentNotChooseCourse.Name = "dgvStudentNotChooseCourse";
+            this.dgvStudentNotChooseCourse.RowTemplate.Height = 30;
+            this.dgvStudentNotChooseCourse.Size = new System.Drawing.Size(758, 212);
+            this.dgvStudentNotChooseCourse.TabIndex = 4;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(50, 32);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(80, 18);
+            this.label35.TabIndex = 3;
+            this.label35.Text = "选课管理";
+            // 
+            // btnReturnChooseCourse
+            // 
+            this.btnReturnChooseCourse.Location = new System.Drawing.Point(733, 295);
+            this.btnReturnChooseCourse.Name = "btnReturnChooseCourse";
+            this.btnReturnChooseCourse.Size = new System.Drawing.Size(75, 35);
+            this.btnReturnChooseCourse.TabIndex = 2;
+            this.btnReturnChooseCourse.Text = "退选↓";
+            this.btnReturnChooseCourse.UseVisualStyleBackColor = true;
+            this.btnReturnChooseCourse.Click += new System.EventHandler(this.btnReturnChooseCourse_Click);
+            // 
+            // btnChooseCourse
+            // 
+            this.btnChooseCourse.Location = new System.Drawing.Point(50, 295);
+            this.btnChooseCourse.Name = "btnChooseCourse";
+            this.btnChooseCourse.Size = new System.Drawing.Size(75, 35);
+            this.btnChooseCourse.TabIndex = 1;
+            this.btnChooseCourse.Text = "选课↑";
+            this.btnChooseCourse.UseVisualStyleBackColor = true;
+            this.btnChooseCourse.Click += new System.EventHandler(this.btnChooseCourse_Click);
+            // 
+            // dgvStudentChooseCourse
+            // 
+            this.dgvStudentChooseCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudentChooseCourse.Location = new System.Drawing.Point(50, 66);
+            this.dgvStudentChooseCourse.Name = "dgvStudentChooseCourse";
+            this.dgvStudentChooseCourse.RowTemplate.Height = 30;
+            this.dgvStudentChooseCourse.Size = new System.Drawing.Size(758, 208);
+            this.dgvStudentChooseCourse.TabIndex = 0;
             // 
             // gpbTextbookManagement
             // 
@@ -2811,58 +2805,6 @@
             // 
             this.tb_NoticeAndMessageTableAdapter.ClearBeforeFill = true;
             // 
-            // tabPage20
-            // 
-            this.tabPage20.Controls.Add(this.label35);
-            this.tabPage20.Controls.Add(this.btnReturnChooseCourse);
-            this.tabPage20.Controls.Add(this.btnChooseCourse);
-            this.tabPage20.Controls.Add(this.dgvStudentChooseCourse);
-            this.tabPage20.Location = new System.Drawing.Point(4, 28);
-            this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage20.Size = new System.Drawing.Size(1025, 831);
-            this.tabPage20.TabIndex = 5;
-            this.tabPage20.Text = "tabPage20";
-            this.tabPage20.UseVisualStyleBackColor = true;
-            // 
-            // dgvStudentChooseCourse
-            // 
-            this.dgvStudentChooseCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudentChooseCourse.Location = new System.Drawing.Point(50, 66);
-            this.dgvStudentChooseCourse.Name = "dgvStudentChooseCourse";
-            this.dgvStudentChooseCourse.RowTemplate.Height = 30;
-            this.dgvStudentChooseCourse.Size = new System.Drawing.Size(857, 332);
-            this.dgvStudentChooseCourse.TabIndex = 0;
-            // 
-            // btnChooseCourse
-            // 
-            this.btnChooseCourse.Location = new System.Drawing.Point(50, 422);
-            this.btnChooseCourse.Name = "btnChooseCourse";
-            this.btnChooseCourse.Size = new System.Drawing.Size(75, 35);
-            this.btnChooseCourse.TabIndex = 1;
-            this.btnChooseCourse.Text = "选课";
-            this.btnChooseCourse.UseVisualStyleBackColor = true;
-            this.btnChooseCourse.Click += new System.EventHandler(this.btnChooseCourse_Click);
-            // 
-            // btnReturnChooseCourse
-            // 
-            this.btnReturnChooseCourse.Location = new System.Drawing.Point(831, 422);
-            this.btnReturnChooseCourse.Name = "btnReturnChooseCourse";
-            this.btnReturnChooseCourse.Size = new System.Drawing.Size(75, 35);
-            this.btnReturnChooseCourse.TabIndex = 2;
-            this.btnReturnChooseCourse.Text = "退选";
-            this.btnReturnChooseCourse.UseVisualStyleBackColor = true;
-            this.btnReturnChooseCourse.Click += new System.EventHandler(this.btnReturnChooseCourse_Click);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(50, 32);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(80, 18);
-            this.label35.TabIndex = 3;
-            this.label35.Text = "选课管理";
-            // 
             // frm_SchoolSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -2920,6 +2862,10 @@
             this.tabPage15.ResumeLayout(false);
             this.tabPage15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLessonInformation)).EndInit();
+            this.tabPage20.ResumeLayout(false);
+            this.tabPage20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentNotChooseCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentChooseCourse)).EndInit();
             this.gpbTextbookManagement.ResumeLayout(false);
             this.gpbPickCourseManagement.ResumeLayout(false);
             this.gpbMyClassSchedule.ResumeLayout(false);
@@ -2932,9 +2878,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).EndInit();
-            this.tabPage20.ResumeLayout(false);
-            this.tabPage20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentChooseCourse)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3070,18 +3013,12 @@
         private System.Windows.Forms.DataGridView dgvMessage;
         private System.Windows.Forms.TabControl tcStudentAchievement;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox gpbMyGrade;
         private System.Windows.Forms.GroupBox gpbStudentStatusManage;
         private System.Windows.Forms.TextBox txtMyNumber;
         private System.Windows.Forms.TextBox txtMyName;
         private System.Windows.Forms.PictureBox pbMyInfo;
         private System.Windows.Forms.Button button_TestGrade;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.TabPage tabPage12;
@@ -3186,6 +3123,7 @@
         private System.Windows.Forms.Button btnReturnChooseCourse;
         private System.Windows.Forms.Button btnChooseCourse;
         private System.Windows.Forms.DataGridView dgvStudentChooseCourse;
+        private System.Windows.Forms.DataGridView dgvStudentNotChooseCourse;
     }
 }
 
