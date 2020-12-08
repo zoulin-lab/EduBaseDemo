@@ -447,8 +447,7 @@ namespace Example
 
         private void button_DelayrdExamApplication_Click(object sender, EventArgs e)
         {
-            //我的申请 wo的申请 = new 我的申请();
-            //wo的申请.ShowDialog();
+            tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[0];
         }
 
         private void button_ExemptApplication_Click(object sender, EventArgs e)
@@ -1033,6 +1032,85 @@ namespace Example
         private void tcp_StudentAchievement_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDeferredinquiry_Click(object sender, EventArgs e)//查询缓考申请
+        {
+            if (cbxTerm.SelectedIndex != -1 && cbxCheck.SelectedIndex == -1 && txtCourseNameOrNo.Text == "") //查学年学期
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickFill($@" SELECT  ROW_NUMBER()OVER(ORDER BY C.No) AS Number,YAT.Name,C.No,C.Name,C.TotalPeriod,C.Credit,ET.Name,
+                                  DEA.GradeLogo,DEA.Reason,DEA.CheckStatus,DEA.ApplicateTime
+                                  FROM tb_DelayrdExamApplication AS DEA
+                                  JOIN tb_Course AS C ON DEA.CourseNo=C.No
+                                  JOIN tb_ExamType AS ET ON DEA.ExamTypeNo=ET.No
+                                  JOIN tb_YearAndTerm AS YAT ON DEA.YearAndTermNo=YAT.No
+                                  WHERE DEA.StudentNo='{StudentNo}'AND YAT.Name='{cbxTerm.SelectedItem.ToString()}'",
+                                  dgvDelayrdExamApplication);
+                tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
+                return;
+            }
+            if (cbxTerm.SelectedIndex == -1 && cbxCheck.SelectedIndex != -1 && txtCourseNameOrNo.Text == "")//查状态
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickFill($@" SELECT  ROW_NUMBER()OVER(ORDER BY C.No) AS Number,YAT.Name,C.No,C.Name,C.TotalPeriod,C.Credit,ET.Name,
+                                  DEA.GradeLogo,DEA.Reason,DEA.CheckStatus,DEA.ApplicateTime
+                                  FROM tb_DelayrdExamApplication AS DEA
+                                  JOIN tb_Course AS C ON DEA.CourseNo=C.No
+                                  JOIN tb_ExamType AS ET ON DEA.ExamTypeNo=ET.No
+                                  JOIN tb_YearAndTerm AS YAT ON DEA.YearAndTermNo=YAT.No
+                                  WHERE DEA.StudentNo='{StudentNo}' AND DEA.CheckStatus='{cbxCheck.SelectedItem.ToString()}'", 
+                                  dgvDelayrdExamApplication);
+                tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
+                return;
+            }
+            if (cbxTerm.SelectedIndex != -1 && cbxCheck.SelectedIndex != -1 && txtCourseNameOrNo.Text == "")//查学年学期和状态
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickFill($@" SELECT  ROW_NUMBER()OVER(ORDER BY C.No) AS Number,YAT.Name,C.No,C.Name,C.TotalPeriod,C.Credit,ET.Name,
+                                  DEA.GradeLogo,DEA.Reason,DEA.CheckStatus,DEA.ApplicateTime
+                                  FROM tb_DelayrdExamApplication AS DEA
+                                  JOIN tb_Course AS C ON DEA.CourseNo=C.No
+                                  JOIN tb_ExamType AS ET ON DEA.ExamTypeNo=ET.No
+                                  JOIN tb_YearAndTerm AS YAT ON DEA.YearAndTermNo=YAT.No
+                                  WHERE DEA.StudentNo='{StudentNo}' AND DEA.CheckStatus='{cbxCheck.SelectedItem.ToString()}'
+                                  AND YAT.Name='{cbxTerm.SelectedItem.ToString()}'", dgvDelayrdExamApplication);
+                tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
+                return;
+            }
+            if (cbxTerm.SelectedIndex == -1 && cbxCheck.SelectedIndex == -1 && txtCourseNameOrNo.Text != "")//查课程号或名称
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickFill($@" SELECT  ROW_NUMBER()OVER(ORDER BY C.No) AS Number,YAT.Name,C.No,C.Name,C.TotalPeriod,C.Credit,ET.Name,
+                                  DEA.GradeLogo,DEA.Reason,DEA.CheckStatus,DEA.ApplicateTime
+                                  FROM tb_DelayrdExamApplication AS DEA
+                                  JOIN tb_Course AS C ON DEA.CourseNo=C.No
+                                  JOIN tb_ExamType AS ET ON DEA.ExamTypeNo=ET.No
+                                  JOIN tb_YearAndTerm AS YAT ON DEA.YearAndTermNo=YAT.No
+                                  WHERE DEA.StudentNo='{StudentNo}' AND C.Name='{txtCourseNameOrNo.Text}' OR C.No='{txtCourseNameOrNo.Text}'",
+                                  dgvDelayrdExamApplication);
+                tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
+                return;
+            }
+            if (cbxTerm.SelectedIndex == -1 && cbxCheck.SelectedIndex == -1 && txtCourseNameOrNo.Text == "")//全部显示
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickFill($@" SELECT  ROW_NUMBER()OVER(ORDER BY C.No) AS Number,YAT.Name,C.No,C.Name,C.TotalPeriod,C.Credit,ET.Name,
+                                  DEA.GradeLogo,DEA.Reason,DEA.CheckStatus,DEA.ApplicateTime
+                                  FROM tb_DelayrdExamApplication AS DEA
+                                  JOIN tb_Course AS C ON DEA.CourseNo=C.No
+                                  JOIN tb_ExamType AS ET ON DEA.ExamTypeNo=ET.No
+                                  JOIN tb_YearAndTerm AS YAT ON DEA.YearAndTermNo=YAT.No
+                                  WHERE DEA.StudentNo='{StudentNo}'",
+                                  dgvDelayrdExamApplication);
+                tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
+                return;
+            }
+        }
+
+        private void btnTestReturn_Click(object sender, EventArgs e)
+        {
+            tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[0];
         }
     }
 }
