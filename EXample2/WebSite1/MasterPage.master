@@ -5,62 +5,78 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>FoodDelivery</title>
+    <title></title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="Style/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="Style/Style.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .auto-style1 {
-            margin-top: 0px;
+            width: 99%;
+            background-color:#f6f9f9;
+            margin:7px;
+            text-align:left;
+            padding-left:0px;
+        }
+        .auto-style4 {
+            margin-left: 0px;
+        }
+        .auto-style5 {
+            width: 146px;
+            background-color: #BDB7AC;
+        }
+        .auto-style6 {
+            width: 148px;
+            background-color: #BDB7AC;
+            
+        }
+        .auto-style7 {
+            width: 134px;
+            background-color: #BDB7AC;
+        }
+        .auto-style8 {
+            width: 831px;
+            background-color: #ffffff;
         }
     </style>
 </head>
-<body>
-    <form id="form1" runat="server" >
-          <header class ="header">
-           <asp:Image ID="imgLogo" runat="server" ImgeUrl="~/Images/logo.gif" ImageUrl="~/Images/外卖员.jpg" Height="72px" Width="157px" CssClass="auto-style1"/>
-              <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/1.logo.jpg" CssClass="auto-style1" Height="44px" Width="326px" />
-           <ul class ="nav nav-pills">
-               <li class ="navDark">
-                   <asp:LinkButton ID="lnkbtnDefault" ForeColor="White" runat="server" CausesValidation="False" PostBackUrl="~/Default.aspx">首页</asp:LinkButton>
-               </li>
-               <li class ="navDark">
-                   <asp:LinkButton ID="lnkbtnRegister" ForeColor="White" runat="server" CausesValidation="False" OnClick ="lnkbtnRegister_Click">注册</asp:LinkButton>
-               </li>
-               <li class ="navDark">
-                   <asp:LinkButton ID="lnkbtnLogin" ForeColor="White" runat="server" CausesValidation="False" OnClick ="lnkbtnLogin_Click">登录</asp:LinkButton>
-               </li>
-               <li class ="navDark">
-                   <asp:LinkButton ID="lnkbtnCart" ForeColor="White" runat="server" CausesValidation="False" PostBackUrl="~/ShopCart.aspx">购物车</asp:LinkButton>
-               </li>
-               <li class ="navDark">
-                   <asp:LinkButton ID="lnkbtnSiteMap" ForeColor="White" runat="server" CausesValidation="False" PostBackUrl="~/Map.aspx">网站地图</asp:LinkButton>
-               </li>
-            </ul>
-           <div class ="status" >
-               <asp:Label ID="lblWelcome" runat="server" Text="您还未登录！"></asp:Label>
-               <asp:LinkButton ID="lnkbtnPwd" runat="server" CausesValidation="False" ForeColor="White" PostBackUrl="~/ChangePwd.aspx" Visible="False">密码修改</asp:LinkButton>
-               <asp:LinkButton ID="lnkbtnManange" runat="server" ForeColor="White" PostBackUrl="~/Admin/Default.aspx" Visible="False">系统管理</asp:LinkButton>
-               <asp:LinkButton ID="lnkbtnOrder" runat="server" CausesValidation="False" ForeColor="White" PostBackUrl="~/OrderList.aspx" Visible="False">购物记录</asp:LinkButton>
-               <asp:LinkButton ID="lnkbtnLogout" runat="server" CausesValidation="False" ForeColor="White" Visible="False" OnClick ="lnkbtnLogout_Click">退出登录</asp:LinkButton>
-               </div>
-       </header>
-       <nav class ="sitemap">
-           您的位置：
-       </nav>
-        <section class ="mainbody">
-            <div class="leftside">
-                <asp:ContentPlaceHolder ID="cphLeft" runat="server"></asp:ContentPlaceHolder>
-            </div>
-            <div class="rightside">
-                <asp:ContentPlaceHolder ID="cphRight" runat="server"></asp:ContentPlaceHolder>
-            </div>
-            <div class="clear"></div>
-        </section>
-        <footer class="footer">
-            服务于福建中医药大学学生
-        </footer>
+<body style=" background-image: url(http://localhost:54750/Images/背景.jpg)">
+    <form id="form1" runat="server">
+        <header>
+            <table class="auto-style1">
+            <tr>
+                <td class="auto-style8" rowspan="2">
+            <asp:Image ID="Image2" runat="server" Height="101px" ImageUrl="~/Images/Logo.jpg" CssClass="auto-style4" Width="505px" />
+                </td>
+                <td class="auto-style6">
+                     <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#0099CC" Style="text-decoration:none">首页</asp:LinkButton>
+                </td>
+                <td class="auto-style7">
+                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">注册</asp:LinkButton>
+                </td>
+                <td class="auto-style5">
+                     <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">购物车</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style6">
+                     <asp:LinkButton ID="LinkButton7" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">功能选择</asp:LinkButton>
+                </td>
+                <td class="auto-style7">
+                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">登录</asp:LinkButton>
+                </td>
+                <td class="auto-style5">
+                     <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">已购信息</asp:LinkButton>      
+                </td>
+            </tr>
+        </table>
+        </header>   
+        <div style="float:left;width:600px">
+        <asp:ContentPlaceHolder ID="cphLeft" runat="server">
+        </asp:ContentPlaceHolder>
+        </div>
+        <div style="float:right;width:600px">
+        <asp:ContentPlaceHolder ID="cphRight" runat="server">
+        </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>

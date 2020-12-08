@@ -2,16 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
-        .auto-style1 {
-            height: 179px;
-        }
         .auto-style2 {
-            height: 165px;
+            background-color:#f7d5b4;
+            height: 242px;
+            width: 288px;
+            margin-left: 245px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
-
+    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/外卖图.jpg" Height="241px" Width="483px" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphRight1" Runat="Server" >
     <table style="border-collapse: collapse;" class="auto-style2">
     <tr>
       <td class="tdcenter" colspan="2">登录</td>
@@ -46,9 +48,6 @@
         <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
       </td>
     </tr>
-  </table>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="cphRight" Runat="Server">
-    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/外卖图.jpg" Height="166px" Width="552px" />
+  </table>    
 </asp:Content>
 

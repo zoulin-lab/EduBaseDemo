@@ -3,6 +3,7 @@
     margin: 0px ;
     background-color: #fce0c3;
     text-align: left ;
+    background-image:url(../Images/7.jpg)
 }
 form {
     margin-top: 3px; 
@@ -71,5 +72,5 @@ form {
     width: 224px;
     float: left;
     padding: 2px;
-    background-color: #f2f3f7;
+    background-color: #e8bf94;
 }
