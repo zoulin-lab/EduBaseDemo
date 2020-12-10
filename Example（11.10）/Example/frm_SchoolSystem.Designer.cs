@@ -234,18 +234,35 @@
             this.button_TeachingProcessInquire = new System.Windows.Forms.Button();
             this.button_CarryPlan = new System.Windows.Forms.Button();
             this.tcp_TestRegistration = new System.Windows.Forms.TabPage();
-            this.button_GraduationReport = new System.Windows.Forms.Button();
+            this.tcTestRegistration = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnDeferredinquiry = new System.Windows.Forms.Button();
+            this.txtCourseNameOrNo = new System.Windows.Forms.TextBox();
+            this.cbxCheck = new System.Windows.Forms.ComboBox();
+            this.cbxTerm = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnApplicate = new System.Windows.Forms.Button();
+            this.btnTestReturn = new System.Windows.Forms.Button();
+            this.dgvDelayrdExamApplication = new System.Windows.Forms.DataGridView();
+            this.gpbGraduationProject = new System.Windows.Forms.GroupBox();
             this.button_StudentPickTopic = new System.Windows.Forms.Button();
-            this.button_MakeupTheRegistrationForTheCourse = new System.Windows.Forms.Button();
-            this.button_QingTestRegistration = new System.Windows.Forms.Button();
-            this.button_MakeupTestRegistration = new System.Windows.Forms.Button();
+            this.button_GraduationReport = new System.Windows.Forms.Button();
+            this.gpbGradeManagement = new System.Windows.Forms.GroupBox();
             this.button_MySocialTestRegistration = new System.Windows.Forms.Button();
-            this.button_AdvanceTestInquire = new System.Windows.Forms.Button();
-            this.button_MidtermTestInquire = new System.Windows.Forms.Button();
+            this.button_MakeupTestRegistration = new System.Windows.Forms.Button();
+            this.button_QingTestRegistration = new System.Windows.Forms.Button();
+            this.button_MakeupTheRegistrationForTheCourse = new System.Windows.Forms.Button();
+            this.gpbMyTest = new System.Windows.Forms.GroupBox();
             this.button_TestArrangementInquire = new System.Windows.Forms.Button();
-            this.button_ExemptionApplication = new System.Windows.Forms.Button();
-            this.button_ExemptApplication = new System.Windows.Forms.Button();
+            this.button_MidtermTestInquire = new System.Windows.Forms.Button();
+            this.button_AdvanceTestInquire = new System.Windows.Forms.Button();
+            this.gpbMyApplication = new System.Windows.Forms.GroupBox();
             this.button_DelayrdExamApplication = new System.Windows.Forms.Button();
+            this.button_ExemptApplication = new System.Windows.Forms.Button();
+            this.button_ExemptionApplication = new System.Windows.Forms.Button();
             this.tcp_InternshipAndPracticiialTraining = new System.Windows.Forms.TabPage();
             this.button_PracticeInformationInquire = new System.Windows.Forms.Button();
             this.button_InnovationCreditInquire = new System.Windows.Forms.Button();
@@ -266,23 +283,20 @@
             this.button_yishouliuyan = new System.Windows.Forms.Button();
             this.gerenxinxi = new System.Windows.Forms.Label();
             this.tb_NoticeAndMessageTableAdapter = new Example.EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter();
-            this.gpbMyApplication = new System.Windows.Forms.GroupBox();
-            this.gpbMyTest = new System.Windows.Forms.GroupBox();
-            this.gpbGradeManagement = new System.Windows.Forms.GroupBox();
-            this.gpbGraduationProject = new System.Windows.Forms.GroupBox();
-            this.tcTestRegistration = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.cbxTerm = new System.Windows.Forms.ComboBox();
-            this.cbxCheck = new System.Windows.Forms.ComboBox();
-            this.txtCourseNameOrNo = new System.Windows.Forms.TextBox();
-            this.btnDeferredinquiry = new System.Windows.Forms.Button();
-            this.dgvDelayrdExamApplication = new System.Windows.Forms.DataGridView();
-            this.btnTestReturn = new System.Windows.Forms.Button();
-            this.btnApplicate = new System.Windows.Forms.Button();
+            this.btnRecall = new System.Windows.Forms.Button();
+            this.lblReason = new System.Windows.Forms.Label();
+            this.txtReason = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.cbxTestTerm = new System.Windows.Forms.ComboBox();
+            this.cbxTestTermCategory = new System.Windows.Forms.ComboBox();
+            this.btnTestSelect = new System.Windows.Forms.Button();
+            this.btnTestPlanReturn = new System.Windows.Forms.Button();
+            this.dgvTestPlan = new System.Windows.Forms.DataGridView();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tpc_FirstManageSystem.SuspendLayout();
             this.tcp_FirstPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMyInfo)).BeginInit();
@@ -328,19 +342,22 @@
             this.gpbMyClassSchedule.SuspendLayout();
             this.gpbMyTrainMeans.SuspendLayout();
             this.tcp_TestRegistration.SuspendLayout();
+            this.tcTestRegistration.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDelayrdExamApplication)).BeginInit();
+            this.gpbGraduationProject.SuspendLayout();
+            this.gpbGradeManagement.SuspendLayout();
+            this.gpbMyTest.SuspendLayout();
+            this.gpbMyApplication.SuspendLayout();
             this.tcp_InternshipAndPracticiialTraining.SuspendLayout();
             this.tcp_TeachingEvaluation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).BeginInit();
-            this.gpbMyApplication.SuspendLayout();
-            this.gpbMyTest.SuspendLayout();
-            this.gpbGradeManagement.SuspendLayout();
-            this.gpbGraduationProject.SuspendLayout();
-            this.tcTestRegistration.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDelayrdExamApplication)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestPlan)).BeginInit();
             this.SuspendLayout();
             // 
             // tpc_FirstManageSystem
@@ -1860,6 +1877,7 @@
             this.tcTrainingAndManagement.Controls.Add(this.tabPage18);
             this.tcTrainingAndManagement.Controls.Add(this.tabPage15);
             this.tcTrainingAndManagement.Controls.Add(this.tabPage20);
+            this.tcTrainingAndManagement.Controls.Add(this.tabPage8);
             this.tcTrainingAndManagement.Location = new System.Drawing.Point(237, 20);
             this.tcTrainingAndManagement.Name = "tcTrainingAndManagement";
             this.tcTrainingAndManagement.SelectedIndex = 0;
@@ -2481,15 +2499,162 @@
             this.tcp_TestRegistration.Text = "考试报名";
             this.tcp_TestRegistration.UseVisualStyleBackColor = true;
             // 
-            // button_GraduationReport
+            // tcTestRegistration
             // 
-            this.button_GraduationReport.Location = new System.Drawing.Point(17, 69);
-            this.button_GraduationReport.Name = "button_GraduationReport";
-            this.button_GraduationReport.Size = new System.Drawing.Size(143, 35);
-            this.button_GraduationReport.TabIndex = 15;
-            this.button_GraduationReport.Text = "毕业报告";
-            this.button_GraduationReport.UseVisualStyleBackColor = true;
-            this.button_GraduationReport.Click += new System.EventHandler(this.button_GraduationReport_Click);
+            this.tcTestRegistration.Controls.Add(this.tabPage2);
+            this.tcTestRegistration.Controls.Add(this.tabPage3);
+            this.tcTestRegistration.Controls.Add(this.tabPage6);
+            this.tcTestRegistration.Controls.Add(this.tabPage7);
+            this.tcTestRegistration.Location = new System.Drawing.Point(250, 28);
+            this.tcTestRegistration.Name = "tcTestRegistration";
+            this.tcTestRegistration.SelectedIndex = 0;
+            this.tcTestRegistration.Size = new System.Drawing.Size(913, 727);
+            this.tcTestRegistration.TabIndex = 20;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnDeferredinquiry);
+            this.tabPage2.Controls.Add(this.txtCourseNameOrNo);
+            this.tabPage2.Controls.Add(this.cbxCheck);
+            this.tabPage2.Controls.Add(this.cbxTerm);
+            this.tabPage2.Controls.Add(this.label38);
+            this.tabPage2.Controls.Add(this.label37);
+            this.tabPage2.Controls.Add(this.label36);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(905, 695);
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnDeferredinquiry
+            // 
+            this.btnDeferredinquiry.Location = new System.Drawing.Point(329, 277);
+            this.btnDeferredinquiry.Name = "btnDeferredinquiry";
+            this.btnDeferredinquiry.Size = new System.Drawing.Size(90, 34);
+            this.btnDeferredinquiry.TabIndex = 6;
+            this.btnDeferredinquiry.Text = "查询";
+            this.btnDeferredinquiry.UseVisualStyleBackColor = true;
+            this.btnDeferredinquiry.Click += new System.EventHandler(this.btnDeferredinquiry_Click);
+            // 
+            // txtCourseNameOrNo
+            // 
+            this.txtCourseNameOrNo.Location = new System.Drawing.Point(264, 130);
+            this.txtCourseNameOrNo.Name = "txtCourseNameOrNo";
+            this.txtCourseNameOrNo.Size = new System.Drawing.Size(215, 28);
+            this.txtCourseNameOrNo.TabIndex = 5;
+            // 
+            // cbxCheck
+            // 
+            this.cbxCheck.FormattingEnabled = true;
+            this.cbxCheck.Items.AddRange(new object[] {
+            "待审",
+            "审核中",
+            "通过",
+            "不通过"});
+            this.cbxCheck.Location = new System.Drawing.Point(264, 205);
+            this.cbxCheck.Name = "cbxCheck";
+            this.cbxCheck.Size = new System.Drawing.Size(215, 26);
+            this.cbxCheck.TabIndex = 4;
+            this.cbxCheck.Text = "--请选择--";
+            // 
+            // cbxTerm
+            // 
+            this.cbxTerm.FormattingEnabled = true;
+            this.cbxTerm.Items.AddRange(new object[] {
+            "2020-2021-2",
+            "2020-2021-1",
+            "2019-2020-2",
+            "2019-2020-1"});
+            this.cbxTerm.Location = new System.Drawing.Point(264, 47);
+            this.cbxTerm.Name = "cbxTerm";
+            this.cbxTerm.Size = new System.Drawing.Size(215, 26);
+            this.cbxTerm.TabIndex = 3;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(160, 208);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(98, 18);
+            this.label38.TabIndex = 2;
+            this.label38.Text = "审核状态：";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(88, 133);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(170, 18);
+            this.label37.TabIndex = 1;
+            this.label37.Text = "课程（号or名称）：";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(160, 58);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(98, 18);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "学年学期：";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label39);
+            this.tabPage3.Controls.Add(this.txtReason);
+            this.tabPage3.Controls.Add(this.lblReason);
+            this.tabPage3.Controls.Add(this.btnRecall);
+            this.tabPage3.Controls.Add(this.btnApplicate);
+            this.tabPage3.Controls.Add(this.btnTestReturn);
+            this.tabPage3.Controls.Add(this.dgvDelayrdExamApplication);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(905, 695);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnApplicate
+            // 
+            this.btnApplicate.Location = new System.Drawing.Point(73, 508);
+            this.btnApplicate.Name = "btnApplicate";
+            this.btnApplicate.Size = new System.Drawing.Size(75, 38);
+            this.btnApplicate.TabIndex = 21;
+            this.btnApplicate.Text = "申请";
+            this.btnApplicate.UseVisualStyleBackColor = true;
+            this.btnApplicate.Click += new System.EventHandler(this.btnApplicate_Click);
+            // 
+            // btnTestReturn
+            // 
+            this.btnTestReturn.Location = new System.Drawing.Point(73, 22);
+            this.btnTestReturn.Name = "btnTestReturn";
+            this.btnTestReturn.Size = new System.Drawing.Size(75, 38);
+            this.btnTestReturn.TabIndex = 1;
+            this.btnTestReturn.Text = "返回";
+            this.btnTestReturn.UseVisualStyleBackColor = true;
+            this.btnTestReturn.Click += new System.EventHandler(this.btnTestReturn_Click);
+            // 
+            // dgvDelayrdExamApplication
+            // 
+            this.dgvDelayrdExamApplication.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDelayrdExamApplication.Location = new System.Drawing.Point(73, 82);
+            this.dgvDelayrdExamApplication.Name = "dgvDelayrdExamApplication";
+            this.dgvDelayrdExamApplication.RowTemplate.Height = 30;
+            this.dgvDelayrdExamApplication.Size = new System.Drawing.Size(732, 402);
+            this.dgvDelayrdExamApplication.TabIndex = 0;
+            // 
+            // gpbGraduationProject
+            // 
+            this.gpbGraduationProject.Controls.Add(this.button_StudentPickTopic);
+            this.gpbGraduationProject.Controls.Add(this.button_GraduationReport);
+            this.gpbGraduationProject.Location = new System.Drawing.Point(20, 632);
+            this.gpbGraduationProject.Name = "gpbGraduationProject";
+            this.gpbGraduationProject.Size = new System.Drawing.Size(178, 123);
+            this.gpbGraduationProject.TabIndex = 19;
+            this.gpbGraduationProject.TabStop = false;
+            this.gpbGraduationProject.Text = "毕业设计";
             // 
             // button_StudentPickTopic
             // 
@@ -2501,35 +2666,28 @@
             this.button_StudentPickTopic.UseVisualStyleBackColor = true;
             this.button_StudentPickTopic.Click += new System.EventHandler(this.button_StudentPickTopic_Click);
             // 
-            // button_MakeupTheRegistrationForTheCourse
+            // button_GraduationReport
             // 
-            this.button_MakeupTheRegistrationForTheCourse.Location = new System.Drawing.Point(16, 155);
-            this.button_MakeupTheRegistrationForTheCourse.Name = "button_MakeupTheRegistrationForTheCourse";
-            this.button_MakeupTheRegistrationForTheCourse.Size = new System.Drawing.Size(143, 37);
-            this.button_MakeupTheRegistrationForTheCourse.TabIndex = 13;
-            this.button_MakeupTheRegistrationForTheCourse.Text = "补重修报名选课";
-            this.button_MakeupTheRegistrationForTheCourse.UseVisualStyleBackColor = true;
-            this.button_MakeupTheRegistrationForTheCourse.Click += new System.EventHandler(this.button_MakeupTheRegistrationForTheCourse_Click);
+            this.button_GraduationReport.Location = new System.Drawing.Point(17, 69);
+            this.button_GraduationReport.Name = "button_GraduationReport";
+            this.button_GraduationReport.Size = new System.Drawing.Size(143, 35);
+            this.button_GraduationReport.TabIndex = 15;
+            this.button_GraduationReport.Text = "毕业报告";
+            this.button_GraduationReport.UseVisualStyleBackColor = true;
+            this.button_GraduationReport.Click += new System.EventHandler(this.button_GraduationReport_Click);
             // 
-            // button_QingTestRegistration
+            // gpbGradeManagement
             // 
-            this.button_QingTestRegistration.Location = new System.Drawing.Point(16, 114);
-            this.button_QingTestRegistration.Name = "button_QingTestRegistration";
-            this.button_QingTestRegistration.Size = new System.Drawing.Size(143, 35);
-            this.button_QingTestRegistration.TabIndex = 12;
-            this.button_QingTestRegistration.Text = "清考报名";
-            this.button_QingTestRegistration.UseVisualStyleBackColor = true;
-            this.button_QingTestRegistration.Click += new System.EventHandler(this.button_QingTestRegistration_Click);
-            // 
-            // button_MakeupTestRegistration
-            // 
-            this.button_MakeupTestRegistration.Location = new System.Drawing.Point(16, 75);
-            this.button_MakeupTestRegistration.Name = "button_MakeupTestRegistration";
-            this.button_MakeupTestRegistration.Size = new System.Drawing.Size(143, 33);
-            this.button_MakeupTestRegistration.TabIndex = 11;
-            this.button_MakeupTestRegistration.Text = "补考报名";
-            this.button_MakeupTestRegistration.UseVisualStyleBackColor = true;
-            this.button_MakeupTestRegistration.Click += new System.EventHandler(this.button_MakeupTestRegistration_Click);
+            this.gpbGradeManagement.Controls.Add(this.button_MySocialTestRegistration);
+            this.gpbGradeManagement.Controls.Add(this.button_MakeupTestRegistration);
+            this.gpbGradeManagement.Controls.Add(this.button_QingTestRegistration);
+            this.gpbGradeManagement.Controls.Add(this.button_MakeupTheRegistrationForTheCourse);
+            this.gpbGradeManagement.Location = new System.Drawing.Point(20, 391);
+            this.gpbGradeManagement.Name = "gpbGradeManagement";
+            this.gpbGradeManagement.Size = new System.Drawing.Size(178, 211);
+            this.gpbGradeManagement.TabIndex = 18;
+            this.gpbGradeManagement.TabStop = false;
+            this.gpbGradeManagement.Text = "成绩管理";
             // 
             // button_MySocialTestRegistration
             // 
@@ -2541,25 +2699,47 @@
             this.button_MySocialTestRegistration.UseVisualStyleBackColor = true;
             this.button_MySocialTestRegistration.Click += new System.EventHandler(this.button_MySocialTestRegistration_Click);
             // 
-            // button_AdvanceTestInquire
+            // button_MakeupTestRegistration
             // 
-            this.button_AdvanceTestInquire.Location = new System.Drawing.Point(17, 117);
-            this.button_AdvanceTestInquire.Name = "button_AdvanceTestInquire";
-            this.button_AdvanceTestInquire.Size = new System.Drawing.Size(143, 34);
-            this.button_AdvanceTestInquire.TabIndex = 9;
-            this.button_AdvanceTestInquire.Text = "前考试查询";
-            this.button_AdvanceTestInquire.UseVisualStyleBackColor = true;
-            this.button_AdvanceTestInquire.Click += new System.EventHandler(this.button_AdvanceTestInquire_Click);
+            this.button_MakeupTestRegistration.Location = new System.Drawing.Point(16, 75);
+            this.button_MakeupTestRegistration.Name = "button_MakeupTestRegistration";
+            this.button_MakeupTestRegistration.Size = new System.Drawing.Size(143, 33);
+            this.button_MakeupTestRegistration.TabIndex = 11;
+            this.button_MakeupTestRegistration.Text = "补考报名";
+            this.button_MakeupTestRegistration.UseVisualStyleBackColor = true;
+            this.button_MakeupTestRegistration.Click += new System.EventHandler(this.button_MakeupTestRegistration_Click);
             // 
-            // button_MidtermTestInquire
+            // button_QingTestRegistration
             // 
-            this.button_MidtermTestInquire.Location = new System.Drawing.Point(17, 70);
-            this.button_MidtermTestInquire.Name = "button_MidtermTestInquire";
-            this.button_MidtermTestInquire.Size = new System.Drawing.Size(143, 38);
-            this.button_MidtermTestInquire.TabIndex = 8;
-            this.button_MidtermTestInquire.Text = "半期考试查询";
-            this.button_MidtermTestInquire.UseVisualStyleBackColor = true;
-            this.button_MidtermTestInquire.Click += new System.EventHandler(this.button_MidtermTestInquire_Click);
+            this.button_QingTestRegistration.Location = new System.Drawing.Point(16, 114);
+            this.button_QingTestRegistration.Name = "button_QingTestRegistration";
+            this.button_QingTestRegistration.Size = new System.Drawing.Size(143, 35);
+            this.button_QingTestRegistration.TabIndex = 12;
+            this.button_QingTestRegistration.Text = "清考报名";
+            this.button_QingTestRegistration.UseVisualStyleBackColor = true;
+            this.button_QingTestRegistration.Click += new System.EventHandler(this.button_QingTestRegistration_Click);
+            // 
+            // button_MakeupTheRegistrationForTheCourse
+            // 
+            this.button_MakeupTheRegistrationForTheCourse.Location = new System.Drawing.Point(16, 155);
+            this.button_MakeupTheRegistrationForTheCourse.Name = "button_MakeupTheRegistrationForTheCourse";
+            this.button_MakeupTheRegistrationForTheCourse.Size = new System.Drawing.Size(143, 37);
+            this.button_MakeupTheRegistrationForTheCourse.TabIndex = 13;
+            this.button_MakeupTheRegistrationForTheCourse.Text = "补重修报名选课";
+            this.button_MakeupTheRegistrationForTheCourse.UseVisualStyleBackColor = true;
+            this.button_MakeupTheRegistrationForTheCourse.Click += new System.EventHandler(this.button_MakeupTheRegistrationForTheCourse_Click);
+            // 
+            // gpbMyTest
+            // 
+            this.gpbMyTest.Controls.Add(this.button_TestArrangementInquire);
+            this.gpbMyTest.Controls.Add(this.button_MidtermTestInquire);
+            this.gpbMyTest.Controls.Add(this.button_AdvanceTestInquire);
+            this.gpbMyTest.Location = new System.Drawing.Point(20, 206);
+            this.gpbMyTest.Name = "gpbMyTest";
+            this.gpbMyTest.Size = new System.Drawing.Size(178, 169);
+            this.gpbMyTest.TabIndex = 17;
+            this.gpbMyTest.TabStop = false;
+            this.gpbMyTest.Text = "我的考试";
             // 
             // button_TestArrangementInquire
             // 
@@ -2571,15 +2751,47 @@
             this.button_TestArrangementInquire.UseVisualStyleBackColor = true;
             this.button_TestArrangementInquire.Click += new System.EventHandler(this.button_TestArrangementInquire_Click);
             // 
-            // button_ExemptionApplication
+            // button_MidtermTestInquire
             // 
-            this.button_ExemptionApplication.Location = new System.Drawing.Point(15, 110);
-            this.button_ExemptionApplication.Name = "button_ExemptionApplication";
-            this.button_ExemptionApplication.Size = new System.Drawing.Size(143, 32);
-            this.button_ExemptionApplication.TabIndex = 6;
-            this.button_ExemptionApplication.Text = "免修申请";
-            this.button_ExemptionApplication.UseVisualStyleBackColor = true;
-            this.button_ExemptionApplication.Click += new System.EventHandler(this.button_ExemptionApplication_Click);
+            this.button_MidtermTestInquire.Location = new System.Drawing.Point(17, 70);
+            this.button_MidtermTestInquire.Name = "button_MidtermTestInquire";
+            this.button_MidtermTestInquire.Size = new System.Drawing.Size(143, 38);
+            this.button_MidtermTestInquire.TabIndex = 8;
+            this.button_MidtermTestInquire.Text = "半期考试查询";
+            this.button_MidtermTestInquire.UseVisualStyleBackColor = true;
+            this.button_MidtermTestInquire.Click += new System.EventHandler(this.button_MidtermTestInquire_Click);
+            // 
+            // button_AdvanceTestInquire
+            // 
+            this.button_AdvanceTestInquire.Location = new System.Drawing.Point(17, 117);
+            this.button_AdvanceTestInquire.Name = "button_AdvanceTestInquire";
+            this.button_AdvanceTestInquire.Size = new System.Drawing.Size(143, 34);
+            this.button_AdvanceTestInquire.TabIndex = 9;
+            this.button_AdvanceTestInquire.Text = "前考试查询";
+            this.button_AdvanceTestInquire.UseVisualStyleBackColor = true;
+            this.button_AdvanceTestInquire.Click += new System.EventHandler(this.button_AdvanceTestInquire_Click);
+            // 
+            // gpbMyApplication
+            // 
+            this.gpbMyApplication.Controls.Add(this.button_DelayrdExamApplication);
+            this.gpbMyApplication.Controls.Add(this.button_ExemptApplication);
+            this.gpbMyApplication.Controls.Add(this.button_ExemptionApplication);
+            this.gpbMyApplication.Location = new System.Drawing.Point(20, 28);
+            this.gpbMyApplication.Name = "gpbMyApplication";
+            this.gpbMyApplication.Size = new System.Drawing.Size(178, 161);
+            this.gpbMyApplication.TabIndex = 16;
+            this.gpbMyApplication.TabStop = false;
+            this.gpbMyApplication.Text = "我的申请";
+            // 
+            // button_DelayrdExamApplication
+            // 
+            this.button_DelayrdExamApplication.Location = new System.Drawing.Point(15, 27);
+            this.button_DelayrdExamApplication.Name = "button_DelayrdExamApplication";
+            this.button_DelayrdExamApplication.Size = new System.Drawing.Size(143, 37);
+            this.button_DelayrdExamApplication.TabIndex = 4;
+            this.button_DelayrdExamApplication.Text = "缓考申请";
+            this.button_DelayrdExamApplication.UseVisualStyleBackColor = true;
+            this.button_DelayrdExamApplication.Click += new System.EventHandler(this.button_DelayrdExamApplication_Click);
             // 
             // button_ExemptApplication
             // 
@@ -2591,15 +2803,15 @@
             this.button_ExemptApplication.UseVisualStyleBackColor = true;
             this.button_ExemptApplication.Click += new System.EventHandler(this.button_ExemptApplication_Click);
             // 
-            // button_DelayrdExamApplication
+            // button_ExemptionApplication
             // 
-            this.button_DelayrdExamApplication.Location = new System.Drawing.Point(15, 27);
-            this.button_DelayrdExamApplication.Name = "button_DelayrdExamApplication";
-            this.button_DelayrdExamApplication.Size = new System.Drawing.Size(143, 37);
-            this.button_DelayrdExamApplication.TabIndex = 4;
-            this.button_DelayrdExamApplication.Text = "缓考申请";
-            this.button_DelayrdExamApplication.UseVisualStyleBackColor = true;
-            this.button_DelayrdExamApplication.Click += new System.EventHandler(this.button_DelayrdExamApplication_Click);
+            this.button_ExemptionApplication.Location = new System.Drawing.Point(15, 110);
+            this.button_ExemptionApplication.Name = "button_ExemptionApplication";
+            this.button_ExemptionApplication.Size = new System.Drawing.Size(143, 32);
+            this.button_ExemptionApplication.TabIndex = 6;
+            this.button_ExemptionApplication.Text = "免修申请";
+            this.button_ExemptionApplication.UseVisualStyleBackColor = true;
+            this.button_ExemptionApplication.Click += new System.EventHandler(this.button_ExemptionApplication_Click);
             // 
             // tcp_InternshipAndPracticiialTraining
             // 
@@ -2779,192 +2991,140 @@
             // 
             this.tb_NoticeAndMessageTableAdapter.ClearBeforeFill = true;
             // 
-            // gpbMyApplication
+            // btnRecall
             // 
-            this.gpbMyApplication.Controls.Add(this.button_DelayrdExamApplication);
-            this.gpbMyApplication.Controls.Add(this.button_ExemptApplication);
-            this.gpbMyApplication.Controls.Add(this.button_ExemptionApplication);
-            this.gpbMyApplication.Location = new System.Drawing.Point(20, 28);
-            this.gpbMyApplication.Name = "gpbMyApplication";
-            this.gpbMyApplication.Size = new System.Drawing.Size(178, 161);
-            this.gpbMyApplication.TabIndex = 16;
-            this.gpbMyApplication.TabStop = false;
-            this.gpbMyApplication.Text = "我的申请";
+            this.btnRecall.Location = new System.Drawing.Point(730, 508);
+            this.btnRecall.Name = "btnRecall";
+            this.btnRecall.Size = new System.Drawing.Size(75, 38);
+            this.btnRecall.TabIndex = 22;
+            this.btnRecall.Text = "撤回";
+            this.btnRecall.UseVisualStyleBackColor = true;
+            this.btnRecall.Click += new System.EventHandler(this.btnRecall_Click);
             // 
-            // gpbMyTest
+            // lblReason
             // 
-            this.gpbMyTest.Controls.Add(this.button_TestArrangementInquire);
-            this.gpbMyTest.Controls.Add(this.button_MidtermTestInquire);
-            this.gpbMyTest.Controls.Add(this.button_AdvanceTestInquire);
-            this.gpbMyTest.Location = new System.Drawing.Point(20, 206);
-            this.gpbMyTest.Name = "gpbMyTest";
-            this.gpbMyTest.Size = new System.Drawing.Size(178, 169);
-            this.gpbMyTest.TabIndex = 17;
-            this.gpbMyTest.TabStop = false;
-            this.gpbMyTest.Text = "我的考试";
+            this.lblReason.AutoSize = true;
+            this.lblReason.Location = new System.Drawing.Point(154, 518);
+            this.lblReason.Name = "lblReason";
+            this.lblReason.Size = new System.Drawing.Size(170, 18);
+            this.lblReason.TabIndex = 23;
+            this.lblReason.Text = "请输入申请原因：↓";
             // 
-            // gpbGradeManagement
+            // txtReason
             // 
-            this.gpbGradeManagement.Controls.Add(this.button_MySocialTestRegistration);
-            this.gpbGradeManagement.Controls.Add(this.button_MakeupTestRegistration);
-            this.gpbGradeManagement.Controls.Add(this.button_QingTestRegistration);
-            this.gpbGradeManagement.Controls.Add(this.button_MakeupTheRegistrationForTheCourse);
-            this.gpbGradeManagement.Location = new System.Drawing.Point(20, 391);
-            this.gpbGradeManagement.Name = "gpbGradeManagement";
-            this.gpbGradeManagement.Size = new System.Drawing.Size(178, 211);
-            this.gpbGradeManagement.TabIndex = 18;
-            this.gpbGradeManagement.TabStop = false;
-            this.gpbGradeManagement.Text = "成绩管理";
+            this.txtReason.Location = new System.Drawing.Point(73, 561);
+            this.txtReason.Name = "txtReason";
+            this.txtReason.Size = new System.Drawing.Size(400, 28);
+            this.txtReason.TabIndex = 24;
             // 
-            // gpbGraduationProject
+            // label39
             // 
-            this.gpbGraduationProject.Controls.Add(this.button_StudentPickTopic);
-            this.gpbGraduationProject.Controls.Add(this.button_GraduationReport);
-            this.gpbGraduationProject.Location = new System.Drawing.Point(20, 632);
-            this.gpbGraduationProject.Name = "gpbGraduationProject";
-            this.gpbGraduationProject.Size = new System.Drawing.Size(178, 123);
-            this.gpbGraduationProject.TabIndex = 19;
-            this.gpbGraduationProject.TabStop = false;
-            this.gpbGraduationProject.Text = "毕业设计";
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(213, 32);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(368, 18);
+            this.label39.TabIndex = 25;
+            this.label39.Text = "若申请未通过，您可写明详细原因重新申请！";
             // 
-            // tcTestRegistration
+            // tabPage6
             // 
-            this.tcTestRegistration.Controls.Add(this.tabPage2);
-            this.tcTestRegistration.Controls.Add(this.tabPage3);
-            this.tcTestRegistration.Location = new System.Drawing.Point(250, 28);
-            this.tcTestRegistration.Name = "tcTestRegistration";
-            this.tcTestRegistration.SelectedIndex = 0;
-            this.tcTestRegistration.Size = new System.Drawing.Size(913, 727);
-            this.tcTestRegistration.TabIndex = 20;
+            this.tabPage6.Controls.Add(this.btnTestSelect);
+            this.tabPage6.Controls.Add(this.cbxTestTermCategory);
+            this.tabPage6.Controls.Add(this.cbxTestTerm);
+            this.tabPage6.Controls.Add(this.label41);
+            this.tabPage6.Controls.Add(this.label40);
+            this.tabPage6.Location = new System.Drawing.Point(4, 28);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(905, 695);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabPage7
             // 
-            this.tabPage2.Controls.Add(this.btnDeferredinquiry);
-            this.tabPage2.Controls.Add(this.txtCourseNameOrNo);
-            this.tabPage2.Controls.Add(this.cbxCheck);
-            this.tabPage2.Controls.Add(this.cbxTerm);
-            this.tabPage2.Controls.Add(this.label38);
-            this.tabPage2.Controls.Add(this.label37);
-            this.tabPage2.Controls.Add(this.label36);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(905, 695);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage7.Controls.Add(this.dgvTestPlan);
+            this.tabPage7.Controls.Add(this.btnTestPlanReturn);
+            this.tabPage7.Location = new System.Drawing.Point(4, 28);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(905, 695);
+            this.tabPage7.TabIndex = 3;
+            this.tabPage7.Text = "tabPage7";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // label40
             // 
-            this.tabPage3.Controls.Add(this.btnApplicate);
-            this.tabPage3.Controls.Add(this.btnTestReturn);
-            this.tabPage3.Controls.Add(this.dgvDelayrdExamApplication);
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(905, 695);
-            this.tabPage3.TabIndex = 1;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(102, 95);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(98, 18);
+            this.label40.TabIndex = 0;
+            this.label40.Text = "学年学期：";
             // 
-            // label36
+            // label41
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(160, 58);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(98, 18);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "学年学期：";
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(102, 168);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(98, 18);
+            this.label41.TabIndex = 1;
+            this.label41.Text = "学期类别：";
             // 
-            // label37
+            // cbxTestTerm
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(88, 133);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(170, 18);
-            this.label37.TabIndex = 1;
-            this.label37.Text = "课程（号or名称）：";
+            this.cbxTestTerm.FormattingEnabled = true;
+            this.cbxTestTerm.Location = new System.Drawing.Point(226, 87);
+            this.cbxTestTerm.Name = "cbxTestTerm";
+            this.cbxTestTerm.Size = new System.Drawing.Size(215, 26);
+            this.cbxTestTerm.TabIndex = 2;
             // 
-            // label38
+            // cbxTestTermCategory
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(160, 208);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(98, 18);
-            this.label38.TabIndex = 2;
-            this.label38.Text = "审核状态：";
+            this.cbxTestTermCategory.FormattingEnabled = true;
+            this.cbxTestTermCategory.Location = new System.Drawing.Point(226, 160);
+            this.cbxTestTermCategory.Name = "cbxTestTermCategory";
+            this.cbxTestTermCategory.Size = new System.Drawing.Size(215, 26);
+            this.cbxTestTermCategory.TabIndex = 3;
             // 
-            // cbxTerm
+            // btnTestSelect
             // 
-            this.cbxTerm.FormattingEnabled = true;
-            this.cbxTerm.Items.AddRange(new object[] {
-            "2020-2021-2",
-            "2020-2021-1",
-            "2019-2020-2",
-            "2019-2020-1"});
-            this.cbxTerm.Location = new System.Drawing.Point(264, 47);
-            this.cbxTerm.Name = "cbxTerm";
-            this.cbxTerm.Size = new System.Drawing.Size(215, 26);
-            this.cbxTerm.TabIndex = 3;
+            this.btnTestSelect.Location = new System.Drawing.Point(285, 244);
+            this.btnTestSelect.Name = "btnTestSelect";
+            this.btnTestSelect.Size = new System.Drawing.Size(75, 33);
+            this.btnTestSelect.TabIndex = 4;
+            this.btnTestSelect.Text = "查询";
+            this.btnTestSelect.UseVisualStyleBackColor = true;
+            this.btnTestSelect.Click += new System.EventHandler(this.btnTestSelect_Click);
             // 
-            // cbxCheck
+            // btnTestPlanReturn
             // 
-            this.cbxCheck.FormattingEnabled = true;
-            this.cbxCheck.Items.AddRange(new object[] {
-            "待审",
-            "审核中",
-            "通过",
-            "不通过"});
-            this.cbxCheck.Location = new System.Drawing.Point(264, 205);
-            this.cbxCheck.Name = "cbxCheck";
-            this.cbxCheck.Size = new System.Drawing.Size(215, 26);
-            this.cbxCheck.TabIndex = 4;
-            this.cbxCheck.Text = "--请选择--";
+            this.btnTestPlanReturn.Location = new System.Drawing.Point(50, 42);
+            this.btnTestPlanReturn.Name = "btnTestPlanReturn";
+            this.btnTestPlanReturn.Size = new System.Drawing.Size(75, 34);
+            this.btnTestPlanReturn.TabIndex = 0;
+            this.btnTestPlanReturn.Text = "返回";
+            this.btnTestPlanReturn.UseVisualStyleBackColor = true;
+            this.btnTestPlanReturn.Click += new System.EventHandler(this.btnTestPlanReturn_Click);
             // 
-            // txtCourseNameOrNo
+            // dgvTestPlan
             // 
-            this.txtCourseNameOrNo.Location = new System.Drawing.Point(264, 130);
-            this.txtCourseNameOrNo.Name = "txtCourseNameOrNo";
-            this.txtCourseNameOrNo.Size = new System.Drawing.Size(215, 28);
-            this.txtCourseNameOrNo.TabIndex = 5;
+            this.dgvTestPlan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTestPlan.Location = new System.Drawing.Point(50, 108);
+            this.dgvTestPlan.Name = "dgvTestPlan";
+            this.dgvTestPlan.RowTemplate.Height = 30;
+            this.dgvTestPlan.Size = new System.Drawing.Size(820, 496);
+            this.dgvTestPlan.TabIndex = 1;
             // 
-            // btnDeferredinquiry
+            // tabPage8
             // 
-            this.btnDeferredinquiry.Location = new System.Drawing.Point(329, 277);
-            this.btnDeferredinquiry.Name = "btnDeferredinquiry";
-            this.btnDeferredinquiry.Size = new System.Drawing.Size(90, 34);
-            this.btnDeferredinquiry.TabIndex = 6;
-            this.btnDeferredinquiry.Text = "查询";
-            this.btnDeferredinquiry.UseVisualStyleBackColor = true;
-            this.btnDeferredinquiry.Click += new System.EventHandler(this.btnDeferredinquiry_Click);
-            // 
-            // dgvDelayrdExamApplication
-            // 
-            this.dgvDelayrdExamApplication.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDelayrdExamApplication.Location = new System.Drawing.Point(73, 82);
-            this.dgvDelayrdExamApplication.Name = "dgvDelayrdExamApplication";
-            this.dgvDelayrdExamApplication.RowTemplate.Height = 30;
-            this.dgvDelayrdExamApplication.Size = new System.Drawing.Size(732, 402);
-            this.dgvDelayrdExamApplication.TabIndex = 0;
-            // 
-            // btnTestReturn
-            // 
-            this.btnTestReturn.Location = new System.Drawing.Point(73, 22);
-            this.btnTestReturn.Name = "btnTestReturn";
-            this.btnTestReturn.Size = new System.Drawing.Size(75, 38);
-            this.btnTestReturn.TabIndex = 1;
-            this.btnTestReturn.Text = "返回";
-            this.btnTestReturn.UseVisualStyleBackColor = true;
-            this.btnTestReturn.Click += new System.EventHandler(this.btnTestReturn_Click);
-            // 
-            // btnApplicate
-            // 
-            this.btnApplicate.Location = new System.Drawing.Point(73, 501);
-            this.btnApplicate.Name = "btnApplicate";
-            this.btnApplicate.Size = new System.Drawing.Size(75, 35);
-            this.btnApplicate.TabIndex = 21;
-            this.btnApplicate.Text = "申请";
-            this.btnApplicate.UseVisualStyleBackColor = true;
+            this.tabPage8.Location = new System.Drawing.Point(4, 28);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(1025, 831);
+            this.tabPage8.TabIndex = 6;
+            this.tabPage8.Text = "tabPage8";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // frm_SchoolSystem
             // 
@@ -3032,21 +3192,26 @@
             this.gpbMyClassSchedule.ResumeLayout(false);
             this.gpbMyTrainMeans.ResumeLayout(false);
             this.tcp_TestRegistration.ResumeLayout(false);
+            this.tcTestRegistration.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDelayrdExamApplication)).EndInit();
+            this.gpbGraduationProject.ResumeLayout(false);
+            this.gpbGradeManagement.ResumeLayout(false);
+            this.gpbMyTest.ResumeLayout(false);
+            this.gpbMyApplication.ResumeLayout(false);
             this.tcp_InternshipAndPracticiialTraining.ResumeLayout(false);
             this.tcp_InternshipAndPracticiialTraining.PerformLayout();
             this.tcp_TeachingEvaluation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).EndInit();
-            this.gpbMyApplication.ResumeLayout(false);
-            this.gpbMyTest.ResumeLayout(false);
-            this.gpbGradeManagement.ResumeLayout(false);
-            this.gpbGraduationProject.ResumeLayout(false);
-            this.tcTestRegistration.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDelayrdExamApplication)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestPlan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3306,6 +3471,20 @@
         private System.Windows.Forms.GroupBox gpbMyTest;
         private System.Windows.Forms.GroupBox gpbMyApplication;
         private System.Windows.Forms.Button btnApplicate;
+        private System.Windows.Forms.Button btnRecall;
+        private System.Windows.Forms.TextBox txtReason;
+        private System.Windows.Forms.Label lblReason;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Button btnTestSelect;
+        private System.Windows.Forms.ComboBox cbxTestTermCategory;
+        private System.Windows.Forms.ComboBox cbxTestTerm;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.DataGridView dgvTestPlan;
+        private System.Windows.Forms.Button btnTestPlanReturn;
+        private System.Windows.Forms.TabPage tabPage8;
     }
 }
 

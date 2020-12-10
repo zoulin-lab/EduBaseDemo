@@ -5,14 +5,13 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>FoodDelivery</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
         .auto-style1 {
-            width: 99%;
+            width: 100%;
             background-color:#f6f9f9;
-            margin:7px;
             text-align:left;
             padding-left:0px;
         }
@@ -47,10 +46,10 @@
             <asp:Image ID="Image2" runat="server" Height="101px" ImageUrl="~/Images/Logo.jpg" CssClass="auto-style4" Width="505px" />
                 </td>
                 <td class="auto-style6">
-                     <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#0099CC" Style="text-decoration:none">首页</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#0099CC" Style="text-decoration:none" PostBackUrl="~/Default.aspx">首页</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">注册</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/NewUser.aspx">注册</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
                      <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">购物车</asp:LinkButton>
@@ -58,10 +57,10 @@
             </tr>
             <tr>
                 <td class="auto-style6">
-                     <asp:LinkButton ID="LinkButton7" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">功能选择</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton7" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/ChooseService.aspx">功能选择</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">登录</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/Login.aspx">登录</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
                      <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">已购信息</asp:LinkButton>      
@@ -75,6 +74,14 @@
         </div>
         <div style="float:right;width:600px">
         <asp:ContentPlaceHolder ID="cphRight" runat="server">
+        </asp:ContentPlaceHolder>
+        </div>
+        <div style="float:left;width:600px">
+        <asp:ContentPlaceHolder ID="cphLeft2" runat="server">
+        </asp:ContentPlaceHolder>
+        </div>
+        <div style="float:right;width:600px">
+        <asp:ContentPlaceHolder ID="cphRight2" runat="server">
         </asp:ContentPlaceHolder>
         </div>
     </form>

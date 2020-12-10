@@ -5,15 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Login : System.Web.UI.Page
+public partial class NewUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-    }
-
-    protected void txtPassword_TextChanged(object sender, EventArgs e)
-    {
-
     }
 }
