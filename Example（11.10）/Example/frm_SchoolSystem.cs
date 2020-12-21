@@ -25,7 +25,89 @@ namespace Example
             this.LoadStuDepartments();
             //this.LoadNotice();
             //this.LoadMessage();
+            this.LoadYearAndTerm();
+            this.LoadCampus();
 
+        }
+
+        private void LoadStanza()//向教室借用申请里载入节次
+        {
+            string commandText = " SELECT  Name FROM tb_Stanza";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区")
+            {
+                this.cbxRoomStanza1.Items.Add(sqlHelper["Name"]);
+                this.cbxRoomStanza2.Items.Add(sqlHelper["Name"]);
+            }
+        }
+
+        private void LoadWeek()//向教室借用申请里载入周次
+        {
+            string commandText = " SELECT  Name FROM tb_Week";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区")
+            {
+                this.cbxRoomWeek1.Items.Add(sqlHelper["Name"]);
+                this.cbxRoomWeek2.Items.Add(sqlHelper["Name"]);
+            }
+        }
+
+        private void LoadWeekDay()//向教室借用申请里载入星期
+        {
+            string commandText = " SELECT  Name FROM tb_WeekDay";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区")
+            {
+                this.cbxRoomWeekDay1.Items.Add(sqlHelper["Name"]);
+                this.cbxRoomWeekDay2.Items.Add(sqlHelper["Name"]);
+            }
+        }
+
+        private void LoadRoom()//向教室借用申请里载入教室
+        {
+            string commandText = " SELECT DISTINCT Name FROM tb_Room ";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord && cbxDepartment.Text == "自强楼") 
+            {
+                this.cbxDepartment.Items.Add(sqlHelper["Name"]);
+            }
+        }
+
+        private void LoadYearAndTerm()//向教室借用申请里载入学期
+        {
+            string commandText = "SELECT Name FROM tb_YearAndTerm ";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord)
+            {
+                this.cbxRoomTerm.Items.Add(sqlHelper["Name"]);
+            }
+        }
+
+        private void LoadCampus()//向教室借用申请里载入校区
+        {
+            string commandText = "SELECT Name FROM tb_Campus ";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord)
+            {
+                this.cbxRoomCampus.Items.Add(sqlHelper["Name"]);
+            }
+        }
+
+        private void LoadDepartment()//向教室借用申请里载入教学楼
+        {
+            string commandText = "SELECT Name FROM tb_Department ";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区") 
+            {
+                this.cbxRoomDepartment.Items.Add(sqlHelper["Name"]);
+            }
         }
 
         private void LoadNotice()//向表格载入公告
@@ -385,8 +467,7 @@ namespace Example
 
         private void button_ClassroomBorrowApplication_Click(object sender, EventArgs e)
         {
-            //教室借用申请 jiao室借用申请 = new 教室借用申请();
-            //jiao室借用申请.ShowDialog();
+            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[6];
         }
 
         private void button_TheTeachingSchedule_Click(object sender, EventArgs e)
@@ -788,13 +869,13 @@ namespace Example
         {
             SqlHelper sqlHelper = new SqlHelper();
             int rowAffected/*受影响的行有几行*/= sqlHelper.QuickSubmit($@"UPDATE tb_StatusCard
-	                                 SET StuName='{txtStuName.Text}',StuGender='{rdbFemale.Checked}',StuBirthday='{dtpStuBirthday.Value}',StuNation='{cbxStuNation.SelectedItem.ToString()}',
-                                     StuClass='{cbxStuClass.SelectedItem.ToString()}',StuMajor='{cbxStuMajor.SelectedItem.ToString()}',StuDepartment='{cbxStuDepertment.SelectedItem.ToString()}',
+	                                 SET StuName='{txtStuName.Text}',StuGender='{rdbFemale.Checked}',StuBirthday='{dtpStuBirthday.Value}',StuNation='{cbxStuNation.Text}',
+                                     StuClass='{cbxStuClass.Text}',StuMajor='{cbxStuMajor.Text}',StuDepartment='{cbxStuDepertment.Text}',
                                      StuTOSchoolDatetime='{dtpStuToSchoolTime.Value}',StuLengthOfSchooling='{txtStuLengthOfSchooling.Text}',
 	                                 StuMajorDirection='{txtStuMajorDirection.Text}',StuPoliticsStatus='{txtStuPoliticsStatus.Text}',StuLearningHierarchy='{txtStuLearningHierarchy.Text}',StuHomePhone='{txtStuHomePhone.Text}',
                                      StuHomeAddress='{txtStuHomeAddress.Text}',StuRailwayStation='{txtStuRailwayStation.Text}',StuPhone='{txtStuPhone.Text}',StuId='{txtStuId.Text}'
                                    	 WHERE No='{txtStuNo.Text.Trim()}'");
-            MessageBox.Show($@"更新{rowAffected}行！");
+            MessageBox.Show($@"更新成功,更新了{rowAffected}行！");
             
         }
 
@@ -1188,6 +1269,24 @@ namespace Example
         private void btnTestPlanReturn_Click(object sender, EventArgs e)
         {
             tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[2];
+        }
+
+        private void cbxRoomCampus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.LoadDepartment();
+            this.LoadStanza();
+            this.LoadWeek();
+            this.LoadWeekDay();
+        }
+
+        private void btnRoomSelect_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cbxRoomDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.LoadRoom();
         }
     }
 }

@@ -4,13 +4,16 @@
     <style type="text/css">
         .auto-style9 {
             width: 100%;
-            background-color:rgba(51, 159, 203, 0.34)
+        }
+        .auto-style10 {
+            width: 454px;
+            height: 281px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
 
-    <table class="auto-style9">
+    <table class="auto-style10">
         <tr>
             <td>&nbsp;</td>
             <td style="text-align:center">登录</td>
@@ -28,7 +31,7 @@
         <tr>
             <td style="text-align:right">密码：</td>
             <td style="text-align:center">
-                <asp:TextBox ID="txtPassword" runat="server" Width="213px" OnTextChanged="txtPassword_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" Width="213px"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="rfyPassword"  ControlToValidate="txtPassword" Display="Dynamic"  runat="server" ErrorMessage="必填" ForeColor="#FF3300"></asp:RequiredFieldValidator>
@@ -37,7 +40,7 @@
         <tr>
             <td>&nbsp;</td>
             <td style="text-align:center">
-                <asp:Button ID="btnLogin" runat="server" Text="登录" Width="71px" />
+                <asp:Button ID="btnLogin" runat="server" Text="登录" Width="71px" OnClick="btnLogin_Click" />
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -52,7 +55,9 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td style="text-align:center">
+                <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
+            </td>
             <td>&nbsp;</td>
         </tr>
     </table>

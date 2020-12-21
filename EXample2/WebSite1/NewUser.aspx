@@ -4,7 +4,9 @@
     <style type="text/css">
         .auto-style9 {
             width: 100%;
-            background-color:rgba(51, 159, 203, 0.34)
+        }
+        .auto-style10 {
+            height: 36px;
         }
     </style>
 </asp:Content>
@@ -67,17 +69,19 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td style="text-align:center">
-                <asp:Button ID="btnRegister" runat="server" Text="立即注册" />
+            <td class="auto-style10"></td>
+            <td style="text-align:center" class="auto-style10">
+                <asp:Button ID="btnRegister" runat="server" Text="立即注册" OnClick="btnRegister_Click" />
             </td>
-            <td>&nbsp;</td>
+            <td class="auto-style10"></td>
         </tr>
         <tr>
             <td style="text-align:right">
                 <asp:LinkButton ID="lkbLogin" runat="server" ForeColor="#0066CC" style="text-decoration:none" PostBackUrl="~/Login.aspx" CausesValidation="False">我要登录</asp:LinkButton>
             </td>
-            <td>&nbsp;</td>
+            <td style="text-align:center">
+                <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
+            </td>
             <td>&nbsp;</td>
         </tr>
         <tr>

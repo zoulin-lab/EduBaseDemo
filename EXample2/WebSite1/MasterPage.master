@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
+<%@ Register src="UserControl/SiteMap.ascx" tagname="SiteMap" tagprefix="uc1" %>
+<%@ Register src="UserControl/UserStatus.ascx" tagname="UserStatus" tagprefix="uc2" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -32,8 +35,11 @@
             background-color: #BDB7AC;
         }
         .auto-style8 {
-            width: 831px;
+            width: 454px;
             background-color: #ffffff;
+        }
+        .auto-style9 {
+            width: 454px;
         }
     </style>
 </head>
@@ -46,24 +52,32 @@
             <asp:Image ID="Image2" runat="server" Height="101px" ImageUrl="~/Images/Logo.jpg" CssClass="auto-style4" Width="505px" />
                 </td>
                 <td class="auto-style6">
-                     <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#0099CC" Style="text-decoration:none" PostBackUrl="~/Default.aspx">首页</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#0099CC" Style="text-decoration:none" PostBackUrl="~/Default.aspx" CausesValidation="False">首页</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/NewUser.aspx">注册</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/NewUser.aspx" CausesValidation="False">注册</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
-                     <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">购物车</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False">购物车</asp:LinkButton>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style6">
-                     <asp:LinkButton ID="LinkButton7" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/ChooseService.aspx">功能选择</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton7" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/ChooseService.aspx" CausesValidation="False">功能选择</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/Login.aspx">登录</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/Login.aspx" CausesValidation="False">登录</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
-                     <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none">已购信息</asp:LinkButton>      
+                     <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False">已购信息</asp:LinkButton>      
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style9" style="background-color:white">
+                    <uc1:SiteMap ID="SiteMap1" runat="server" />
+                </td>
+                <td colspan="3" style="background-color:white">
+                     <uc2:UserStatus ID="UserStatus1" runat="server" />
                 </td>
             </tr>
         </table>
