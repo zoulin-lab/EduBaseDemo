@@ -31,7 +31,7 @@
         <tr>
             <td style="text-align:right">密码：</td>
             <td style="text-align:center">
-                <asp:TextBox ID="txtPassword" runat="server" Width="213px"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" Width="213px" TextMode="Password"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="rfyPassword"  ControlToValidate="txtPassword" Display="Dynamic"  runat="server" ErrorMessage="必填" ForeColor="#FF3300"></asp:RequiredFieldValidator>
@@ -49,7 +49,7 @@
                 <asp:LinkButton ID="LinkButton8" runat="server" ForeColor="#0066CC" style="text-decoration:none" CausesValidation="False" PostBackUrl="~/NewUser.aspx">我要注册</asp:LinkButton>
             </td>
             <td style="text-align:center">
-                <asp:LinkButton ID="LinkButton9" runat="server" ForeColor="#0066CC" style="text-decoration:none">忘记密码？</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton9" runat="server" ForeColor="#0066CC" style="text-decoration:none" CausesValidation="False" PostBackUrl="~/GetPassword.aspx">忘记密码？</asp:LinkButton>
             </td>
             <td>&nbsp;</td>
         </tr>

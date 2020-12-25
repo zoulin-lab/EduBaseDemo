@@ -42,6 +42,8 @@
             width: 454px;
         }
     </style>
+<%--    <link href="Style/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Style/Style.css" rel="stylesheet" type="text/css" />--%>
 </head>
 <body style=" background-image: url(http://localhost:54750/Images/背景.jpg)">
     <form id="form1" runat="server">
@@ -58,7 +60,7 @@
                      <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/NewUser.aspx" CausesValidation="False">注册</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
-                     <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False">购物车</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" PostBackUrl="~/ShopCart.aspx">购物车</asp:LinkButton>
                 </td>
             </tr>
             <tr>
@@ -69,7 +71,7 @@
                      <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/Login.aspx" CausesValidation="False">登录</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
-                     <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False">已购信息</asp:LinkButton>      
+                     <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" PostBackUrl="~/OrderList.aspx">已购信息</asp:LinkButton>      
                 </td>
             </tr>
             <tr>

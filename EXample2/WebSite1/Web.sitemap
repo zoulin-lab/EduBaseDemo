@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="" title=""  description="">
-    <siteMapNode url="" title=""  description="" />
-    <siteMapNode url="" title=""  description="" />
+  
+<siteMapNode url="~/Default.aspx" title="首页" description="首页">
+  <siteMapNode url="~/NewUser.aspx" title="注册" description="注册" />
+  <siteMapNode url="~/Login.aspx" title="登录" description="登录" />
+  
+  <siteMapNode url="~/ChangePwd.aspx" title="更改密码" description="更改密码">  
+  <siteMapNode url="~/ChooseService" title="功能选择"  description="功能选择" />
+  <siteMapNode url="~/OrderList.aspx" title="已购信息" description="已购信息">
+  </siteMapNode>  
+  <siteMapNode url="~/SelectPage" title="搜索页" description="搜索页" >
+  <siteMapNode url="~/GetPassword" title="找回密码" description="找回密码" />
+  <siteMapNode url="~/ShopCart.aspx" title="购物车" description="购物车"/>
+    </siteMapNode>
   </siteMapNode>
+  <siteMapNode url="~/ProShow.aspx" title="商品详细" description="商品详细" />
+</siteMapNode>
 </siteMap>

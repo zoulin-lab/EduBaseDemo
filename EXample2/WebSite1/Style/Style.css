@@ -1,12 +1,12 @@
 ﻿body { 
-    font-size: 12px;
+    font-size: 80px;
     margin: 0px ;
     background-color: #1bd2eb;
     text-align: center ;
 }
 form {
     margin-top: 3px; 
-    font-size: 12px;
+    font-size: 15px;
     margin-bottom :0;
     font-family :"Tahoma","MS Shell Dlg";
 }

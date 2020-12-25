@@ -23,8 +23,6 @@ namespace Example
             this.LoadStuNations();
             this.LoadStuMajors();
             this.LoadStuDepartments();
-            //this.LoadNotice();
-            //this.LoadMessage();
             this.LoadYearAndTerm();
             this.LoadCampus();
 
@@ -35,7 +33,7 @@ namespace Example
             string commandText = " SELECT  Name FROM tb_Stanza";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
-            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区")
+            while (sqlHelper.HasRecord)
             {
                 this.cbxRoomStanza1.Items.Add(sqlHelper["Name"]);
                 this.cbxRoomStanza2.Items.Add(sqlHelper["Name"]);
@@ -47,7 +45,7 @@ namespace Example
             string commandText = " SELECT  Name FROM tb_Week";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
-            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区")
+            while (sqlHelper.HasRecord)
             {
                 this.cbxRoomWeek1.Items.Add(sqlHelper["Name"]);
                 this.cbxRoomWeek2.Items.Add(sqlHelper["Name"]);
@@ -59,27 +57,40 @@ namespace Example
             string commandText = " SELECT  Name FROM tb_WeekDay";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
-            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区")
+            while (sqlHelper.HasRecord)
             {
                 this.cbxRoomWeekDay1.Items.Add(sqlHelper["Name"]);
                 this.cbxRoomWeekDay2.Items.Add(sqlHelper["Name"]);
             }
         }
 
+        private void LoadRoomDepartment()//向教室借用申请里载入借用院系
+        {
+            string commandText = " SELECT Name FROM tb_StuDepartment";
+            var sqlHelper = new SqlHelper();
+            sqlHelper.QuickRead(commandText);
+            while (sqlHelper.HasRecord)
+            {
+                this.cbxRoomBorrowDepartment.Items.Add(sqlHelper["Name"]);
+            }
+        }
+
         private void LoadRoom()//向教室借用申请里载入教室
         {
+            cbxRoom.Items.Clear();
             string commandText = " SELECT DISTINCT Name FROM tb_Room ";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
-            while (sqlHelper.HasRecord && cbxDepartment.Text == "自强楼") 
+            while (sqlHelper.HasRecord) 
             {
-                this.cbxDepartment.Items.Add(sqlHelper["Name"]);
+                this.cbxRoom.Items.Add(sqlHelper["Name"]);
             }
         }
 
         private void LoadYearAndTerm()//向教室借用申请里载入学期
         {
-            string commandText = "SELECT Name FROM tb_YearAndTerm ";
+            cbxRoomTerm.Items.Clear();
+            string commandText = "SELECT DISTINCT Name FROM tb_YearAndTerm";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
             while (sqlHelper.HasRecord)
@@ -90,7 +101,8 @@ namespace Example
 
         private void LoadCampus()//向教室借用申请里载入校区
         {
-            string commandText = "SELECT Name FROM tb_Campus ";
+            cbxRoomCampus.Items.Clear();
+            string commandText = "SELECT DISTINCT Name FROM tb_Campus ";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
             while (sqlHelper.HasRecord)
@@ -101,10 +113,11 @@ namespace Example
 
         private void LoadDepartment()//向教室借用申请里载入教学楼
         {
-            string commandText = "SELECT Name FROM tb_Department ";
+            cbxRoomDepartment.Items.Clear();
+            string commandText = "SELECT DISTINCT Name FROM tb_Department ";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
-            while (sqlHelper.HasRecord && cbxRoomCampus.Text == "旗山校区") 
+            while (sqlHelper.HasRecord) 
             {
                 this.cbxRoomDepartment.Items.Add(sqlHelper["Name"]);
             }
@@ -468,6 +481,14 @@ namespace Example
         private void button_ClassroomBorrowApplication_Click(object sender, EventArgs e)
         {
             tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[6];
+            this.LoadYearAndTerm();
+            this.LoadCampus();
+            this.LoadDepartment();
+            this.LoadRoom();
+            this.LoadWeek();
+            this.LoadWeekDay();
+            this.LoadStanza();
+            this.LoadRoomDepartment();
         }
 
         private void button_TheTeachingSchedule_Click(object sender, EventArgs e)
@@ -1270,23 +1291,11 @@ namespace Example
         {
             tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[2];
         }
-
-        private void cbxRoomCampus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.LoadDepartment();
-            this.LoadStanza();
-            this.LoadWeek();
-            this.LoadWeekDay();
-        }
-
+        
         private void btnRoomSelect_Click(object sender, EventArgs e)
         {
            
         }
-
-        private void cbxRoomDepartment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.LoadRoom();
-        }
+        
     }
 }

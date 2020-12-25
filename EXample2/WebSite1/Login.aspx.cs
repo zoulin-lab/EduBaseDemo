@@ -55,8 +55,8 @@ public partial class Login : System.Web.UI.Page
                 }
                 else  //一般用户登录
                 {
-                    Session["CustomerId"] = UserId;
-                    Session["CustomerName"] = txtName.Text;
+                    Session["UserId"] = UserId;
+                    Session["UserName"] = txtName.Text;
                     Response.Redirect("~/Default.aspx");
                 }
             }

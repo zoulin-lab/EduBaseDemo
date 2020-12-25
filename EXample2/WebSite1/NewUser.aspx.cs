@@ -30,7 +30,7 @@ public partial class NewUser : System.Web.UI.Page
     }
     public bool IsNameExist(string name)//判断输入的用户是否重名
     {
-        //通过MyPetShop.DAL数据访问层中的Customer类查询输入的用户名是否重名，若重名则返回用户对象，否则返回null
+        //通过User表查询输入的用户名是否重名，若重名则返回用户对象，否则返回null
         User user = (from c in db.User
                              where c.UserName == name
                              select c).FirstOrDefault();

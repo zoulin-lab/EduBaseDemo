@@ -2,6 +2,6 @@
 
 <div style="color:#006699;background-color:white">
     您的位置：
-<asp:SiteMapPath ForeColor="#0099ff" ID="SiteMapPath1" runat="server" RenderCurrentNodeAsLink="true">
+<asp:SiteMapPath ForeColor="#0099ff" ID="SiteMapPath1" runat="server" RenderCurrentNodeAsLink="true"  NodeStyle-Font-Underline="false">
 </asp:SiteMapPath>
 </div>

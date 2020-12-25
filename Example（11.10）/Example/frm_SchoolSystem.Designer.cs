@@ -211,6 +211,30 @@
             this.btnChooseCourse = new System.Windows.Forms.Button();
             this.dgvStudentChooseCourse = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.btnBorrowRoom = new System.Windows.Forms.Button();
+            this.label53 = new System.Windows.Forms.Label();
+            this.cbxRoomStanza2 = new System.Windows.Forms.ComboBox();
+            this.cbxRoomStanza1 = new System.Windows.Forms.ComboBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.cbxRoomWeekDay2 = new System.Windows.Forms.ComboBox();
+            this.cbxRoomWeekDay1 = new System.Windows.Forms.ComboBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.cbxRoomWeek2 = new System.Windows.Forms.ComboBox();
+            this.cbxRoomWeek1 = new System.Windows.Forms.ComboBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.dgvRoomRoom = new System.Windows.Forms.DataGridView();
+            this.btnRoomSelect = new System.Windows.Forms.Button();
+            this.txtRoomPeople = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.cbxRoomBorrowDepartment = new System.Windows.Forms.ComboBox();
+            this.cbxRoomStatus = new System.Windows.Forms.ComboBox();
+            this.cbxRoomPeople = new System.Windows.Forms.ComboBox();
+            this.cbxRoom = new System.Windows.Forms.ComboBox();
             this.cbxRoomDepartment = new System.Windows.Forms.ComboBox();
             this.cbxRoomBuilding = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -305,29 +329,6 @@
             this.button_yishouliuyan = new System.Windows.Forms.Button();
             this.gerenxinxi = new System.Windows.Forms.Label();
             this.tb_NoticeAndMessageTableAdapter = new Example.EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter();
-            this.cbxRoom = new System.Windows.Forms.ComboBox();
-            this.cbxRoomPeople = new System.Windows.Forms.ComboBox();
-            this.cbxRoomStatus = new System.Windows.Forms.ComboBox();
-            this.cbxRoomBorrowDepartment = new System.Windows.Forms.ComboBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.txtRoomPeople = new System.Windows.Forms.TextBox();
-            this.btnRoomSelect = new System.Windows.Forms.Button();
-            this.dgvRoomRoom = new System.Windows.Forms.DataGridView();
-            this.label49 = new System.Windows.Forms.Label();
-            this.cbxRoomWeek1 = new System.Windows.Forms.ComboBox();
-            this.cbxRoomWeek2 = new System.Windows.Forms.ComboBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.cbxRoomWeekDay2 = new System.Windows.Forms.ComboBox();
-            this.cbxRoomWeekDay1 = new System.Windows.Forms.ComboBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.cbxRoomStanza2 = new System.Windows.Forms.ComboBox();
-            this.cbxRoomStanza1 = new System.Windows.Forms.ComboBox();
-            this.label54 = new System.Windows.Forms.Label();
             this.tpc_FirstManageSystem.SuspendLayout();
             this.tcp_FirstPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMyInfo)).BeginInit();
@@ -369,6 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentNotChooseCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentChooseCourse)).BeginInit();
             this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoomRoom)).BeginInit();
             this.gpbTextbookManagement.SuspendLayout();
             this.gpbPickCourseManagement.SuspendLayout();
             this.gpbMyClassSchedule.SuspendLayout();
@@ -390,7 +392,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoomRoom)).BeginInit();
             this.SuspendLayout();
             // 
             // tpc_FirstManageSystem
@@ -2275,6 +2276,7 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.btnBorrowRoom);
             this.tabPage8.Controls.Add(this.label53);
             this.tabPage8.Controls.Add(this.cbxRoomStanza2);
             this.tabPage8.Controls.Add(this.cbxRoomStanza1);
@@ -2314,6 +2316,229 @@
             this.tabPage8.Text = "tabPage8";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // btnBorrowRoom
+            // 
+            this.btnBorrowRoom.Location = new System.Drawing.Point(879, 146);
+            this.btnBorrowRoom.Name = "btnBorrowRoom";
+            this.btnBorrowRoom.Size = new System.Drawing.Size(82, 37);
+            this.btnBorrowRoom.TabIndex = 31;
+            this.btnBorrowRoom.Text = "借用";
+            this.btnBorrowRoom.UseVisualStyleBackColor = true;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(626, 156);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(26, 18);
+            this.label53.TabIndex = 30;
+            this.label53.Text = "至";
+            // 
+            // cbxRoomStanza2
+            // 
+            this.cbxRoomStanza2.FormattingEnabled = true;
+            this.cbxRoomStanza2.Location = new System.Drawing.Point(673, 148);
+            this.cbxRoomStanza2.Name = "cbxRoomStanza2";
+            this.cbxRoomStanza2.Size = new System.Drawing.Size(48, 26);
+            this.cbxRoomStanza2.TabIndex = 29;
+            // 
+            // cbxRoomStanza1
+            // 
+            this.cbxRoomStanza1.FormattingEnabled = true;
+            this.cbxRoomStanza1.Location = new System.Drawing.Point(576, 148);
+            this.cbxRoomStanza1.Name = "cbxRoomStanza1";
+            this.cbxRoomStanza1.Size = new System.Drawing.Size(44, 26);
+            this.cbxRoomStanza1.TabIndex = 28;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(498, 156);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(62, 18);
+            this.label54.TabIndex = 27;
+            this.label54.Text = "节次：";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(371, 156);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(26, 18);
+            this.label51.TabIndex = 26;
+            this.label51.Text = "至";
+            // 
+            // cbxRoomWeekDay2
+            // 
+            this.cbxRoomWeekDay2.FormattingEnabled = true;
+            this.cbxRoomWeekDay2.Location = new System.Drawing.Point(418, 148);
+            this.cbxRoomWeekDay2.Name = "cbxRoomWeekDay2";
+            this.cbxRoomWeekDay2.Size = new System.Drawing.Size(48, 26);
+            this.cbxRoomWeekDay2.TabIndex = 25;
+            // 
+            // cbxRoomWeekDay1
+            // 
+            this.cbxRoomWeekDay1.FormattingEnabled = true;
+            this.cbxRoomWeekDay1.Location = new System.Drawing.Point(321, 148);
+            this.cbxRoomWeekDay1.Name = "cbxRoomWeekDay1";
+            this.cbxRoomWeekDay1.Size = new System.Drawing.Size(44, 26);
+            this.cbxRoomWeekDay1.TabIndex = 24;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(243, 156);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(62, 18);
+            this.label52.TabIndex = 23;
+            this.label52.Text = "星期：";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(131, 156);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(26, 18);
+            this.label50.TabIndex = 22;
+            this.label50.Text = "至";
+            // 
+            // cbxRoomWeek2
+            // 
+            this.cbxRoomWeek2.FormattingEnabled = true;
+            this.cbxRoomWeek2.Location = new System.Drawing.Point(178, 148);
+            this.cbxRoomWeek2.Name = "cbxRoomWeek2";
+            this.cbxRoomWeek2.Size = new System.Drawing.Size(48, 26);
+            this.cbxRoomWeek2.TabIndex = 21;
+            // 
+            // cbxRoomWeek1
+            // 
+            this.cbxRoomWeek1.FormattingEnabled = true;
+            this.cbxRoomWeek1.Location = new System.Drawing.Point(81, 148);
+            this.cbxRoomWeek1.Name = "cbxRoomWeek1";
+            this.cbxRoomWeek1.Size = new System.Drawing.Size(44, 26);
+            this.cbxRoomWeek1.TabIndex = 20;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(3, 156);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(62, 18);
+            this.label49.TabIndex = 19;
+            this.label49.Text = "周次：";
+            // 
+            // dgvRoomRoom
+            // 
+            this.dgvRoomRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoomRoom.Location = new System.Drawing.Point(28, 201);
+            this.dgvRoomRoom.Name = "dgvRoomRoom";
+            this.dgvRoomRoom.RowTemplate.Height = 30;
+            this.dgvRoomRoom.Size = new System.Drawing.Size(932, 584);
+            this.dgvRoomRoom.TabIndex = 18;
+            // 
+            // btnRoomSelect
+            // 
+            this.btnRoomSelect.Location = new System.Drawing.Point(784, 146);
+            this.btnRoomSelect.Name = "btnRoomSelect";
+            this.btnRoomSelect.Size = new System.Drawing.Size(75, 37);
+            this.btnRoomSelect.TabIndex = 17;
+            this.btnRoomSelect.Text = "查询";
+            this.btnRoomSelect.UseVisualStyleBackColor = true;
+            this.btnRoomSelect.Click += new System.EventHandler(this.btnRoomSelect_Click);
+            // 
+            // txtRoomPeople
+            // 
+            this.txtRoomPeople.Location = new System.Drawing.Point(372, 94);
+            this.txtRoomPeople.Name = "txtRoomPeople";
+            this.txtRoomPeople.Size = new System.Drawing.Size(87, 28);
+            this.txtRoomPeople.TabIndex = 16;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(712, 99);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(98, 18);
+            this.label48.TabIndex = 15;
+            this.label48.Text = "借用院系：";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(461, 99);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(98, 18);
+            this.label47.TabIndex = 14;
+            this.label47.Text = "教室状态：";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(239, 99);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(62, 18);
+            this.label46.TabIndex = 13;
+            this.label46.Text = "人数：";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(3, 99);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(62, 18);
+            this.label45.TabIndex = 12;
+            this.label45.Text = "教室：";
+            // 
+            // cbxRoomBorrowDepartment
+            // 
+            this.cbxRoomBorrowDepartment.FormattingEnabled = true;
+            this.cbxRoomBorrowDepartment.Location = new System.Drawing.Point(816, 96);
+            this.cbxRoomBorrowDepartment.Name = "cbxRoomBorrowDepartment";
+            this.cbxRoomBorrowDepartment.Size = new System.Drawing.Size(145, 26);
+            this.cbxRoomBorrowDepartment.TabIndex = 11;
+            this.cbxRoomBorrowDepartment.Text = "-请选择-";
+            // 
+            // cbxRoomStatus
+            // 
+            this.cbxRoomStatus.FormattingEnabled = true;
+            this.cbxRoomStatus.Items.AddRange(new object[] {
+            "L临时调课",
+            "G固定调课",
+            "空闲",
+            "K考试",
+            "X锁定",
+            "J借用",
+            "◆正常上课"});
+            this.cbxRoomStatus.Location = new System.Drawing.Point(565, 96);
+            this.cbxRoomStatus.Name = "cbxRoomStatus";
+            this.cbxRoomStatus.Size = new System.Drawing.Size(145, 26);
+            this.cbxRoomStatus.TabIndex = 10;
+            this.cbxRoomStatus.Text = "-请选择-";
+            // 
+            // cbxRoomPeople
+            // 
+            this.cbxRoomPeople.FormattingEnabled = true;
+            this.cbxRoomPeople.Items.AddRange(new object[] {
+            "=",
+            ">",
+            ">=",
+            "<",
+            "<=",
+            "<>"});
+            this.cbxRoomPeople.Location = new System.Drawing.Point(314, 96);
+            this.cbxRoomPeople.Name = "cbxRoomPeople";
+            this.cbxRoomPeople.Size = new System.Drawing.Size(51, 26);
+            this.cbxRoomPeople.TabIndex = 9;
+            // 
+            // cbxRoom
+            // 
+            this.cbxRoom.FormattingEnabled = true;
+            this.cbxRoom.Location = new System.Drawing.Point(81, 96);
+            this.cbxRoom.Name = "cbxRoom";
+            this.cbxRoom.Size = new System.Drawing.Size(145, 26);
+            this.cbxRoom.TabIndex = 8;
+            this.cbxRoom.Text = "-请选择-";
+            // 
             // cbxRoomDepartment
             // 
             this.cbxRoomDepartment.FormattingEnabled = true;
@@ -2325,7 +2550,6 @@
             this.cbxRoomDepartment.Size = new System.Drawing.Size(145, 26);
             this.cbxRoomDepartment.TabIndex = 7;
             this.cbxRoomDepartment.Text = "-请选择-";
-            this.cbxRoomDepartment.SelectedIndexChanged += new System.EventHandler(this.cbxRoomDepartment_SelectedIndexChanged);
             // 
             // cbxRoomBuilding
             // 
@@ -2366,9 +2590,6 @@
             // cbxRoomField
             // 
             this.cbxRoomField.FormattingEnabled = true;
-            this.cbxRoomField.Items.AddRange(new object[] {
-            "屏山校区",
-            "旗山校区"});
             this.cbxRoomField.Location = new System.Drawing.Point(565, 33);
             this.cbxRoomField.Name = "cbxRoomField";
             this.cbxRoomField.Size = new System.Drawing.Size(145, 26);
@@ -2383,7 +2604,6 @@
             this.cbxRoomCampus.Size = new System.Drawing.Size(145, 26);
             this.cbxRoomCampus.TabIndex = 1;
             this.cbxRoomCampus.Text = "-请选择-";
-            this.cbxRoomCampus.SelectedIndexChanged += new System.EventHandler(this.cbxRoomCampus_SelectedIndexChanged);
             // 
             // cbxRoomTerm
             // 
@@ -3270,220 +3490,6 @@
             // 
             this.tb_NoticeAndMessageTableAdapter.ClearBeforeFill = true;
             // 
-            // cbxRoom
-            // 
-            this.cbxRoom.FormattingEnabled = true;
-            this.cbxRoom.Location = new System.Drawing.Point(81, 96);
-            this.cbxRoom.Name = "cbxRoom";
-            this.cbxRoom.Size = new System.Drawing.Size(145, 26);
-            this.cbxRoom.TabIndex = 8;
-            this.cbxRoom.Text = "-请选择-";
-            // 
-            // cbxRoomPeople
-            // 
-            this.cbxRoomPeople.FormattingEnabled = true;
-            this.cbxRoomPeople.Items.AddRange(new object[] {
-            "=",
-            ">",
-            ">=",
-            "<",
-            "<=",
-            "<>"});
-            this.cbxRoomPeople.Location = new System.Drawing.Point(314, 96);
-            this.cbxRoomPeople.Name = "cbxRoomPeople";
-            this.cbxRoomPeople.Size = new System.Drawing.Size(51, 26);
-            this.cbxRoomPeople.TabIndex = 9;
-            // 
-            // cbxRoomStatus
-            // 
-            this.cbxRoomStatus.FormattingEnabled = true;
-            this.cbxRoomStatus.Items.AddRange(new object[] {
-            "L临时调课",
-            "G固定调课",
-            "空闲",
-            "K考试",
-            "X锁定",
-            "J借用",
-            "◆正常上课"});
-            this.cbxRoomStatus.Location = new System.Drawing.Point(565, 96);
-            this.cbxRoomStatus.Name = "cbxRoomStatus";
-            this.cbxRoomStatus.Size = new System.Drawing.Size(145, 26);
-            this.cbxRoomStatus.TabIndex = 10;
-            this.cbxRoomStatus.Text = "-请选择-";
-            // 
-            // cbxRoomBorrowDepartment
-            // 
-            this.cbxRoomBorrowDepartment.FormattingEnabled = true;
-            this.cbxRoomBorrowDepartment.Location = new System.Drawing.Point(816, 96);
-            this.cbxRoomBorrowDepartment.Name = "cbxRoomBorrowDepartment";
-            this.cbxRoomBorrowDepartment.Size = new System.Drawing.Size(145, 26);
-            this.cbxRoomBorrowDepartment.TabIndex = 11;
-            this.cbxRoomBorrowDepartment.Text = "-请选择-";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(3, 99);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(62, 18);
-            this.label45.TabIndex = 12;
-            this.label45.Text = "教室：";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(239, 99);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(62, 18);
-            this.label46.TabIndex = 13;
-            this.label46.Text = "人数：";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(461, 99);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(98, 18);
-            this.label47.TabIndex = 14;
-            this.label47.Text = "教室状态：";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(712, 99);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(98, 18);
-            this.label48.TabIndex = 15;
-            this.label48.Text = "借用院系：";
-            // 
-            // txtRoomPeople
-            // 
-            this.txtRoomPeople.Location = new System.Drawing.Point(372, 94);
-            this.txtRoomPeople.Name = "txtRoomPeople";
-            this.txtRoomPeople.Size = new System.Drawing.Size(87, 28);
-            this.txtRoomPeople.TabIndex = 16;
-            // 
-            // btnRoomSelect
-            // 
-            this.btnRoomSelect.Location = new System.Drawing.Point(885, 151);
-            this.btnRoomSelect.Name = "btnRoomSelect";
-            this.btnRoomSelect.Size = new System.Drawing.Size(75, 28);
-            this.btnRoomSelect.TabIndex = 17;
-            this.btnRoomSelect.Text = "查询";
-            this.btnRoomSelect.UseVisualStyleBackColor = true;
-            this.btnRoomSelect.Click += new System.EventHandler(this.btnRoomSelect_Click);
-            // 
-            // dgvRoomRoom
-            // 
-            this.dgvRoomRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoomRoom.Location = new System.Drawing.Point(28, 201);
-            this.dgvRoomRoom.Name = "dgvRoomRoom";
-            this.dgvRoomRoom.RowTemplate.Height = 30;
-            this.dgvRoomRoom.Size = new System.Drawing.Size(932, 584);
-            this.dgvRoomRoom.TabIndex = 18;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(3, 156);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(62, 18);
-            this.label49.TabIndex = 19;
-            this.label49.Text = "周次：";
-            // 
-            // cbxRoomWeek1
-            // 
-            this.cbxRoomWeek1.FormattingEnabled = true;
-            this.cbxRoomWeek1.Location = new System.Drawing.Point(81, 148);
-            this.cbxRoomWeek1.Name = "cbxRoomWeek1";
-            this.cbxRoomWeek1.Size = new System.Drawing.Size(44, 26);
-            this.cbxRoomWeek1.TabIndex = 20;
-            // 
-            // cbxRoomWeek2
-            // 
-            this.cbxRoomWeek2.FormattingEnabled = true;
-            this.cbxRoomWeek2.Location = new System.Drawing.Point(178, 148);
-            this.cbxRoomWeek2.Name = "cbxRoomWeek2";
-            this.cbxRoomWeek2.Size = new System.Drawing.Size(48, 26);
-            this.cbxRoomWeek2.TabIndex = 21;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(131, 156);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(26, 18);
-            this.label50.TabIndex = 22;
-            this.label50.Text = "至";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(371, 156);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(26, 18);
-            this.label51.TabIndex = 26;
-            this.label51.Text = "至";
-            // 
-            // cbxRoomWeekDay2
-            // 
-            this.cbxRoomWeekDay2.FormattingEnabled = true;
-            this.cbxRoomWeekDay2.Location = new System.Drawing.Point(418, 148);
-            this.cbxRoomWeekDay2.Name = "cbxRoomWeekDay2";
-            this.cbxRoomWeekDay2.Size = new System.Drawing.Size(48, 26);
-            this.cbxRoomWeekDay2.TabIndex = 25;
-            // 
-            // cbxRoomWeekDay1
-            // 
-            this.cbxRoomWeekDay1.FormattingEnabled = true;
-            this.cbxRoomWeekDay1.Location = new System.Drawing.Point(321, 148);
-            this.cbxRoomWeekDay1.Name = "cbxRoomWeekDay1";
-            this.cbxRoomWeekDay1.Size = new System.Drawing.Size(44, 26);
-            this.cbxRoomWeekDay1.TabIndex = 24;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(243, 156);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(62, 18);
-            this.label52.TabIndex = 23;
-            this.label52.Text = "星期：";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(626, 156);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(26, 18);
-            this.label53.TabIndex = 30;
-            this.label53.Text = "至";
-            // 
-            // cbxRoomStanza2
-            // 
-            this.cbxRoomStanza2.FormattingEnabled = true;
-            this.cbxRoomStanza2.Location = new System.Drawing.Point(673, 148);
-            this.cbxRoomStanza2.Name = "cbxRoomStanza2";
-            this.cbxRoomStanza2.Size = new System.Drawing.Size(48, 26);
-            this.cbxRoomStanza2.TabIndex = 29;
-            // 
-            // cbxRoomStanza1
-            // 
-            this.cbxRoomStanza1.FormattingEnabled = true;
-            this.cbxRoomStanza1.Location = new System.Drawing.Point(576, 148);
-            this.cbxRoomStanza1.Name = "cbxRoomStanza1";
-            this.cbxRoomStanza1.Size = new System.Drawing.Size(44, 26);
-            this.cbxRoomStanza1.TabIndex = 28;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(498, 156);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(62, 18);
-            this.label54.TabIndex = 27;
-            this.label54.Text = "节次：";
-            // 
             // frm_SchoolSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -3547,6 +3553,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentChooseCourse)).EndInit();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoomRoom)).EndInit();
             this.gpbTextbookManagement.ResumeLayout(false);
             this.gpbPickCourseManagement.ResumeLayout(false);
             this.gpbMyClassSchedule.ResumeLayout(false);
@@ -3572,7 +3579,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoomRoom)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3877,6 +3883,7 @@
         private System.Windows.Forms.ComboBox cbxRoomWeek2;
         private System.Windows.Forms.ComboBox cbxRoomWeek1;
         private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Button btnBorrowRoom;
     }
 }
 
