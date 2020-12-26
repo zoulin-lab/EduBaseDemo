@@ -51,7 +51,7 @@ public partial class Login : System.Web.UI.Page
                 {
                     Session["AdminId"] = UserId;
                     Session["AdminName"] = txtName.Text;
-                    Response.Redirect("~/Admin/Default.aspx");
+                    Response.Redirect("~/Admin/AddPro.aspx");
                 }
                 else  //一般用户登录
                 {
