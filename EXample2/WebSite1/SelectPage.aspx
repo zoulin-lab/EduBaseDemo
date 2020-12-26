@@ -1,12 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="SelectPage.aspx.cs" Inherits="SelectPage" %>
 
-<%@ Register src="UserControl/Supplier.ascx" tagname="Supplier" tagprefix="uc1" %>
+<%@ Register src="UserControl/QtySupplier.ascx" tagname="QtySupplier" tagprefix="uc2" %>
+<%@ Register Src="~/UserControl/ScoreSupplier.ascx" TagPrefix="uc1" TagName="ScoreSupplier" %>
+
+
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style10 {
-            width: 99%;
-            background-color:#56aed9;
+            width: 83%;
+            background-color:#8ac4ef;
             height: 30px;
         }
         .auto-style11 {
@@ -23,6 +27,24 @@
         }
         .auto-style14 {
             width: 740px;
+        }
+        .auto-style16 {
+            width: 429px;
+            height: 40px;
+            background-color:#8ac4ef
+        }
+        .auto-style17 {
+            width: 211px;
+        }
+        .auto-style18 {
+            width: 211px;
+            height: 25px;
+            font-size:large
+        }
+        .auto-style19 {
+            width: 211px;
+            height: 25px;
+            font-size:large
         }
     </style>
 </asp:Content>
@@ -43,8 +65,22 @@
          
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphRight" Runat="Server">
-    
-    <uc1:Supplier ID="Supplier1" runat="server" />
+    <table class="auto-style16">
+        <tr>
+            <td class="auto-style18" >
+                高评分</td>
+            <td class="auto-style19">
+                高月销</td>
+        <tr>
+            <td style="" class="auto-style17" >
+                <uc1:ScoreSupplier runat="server" ID="ScoreSupplier" />
+            </td>
+            <td style="top:0px" class="auto-style17">
+            <uc2:QtySupplier ID="QtySupplier1" runat="server" />
+            </td>
+        </tr>
+    </table>
+
     
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphLeft2" Runat="Server">
