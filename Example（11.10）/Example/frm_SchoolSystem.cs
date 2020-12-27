@@ -537,8 +537,7 @@ namespace Example
 
         private void button_TextbookPurchase_Click(object sender, EventArgs e)
         {
-            //教材征订 jiao材征订 = new 教材征订();
-            //jiao材征订.ShowDialog();
+            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[7];
         }
 
         private void button_MinorRegistration_Click(object sender, EventArgs e)
@@ -1209,31 +1208,39 @@ namespace Example
 
         private void btnApplicate_Click(object sender, EventArgs e)//缓考申请
         {
+            SqlHelper sql = new SqlHelper();
             string currentStatus = this.dgvDelayrdExamApplication.CurrentRow.Cells["CheckStatus"].Value.ToString();
-            string currentNo = this.dgvDelayrdExamApplication.CurrentRow.Cells["No"].Value.ToString();
-            if (currentStatus == "" || currentStatus == "不通过") 
+            string currentNo = this.dgvDelayrdExamApplication.CurrentRow.Cells["CourseNo"].Value.ToString();
+            sql.QuickRead($@"SELECT * FROM tb_Course WHERE No='{currentNo}'");
+            if (sql.HasRecord)
             {
-                SqlHelper sql = new SqlHelper();
-                sql.QuickFill($@"UPDATE tb_DelayrdExamApplication
+                DateTime examTime = (DateTime)sql["ExamTime"];
+                DateTime currentDateTime = DateTime.Now;
+                TimeSpan ts = examTime - currentDateTime;
+                if (currentStatus == "" && ts.TotalDays <= 30)
+                {
+
+                    sql.QuickFill($@"UPDATE tb_DelayrdExamApplication
                                   SET CheckStatus='待审',Reason='{txtReason.Text}',
-                                  ApplicateTime=DATENAME(YEAR,GETDATE())+'-'+DATENAME(MONTH,GETDATE())+'-'+DATENAME(DAY,GETDATE())
+                                  ApplicateTime='{currentDateTime.ToString()}')
                                   WHERE CourseNo='{currentNo}'", dgvDelayrdExamApplication);
-                tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
-                MessageBox.Show("申请成功！");
-                sql.QuickFill($@" SELECT  ROW_NUMBER()OVER(ORDER BY C.No) AS Number,YAT.Name AS Term,C.No AS CourseNo,C.Name AS CourseName,C.TotalPeriod,C.Credit,ET.Name,
+                    tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
+                    MessageBox.Show("申请成功！");
+                    sql.QuickFill($@" SELECT  ROW_NUMBER()OVER(ORDER BY C.No) AS Number,YAT.Name AS Term,C.No AS CourseNo,C.Name AS CourseName,C.TotalPeriod,C.Credit,ET.Name,
                                   DEA.GradeLogo,DEA.Reason,DEA.CheckStatus,DEA.ApplicateTime
                                   FROM tb_DelayrdExamApplication AS DEA
                                   JOIN tb_Course AS C ON DEA.CourseNo=C.No
                                   JOIN tb_ExamType AS ET ON DEA.ExamTypeNo=ET.No
                                   JOIN tb_YearAndTerm AS YAT ON DEA.YearAndTermNo=YAT.No
                                   WHERE DEA.StudentNo='{StudentNo}'",
-                                  dgvDelayrdExamApplication);
-                return;
-            }
-            if (currentStatus != "")  
-            {
-                MessageBox.Show($@"该课程目前处于{currentStatus}");
-                return;
+                                      dgvDelayrdExamApplication);
+                    return;
+                }
+                if (currentStatus != "")
+                {
+                    MessageBox.Show($@"该课程目前处于{currentStatus}");
+                    return;
+                }
             }
         }
 
@@ -1260,11 +1267,6 @@ namespace Example
                                   dgvDelayrdExamApplication);
                 return;
             }
-            if (currentStatus == "审核中")
-            {
-                MessageBox.Show("该申请正在审核中，无法撤回！");
-                return;
-            }
             if (currentStatus == "通过")
             {
                 MessageBox.Show("该申请已通过，无法撤回！");
@@ -1272,7 +1274,7 @@ namespace Example
             }
             if (currentStatus == "不通过")
             {
-                MessageBox.Show("该申请未通过，请重新申请！");
+                MessageBox.Show("该申请未通过！");
                 return;
             }
             if (currentStatus == "")
@@ -1296,6 +1298,70 @@ namespace Example
         {
            
         }
-        
+
+        private void btnBookReturn_Click(object sender, EventArgs e)
+        {
+            tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[7];
+        }
+
+        private void btnBookSelect_Click(object sender, EventArgs e)
+        {
+            if (cbxBookTerm.Text=="2020")
+            {
+                tcTrainingAndManagement.SelectedTab = tcTrainingAndManagement.TabPages[8];
+                SqlHelper sql = new SqlHelper();
+                sql.QuickFill($@"SELECT 
+			                       B.No,B.Name,C.Name AS CourseName,YAT.Name AS TermName,B.Press,B.Author,B.Price,B.IsChoose
+		                       	   FROM tb_Book AS B
+			                       JOIN tb_YearAndTerm AS YAT ON B.TermNo=YAT.No
+			                       JOIN tb_Course AS C ON B.CourseNo=C.No
+			                       WHERE YAT.Name LIKE '2020%'", dgvBooks);
+                return;
+            }
+        }
+
+        private void btnBookOrder_Click(object sender, EventArgs e)
+        {
+            string bookNo = this.dgvBooks.CurrentRow.Cells["No"].Value.ToString();
+            string bookTerm = this.dgvBooks.CurrentRow.Cells["TermName"].Value.ToString();
+            SqlHelper sql = new SqlHelper();
+            if (bookTerm=="2020-2021-1")
+            {
+                sql.QuickFill($@"UPDATE tb_Book SET IsChoose='是' WHERE No='{bookNo}'",dgvBooks);
+                MessageBox.Show("订购成功！");
+                sql.QuickFill($@"SELECT 
+			                       B.No,B.Name,C.Name AS CourseName,YAT.Name AS TermName,B.Press,B.Author,B.Price,B.IsChoose
+		                       	   FROM tb_Book AS B
+			                       JOIN tb_YearAndTerm AS YAT ON B.TermNo=YAT.No
+			                       JOIN tb_Course AS C ON B.CourseNo=C.No
+			                       WHERE YAT.Name LIKE '2020%'", dgvBooks);
+            }
+            else
+            {
+                MessageBox.Show("当前时间不能订购！");
+            }
+        }
+
+        private void btnBookNotOrder_Click(object sender, EventArgs e)
+        {
+            string bookNo = this.dgvBooks.CurrentRow.Cells["No"].Value.ToString();
+            string bookTerm = this.dgvBooks.CurrentRow.Cells["TermName"].Value.ToString();
+            SqlHelper sql = new SqlHelper();
+            if (bookTerm == "2020-2021-1")
+            {
+                sql.QuickFill($@"UPDATE tb_Book SET IsChoose='否' WHERE No='{bookNo}'", dgvBooks);
+                MessageBox.Show("退订成功！");
+                sql.QuickFill($@"SELECT 
+			                       B.No,B.Name,C.Name AS CourseName,YAT.Name AS TermName,B.Press,B.Author,B.Price,B.IsChoose
+		                       	   FROM tb_Book AS B
+			                       JOIN tb_YearAndTerm AS YAT ON B.TermNo=YAT.No
+			                       JOIN tb_Course AS C ON B.CourseNo=C.No
+			                       WHERE YAT.Name LIKE '2020%'", dgvBooks);
+            }
+            else
+            {
+                MessageBox.Show("退订时间已过！");
+            }
+        }
     }
 }

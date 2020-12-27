@@ -18,7 +18,7 @@
             text-align:center
         }
         .auto-style28 {
-            width: 239px;
+            width: 186px;
             height: 4px;
             text-align: center;
         }
@@ -46,6 +46,16 @@
     .auto-style34 {
         height: 43px;
     }
+    .auto-style35 {
+        width: 186px;
+        height: 46px;
+        text-align: left;
+    }
+    .auto-style36 {
+        width: 186px;
+        height: 18px;
+        text-align: center;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
@@ -54,7 +64,7 @@
           <td  colspan="3"  style="text-align:center" class="auto-style34">找回密码</td>
         </tr>
         <tr>
-          <td class="auto-style32" style="text-align:right">用户名:</td>
+          <td class="auto-style35" style="text-align:right">用户名:</td>
           <td class="auto-style33">
             <asp:TextBox ID="txtName" runat="server" CssClass="auto-style12" Width="214px"></asp:TextBox></td>
           <td class="auto-style32">
@@ -62,7 +72,7 @@
             </td>
         </tr>
         <tr>
-          <td class="auto-style32" style="text-align:right">邮箱:</td>
+          <td class="auto-style35" style="text-align:right">邮箱:</td>
           <td class="auto-style33">
             <asp:TextBox ID="txtEmail" runat="server" Width="214px"></asp:TextBox></td>
           <td class="auto-style32">
@@ -80,7 +90,7 @@
               </td>
         </tr>
         <tr>
-          <td class="auto-style32">
+          <td class="auto-style35">
               </td>
           <td class="auto-style33">
             <asp:Button ID="btnResetPwd" runat="server" Text="找回密码" OnClick="btnResetPwd_Click"  />
@@ -89,12 +99,12 @@
               </td>
         </tr>
         <tr>
-          <td class="auto-style22"></td>
+          <td class="auto-style36"></td>
           <td class="auto-style24" style="color:#0066CC">找回密码，需要验证邮箱！</td>
           <td class="auto-style21"></td>
         </tr>
         <tr>
-          <td  class="auto-style22">
+          <td  class="auto-style36">
               </td>
           <td  class="auto-style24">
             <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label></td>

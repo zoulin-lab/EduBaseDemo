@@ -21,7 +21,7 @@ public partial class ProShow : System.Web.UI.Page
     }
     protected void Bind()
     {
-        gvProduct.DataSource = GetProductByProductIdOrCategoryId(Request.QueryString["ProductId"], Request.QueryString["CategoryId"]);
+        gvProduct.DataSource = GetProductByProductIdOrSupplierId(Request.QueryString["ProductId"], Request.QueryString["SuppId"]);
         gvProduct.DataBind();
     }
 
@@ -30,7 +30,7 @@ public partial class ProShow : System.Web.UI.Page
         gvProduct.PageIndex = e.NewPageIndex;
         Bind();  //调用自定义方法Bind()
     }
-    public List<Product> GetProductByProductIdOrCategoryId(string productId, string categoryId)
+    public List<Product> GetProductByProductIdOrSupplierId(string productId, string suppId)
     {
         if (!string.IsNullOrEmpty(productId))
         {
@@ -41,7 +41,7 @@ public partial class ProShow : System.Web.UI.Page
         else
         {
             return (from p in db.Product
-                    where p.CategoryId == int.Parse(categoryId)
+                    where p.SuppId == int.Parse(suppId)
                     select p).ToList();
         }
     }

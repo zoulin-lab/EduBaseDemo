@@ -329,6 +329,17 @@
             this.button_yishouliuyan = new System.Windows.Forms.Button();
             this.gerenxinxi = new System.Windows.Forms.Label();
             this.tb_NoticeAndMessageTableAdapter = new Example.EduBaseBigHomeworkDataSetTableAdapters.tb_NoticeAndMessageTableAdapter();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.btnBookSelect = new System.Windows.Forms.Button();
+            this.cbxBookTerm = new System.Windows.Forms.ComboBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this.dgvBooks = new System.Windows.Forms.DataGridView();
+            this.btnBookReturn = new System.Windows.Forms.Button();
+            this.btnBookOrder = new System.Windows.Forms.Button();
+            this.btnBookNotOrder = new System.Windows.Forms.Button();
+            this.label57 = new System.Windows.Forms.Label();
             this.tpc_FirstManageSystem.SuspendLayout();
             this.tcp_FirstPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMyInfo)).BeginInit();
@@ -392,6 +403,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).BeginInit();
+            this.tabPage9.SuspendLayout();
+            this.tabPage21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.SuspendLayout();
             // 
             // tpc_FirstManageSystem
@@ -1912,6 +1926,8 @@
             this.tcTrainingAndManagement.Controls.Add(this.tabPage15);
             this.tcTrainingAndManagement.Controls.Add(this.tabPage20);
             this.tcTrainingAndManagement.Controls.Add(this.tabPage8);
+            this.tcTrainingAndManagement.Controls.Add(this.tabPage9);
+            this.tcTrainingAndManagement.Controls.Add(this.tabPage21);
             this.tcTrainingAndManagement.Location = new System.Drawing.Point(237, 20);
             this.tcTrainingAndManagement.Name = "tcTrainingAndManagement";
             this.tcTrainingAndManagement.SelectedIndex = 0;
@@ -3490,6 +3506,126 @@
             // 
             this.tb_NoticeAndMessageTableAdapter.ClearBeforeFill = true;
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.label56);
+            this.tabPage9.Controls.Add(this.label55);
+            this.tabPage9.Controls.Add(this.cbxBookTerm);
+            this.tabPage9.Controls.Add(this.btnBookSelect);
+            this.tabPage9.Location = new System.Drawing.Point(4, 28);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(1152, 831);
+            this.tabPage9.TabIndex = 7;
+            this.tabPage9.Text = "tabPage9";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // btnBookSelect
+            // 
+            this.btnBookSelect.Location = new System.Drawing.Point(347, 171);
+            this.btnBookSelect.Name = "btnBookSelect";
+            this.btnBookSelect.Size = new System.Drawing.Size(81, 36);
+            this.btnBookSelect.TabIndex = 0;
+            this.btnBookSelect.Text = "查询";
+            this.btnBookSelect.UseVisualStyleBackColor = true;
+            this.btnBookSelect.Click += new System.EventHandler(this.btnBookSelect_Click);
+            // 
+            // cbxBookTerm
+            // 
+            this.cbxBookTerm.FormattingEnabled = true;
+            this.cbxBookTerm.Items.AddRange(new object[] {
+            "2020",
+            "2019",
+            "2018",
+            "2017"});
+            this.cbxBookTerm.Location = new System.Drawing.Point(265, 103);
+            this.cbxBookTerm.Name = "cbxBookTerm";
+            this.cbxBookTerm.Size = new System.Drawing.Size(244, 26);
+            this.cbxBookTerm.TabIndex = 1;
+            this.cbxBookTerm.Text = "2020";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(166, 111);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(62, 18);
+            this.label55.TabIndex = 2;
+            this.label55.Text = "学年：";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(148, 42);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(80, 18);
+            this.label56.TabIndex = 3;
+            this.label56.Text = "教材征订";
+            // 
+            // tabPage21
+            // 
+            this.tabPage21.Controls.Add(this.label57);
+            this.tabPage21.Controls.Add(this.btnBookNotOrder);
+            this.tabPage21.Controls.Add(this.btnBookOrder);
+            this.tabPage21.Controls.Add(this.btnBookReturn);
+            this.tabPage21.Controls.Add(this.dgvBooks);
+            this.tabPage21.Location = new System.Drawing.Point(4, 28);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(1152, 831);
+            this.tabPage21.TabIndex = 8;
+            this.tabPage21.Text = "tabPage21";
+            this.tabPage21.UseVisualStyleBackColor = true;
+            // 
+            // dgvBooks
+            // 
+            this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBooks.Location = new System.Drawing.Point(57, 66);
+            this.dgvBooks.Name = "dgvBooks";
+            this.dgvBooks.RowTemplate.Height = 30;
+            this.dgvBooks.Size = new System.Drawing.Size(720, 452);
+            this.dgvBooks.TabIndex = 0;
+            // 
+            // btnBookReturn
+            // 
+            this.btnBookReturn.Location = new System.Drawing.Point(57, 19);
+            this.btnBookReturn.Name = "btnBookReturn";
+            this.btnBookReturn.Size = new System.Drawing.Size(75, 30);
+            this.btnBookReturn.TabIndex = 1;
+            this.btnBookReturn.Text = "返回";
+            this.btnBookReturn.UseVisualStyleBackColor = true;
+            this.btnBookReturn.Click += new System.EventHandler(this.btnBookReturn_Click);
+            // 
+            // btnBookOrder
+            // 
+            this.btnBookOrder.Location = new System.Drawing.Point(819, 66);
+            this.btnBookOrder.Name = "btnBookOrder";
+            this.btnBookOrder.Size = new System.Drawing.Size(75, 32);
+            this.btnBookOrder.TabIndex = 2;
+            this.btnBookOrder.Text = "订购";
+            this.btnBookOrder.UseVisualStyleBackColor = true;
+            this.btnBookOrder.Click += new System.EventHandler(this.btnBookOrder_Click);
+            // 
+            // btnBookNotOrder
+            // 
+            this.btnBookNotOrder.Location = new System.Drawing.Point(819, 140);
+            this.btnBookNotOrder.Name = "btnBookNotOrder";
+            this.btnBookNotOrder.Size = new System.Drawing.Size(75, 32);
+            this.btnBookNotOrder.TabIndex = 3;
+            this.btnBookNotOrder.Text = "退订";
+            this.btnBookNotOrder.UseVisualStyleBackColor = true;
+            this.btnBookNotOrder.Click += new System.EventHandler(this.btnBookNotOrder_Click);
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.ForeColor = System.Drawing.Color.Red;
+            this.label57.Location = new System.Drawing.Point(244, 25);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(224, 18);
+            this.label57.TabIndex = 4;
+            this.label57.Text = "超出或未到时间不得订购！";
+            // 
             // frm_SchoolSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -3579,6 +3715,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNoticeAndMessageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eduBaseBigHomeworkDataSet)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
+            this.tabPage21.ResumeLayout(false);
+            this.tabPage21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3884,6 +4025,17 @@
         private System.Windows.Forms.ComboBox cbxRoomWeek1;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button btnBorrowRoom;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.ComboBox cbxBookTerm;
+        private System.Windows.Forms.Button btnBookSelect;
+        private System.Windows.Forms.TabPage tabPage21;
+        private System.Windows.Forms.Button btnBookNotOrder;
+        private System.Windows.Forms.Button btnBookOrder;
+        private System.Windows.Forms.Button btnBookReturn;
+        private System.Windows.Forms.DataGridView dgvBooks;
+        private System.Windows.Forms.Label label57;
     }
 }
 

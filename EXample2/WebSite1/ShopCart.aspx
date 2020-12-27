@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
-<asp:Panel ID="pnlCart" runat="server">
-    <asp:GridView ID="gvCart" runat="server" Width="100%" AutoGenerateColumns="false">
+    <asp:Panel ID="pnlCart" runat="server">
+    <asp:GridView ID="gvCart" runat="server" Width="123%" AutoGenerateColumns="false">
       <Columns>
         <asp:TemplateField>
           <ItemTemplate>

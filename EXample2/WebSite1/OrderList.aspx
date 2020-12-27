@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
-    <asp:GridView ID="gvOrderItem" runat="server" AutoGenerateColumns="False" Width="805px">
+    <asp:GridView ID="gvOrderItem" runat="server" AutoGenerateColumns="False" Width="1221px">
     <Columns>
       <asp:BoundField DataField="OrderId" HeaderText="订单号" />
       <asp:BoundField DataField="UserId" HeaderText="用户号" />

@@ -11,7 +11,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
-    <a href="CategoryMaster.aspx" style="text-decoration:none">分类管理</a>
+    <div style="text-align:center">
+  <a href="CategoryMaster.aspx" style="text-decoration:none">分类管理</a>
   <br />
   <br />
   <a href="SupplierMaster.aspx"  style="text-decoration:none">供应商管理</a>
@@ -23,6 +24,7 @@
   <a href="OrderMaster.aspx"  style="text-decoration:none">订单管理</a>
   <br />
   <br />
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphRight" Runat="Server">
     <asp:Panel ID="pnlProductMaster" runat="server">

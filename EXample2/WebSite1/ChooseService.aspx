@@ -44,7 +44,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
     <table class="auto-style11">
     <tr>
-        <td colspan="13" style="text-align:center" class="auto-style15">功能选择页</td>
+        <td colspan="11" style="text-align:center" class="auto-style15">功能选择页</td>
     </tr>
     <tr >
         <td class="auto-style20">★</td>
@@ -58,38 +58,31 @@
         <td class="auto-style14"></td>
         <td class="auto-style14">水果配送</td>
         <td class="auto-style14">&nbsp;</td>
-        <td class="auto-style14">生活用品配送</td>
-        <td class="auto-style17">&nbsp;</td>
     </tr>
     <tr>
         <td class="auto-style19">
             点击图片即可选择服务类别</td>
         <td class="auto-style10">
-            <asp:ImageButton ID="ImageButton5" runat="server" Height="170px" ImageUrl="~/Images/美食.jpg" Width="173px" />
+            <asp:ImageButton ID="ImageButton5" runat="server" Height="170px" ImageUrl="~/Images/美食.jpg" Width="173px" OnClick="ImageButton5_Click" />
         </td>
         <td>&nbsp;</td>
         <td>
-            <asp:ImageButton ID="ImageButton2" runat="server" Height="170px" ImageUrl="~/Images/奶茶2.jpg" Width="173px" />
+            <asp:ImageButton ID="ImageButton2" runat="server" Height="170px" ImageUrl="~/Images/奶茶2.jpg" Width="173px" OnClick="ImageButton2_Click" />
         </td>
         <td>&nbsp;</td>
         <td>
-            <asp:ImageButton ID="ImageButton3" runat="server" Height="170px" ImageUrl="~/Images/甜点.jpg" Width="173px" />
+            <asp:ImageButton ID="ImageButton3" runat="server" Height="170px" ImageUrl="~/Images/甜点.jpg" Width="173px" OnClick="ImageButton3_Click" />
         </td>
         <td>&nbsp;</td>
         <td>
-            <asp:ImageButton ID="ImageButton4" runat="server" Height="170px" ImageUrl="~/Images/零食.jpg" Width="173px" />
+            <asp:ImageButton ID="ImageButton4" runat="server" Height="170px" ImageUrl="~/Images/零食.jpg" Width="173px" OnClick="ImageButton4_Click" />
         </td>
         <td>
             &nbsp;</td>
         <td>
-            <asp:ImageButton ID="ImageButton1" runat="server" Height="170px" ImageUrl="~/Images/水果2.jpg" Width="173px" />
+            <asp:ImageButton ID="ImageButton1" runat="server" Height="170px" ImageUrl="~/Images/水果2.jpg" Width="173px" OnClick="ImageButton1_Click" />
         </td>
         <td>
-            &nbsp;</td>
-        <td>
-            <asp:ImageButton ID="ImageButton6" runat="server" Height="170px" ImageUrl="~/Images/生活用品.jpg" Width="188px" />
-        </td>
-        <td class="auto-style17">
             &nbsp;</td>
     </tr>
     <tr>
@@ -111,10 +104,6 @@
         <td>
             &nbsp;</td>
         <td>
-            &nbsp;</td>
-        <td>
-            &nbsp;</td>
-        <td class="auto-style17">
             &nbsp;</td>
     </tr>
 </table>

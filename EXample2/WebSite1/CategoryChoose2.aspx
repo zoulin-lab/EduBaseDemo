@@ -1,28 +1,9 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AutoPro.ascx.cs" Inherits="UserControl_AutoPro" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CategoryChoose2.aspx.cs" Inherits="CategoryChoose2" %>
 
-<style type="text/css">
-    .auto-style13 {
-        width: 53%;
-    }
-    .auto-style14 {
-        width: 257px;
-    }
-    .auto-style15 {
-        width: 21%;
-    }
-</style>
-
-<asp:UpdatePanel ID="UpdatePanel1" runat="server" >
-  <ContentTemplate>
-    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-      <ProgressTemplate>
-        正在连接数据库服务器，请耐心等待......
-      </ProgressTemplate>
-    </asp:UpdateProgress>
-
-    <asp:Timer ID="tmrAutoShow" runat="server" Interval="3000" OnTick="tmrAutoShow_Tick" Enabled="False">
-    </asp:Timer>
-    <asp:GridView ID="gvProduct" BackColor="#f0f0f0" runat="server" AllowPaging="True" AutoGenerateColumns="false" OnPageIndexChanging="gvProduct_PageIndexChanging" PagerSettings-Mode="NextPrevious" PageSize="1" Width="674px" Height="16px">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
+    <asp:GridView ID="gvProduct" BackColor="#f0f0f0" runat="server" AllowPaging="True" AutoGenerateColumns="false" OnPageIndexChanging="gvProduct_PageIndexChanging" PagerSettings-Mode="NextPrevious" PageSize="2" Width="674px" Height="16px">
       <PagerSettings FirstPageText="首页" LastPageText="尾页" Mode="NextPrevious" NextPageText="下一页" PreviousPageText="上一页" />
       <Columns>
         <asp:TemplateField>
@@ -73,10 +54,11 @@
         <asp:HyperLinkField DataNavigateUrlFields="ProductId" DataNavigateUrlFormatString="~/ShopCart.aspx?ProductId={0}" DataTextFormatString="{0:c}" HeaderText="放入购物车" Text="购买" />
       </Columns>
     </asp:GridView>
-    <asp:CheckBox ID="chkAutoShow" runat="server" AutoPostBack="True" Text="3秒后显示下一个商品" OnCheckedChanged="chkAutoShow_CheckedChanged" />
-  </ContentTemplate>
-  <Triggers>
-    <asp:AsyncPostBackTrigger ControlID="tmrAutoShow" EventName="Tick" />
-  </Triggers>
-</asp:UpdatePanel>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cphRight" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="cphLeft2" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="cphRight2" Runat="Server">
+</asp:Content>
 

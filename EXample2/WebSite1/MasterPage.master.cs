@@ -16,4 +16,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void LinkButton6_Click(object sender, EventArgs e)
+    {
+        Session.Clear();  //注销当前用户
+        Response.Redirect("~/Login.aspx");
+    }
+
+    protected void LinkButton2_Click(object sender, EventArgs e)
+    {
+        Session.Clear();  //注销当前用户
+        Response.Redirect("~/NewUser.aspx");
+    }
 }

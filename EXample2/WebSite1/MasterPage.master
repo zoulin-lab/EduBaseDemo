@@ -57,7 +57,7 @@
                      <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#0099CC" Style="text-decoration:none" PostBackUrl="~/Default.aspx" CausesValidation="False">首页</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/NewUser.aspx" CausesValidation="False">注册</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/NewUser.aspx" CausesValidation="False" OnClick="LinkButton2_Click">注册</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
                      <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" PostBackUrl="~/ShopCart.aspx">购物车</asp:LinkButton>
@@ -68,7 +68,7 @@
                      <asp:LinkButton ID="LinkButton7" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/ChooseService.aspx" CausesValidation="False">功能选择</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/Login.aspx" CausesValidation="False">登录</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/Login.aspx" CausesValidation="False" OnClick="LinkButton6_Click">登录</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
                      <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" PostBackUrl="~/OrderList.aspx">已购信息</asp:LinkButton>      
@@ -84,19 +84,19 @@
             </tr>
         </table>
         </header>   
-        <div style="float:left;width:600px">
+        <div style="float:left;width:550px">
         <asp:ContentPlaceHolder ID="cphLeft" runat="server">
         </asp:ContentPlaceHolder>
         </div>
-        <div style="float:right;width:600px">
+        <div style="float:right;width:680px">
         <asp:ContentPlaceHolder ID="cphRight" runat="server">
         </asp:ContentPlaceHolder>
         </div>
-        <div style="float:left;width:600px">
+        <div style="float:left;width:550px">
         <asp:ContentPlaceHolder ID="cphLeft2" runat="server">
         </asp:ContentPlaceHolder>
         </div>
-        <div style="float:right;width:600px">
+        <div style="float:right;width:680px">
         <asp:ContentPlaceHolder ID="cphRight2" runat="server">
         </asp:ContentPlaceHolder>
         </div>
