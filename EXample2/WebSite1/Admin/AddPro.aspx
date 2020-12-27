@@ -85,7 +85,7 @@
         <td style="text-align:right; " class="auto-style11">描述:
         </td>
         <td class="auto-style10">
-          <asp:TextBox ID="txtDescn" runat="server" Height="89px" TextMode="MultiLine"
+          <asp:TextBox ID="txtDescn" runat="server" Height="42px" TextMode="MultiLine"
             Width="263px"></asp:TextBox>
           <asp:RequiredFieldValidator ID="rfvDescn" runat="server" ControlToValidate="txtDescn"
             ErrorMessage="不能为空"></asp:RequiredFieldValidator>

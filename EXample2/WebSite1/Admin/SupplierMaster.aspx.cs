@@ -16,10 +16,15 @@ public partial class Admin_SupplierMaster : System.Web.UI.Page
             Response.Redirect("~/Login.aspx");
         }
     }
-
+    public List<Supplier> GetAllSupplier()
+    {
+        return (from c in db.Supplier
+                select c).ToList();
+    }
     protected void DetailsView1_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
     {
         var productCount = GetProductCountBySupplierId(int.Parse(DetailsView1.DataKey.Value.ToString()));
+        
         if (productCount != 0)
         {
             lblError.Text = "Error：该分类下有商品，请先删除商品！";
