@@ -1,6 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CategoryChoose.aspx.cs" Inherits="CategoryChoose" %>
 
+<%@ Register Src="~/UserControl/Supplier.ascx" TagPrefix="uc1" TagName="Supplier" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+       .auto-style10 {
+            width: 100%;
+        }
+        .auto-style11 {
+            width: 362px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphLeft" Runat="Server">
     <asp:GridView ID="gvProduct" BackColor="#f0f0f0" runat="server" AllowPaging="True" AutoGenerateColumns="false" OnPageIndexChanging="gvProduct_PageIndexChanging" PagerSettings-Mode="NextPrevious" PageSize="2" Width="674px" Height="16px">
@@ -56,6 +67,15 @@
     </asp:GridView>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphRight" Runat="Server">
+    <table class="auto-style10">
+        <tr>
+            <td class="auto-style11">&nbsp;</td>
+            <td style="text-align:center" >
+                <uc1:Supplier runat="server" ID="Supplier" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphLeft2" Runat="Server">
 </asp:Content>

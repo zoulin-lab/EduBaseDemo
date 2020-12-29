@@ -47,9 +47,8 @@ public partial class Admin_OrderMaster : System.Web.UI.Page
 
     protected void btnAudit_Click(object sender, EventArgs e)
     {
-
         GridView gvOrder = new GridView();
-        gvOrder = (GridView)Page.Master.FindControl("cphLeft").FindControl("gvOrder");
+        gvOrder = (GridView)Page.Master.FindControl("cphRight").FindControl("gvOrder");
         if (gvOrder != null)
         {
             for (int i = 0; i < gvOrder.Rows.Count; i++)

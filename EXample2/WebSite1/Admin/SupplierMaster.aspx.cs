@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FoodDelivery.BLL;
 
 public partial class Admin_SupplierMaster : System.Web.UI.Page
 {
     FoodDeliveryDataContext db = new FoodDeliveryDataContext();
-    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["AdminId"] == null)  //管理员用户未登录
@@ -50,5 +50,4 @@ public partial class Admin_SupplierMaster : System.Web.UI.Page
         db.Supplier.InsertOnSubmit(supplier);
         db.SubmitChanges();
     }
-
 }

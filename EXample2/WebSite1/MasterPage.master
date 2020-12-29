@@ -57,7 +57,7 @@
                      <asp:LinkButton ID="LinkButton1" runat="server" ForeColor="#0099CC" Style="text-decoration:none" PostBackUrl="~/Default.aspx" CausesValidation="False">首页</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/NewUser.aspx" CausesValidation="False" OnClick="LinkButton2_Click">注册</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton2" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" OnClick="LinkButton2_Click">注册</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
                      <asp:LinkButton ID="LinkButton4" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" PostBackUrl="~/ShopCart.aspx">购物车</asp:LinkButton>
@@ -68,17 +68,17 @@
                      <asp:LinkButton ID="LinkButton7" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/ChooseService.aspx" CausesValidation="False">功能选择</asp:LinkButton>
                 </td>
                 <td class="auto-style7">
-                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" PostBackUrl="~/Login.aspx" CausesValidation="False" OnClick="LinkButton6_Click">登录</asp:LinkButton>
+                     <asp:LinkButton ID="LinkButton6" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" OnClick="LinkButton6_Click">登录</asp:LinkButton>
                 </td>
                 <td class="auto-style5">
-                     <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" PostBackUrl="~/OrderList.aspx">已购信息</asp:LinkButton>      
+                     <asp:LinkButton ID="LinkButton5" runat="server" ForeColor="#0099CC"  Style="text-decoration:none" CausesValidation="False" PostBackUrl="~/SelectPage.aspx">搜索页</asp:LinkButton>      
                 </td>
             </tr>
             <tr>
-                <td class="auto-style9" style="background-color:white">
+                <td class="auto-style9" style="background-color:white;">
                     <uc1:SiteMap ID="SiteMap1" runat="server" />
                 </td>
-                <td colspan="3" style="background-color:white">
+                <td colspan="3" style="background-color:white;">
                      <uc2:UserStatus ID="UserStatus1" runat="server" />
                 </td>
             </tr>

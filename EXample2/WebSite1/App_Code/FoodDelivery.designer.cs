@@ -53,7 +53,7 @@ public partial class FoodDeliveryDataContext : System.Data.Linq.DataContext
   #endregion
 	
 	public FoodDeliveryDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["FoodDeliveryConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["FoodDelivery.DAL.Properties.Settings.FoodDeliveryConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}

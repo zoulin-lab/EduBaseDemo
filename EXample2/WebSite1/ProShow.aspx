@@ -4,6 +4,10 @@
 
 
 
+<%@ Register src="UserControl/Category.ascx" tagname="Category" tagprefix="uc2" %>
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style10 {
@@ -28,6 +32,9 @@
         }
         .auto-style22 {
             width: 19%;
+        }
+        .auto-style23 {
+            width: 213px;
         }
     </style>
 </asp:Content>
@@ -97,10 +104,11 @@
         <tr>
             <td class="auto-style21">
             </td>
-            <td style="text-align:center">
+            <td style="text-align:center" class="auto-style23">
                  <uc1:Supplier runat="server" id="Supplier"  />
             </td>
             <td class="auto-style20">
+                <uc2:Category ID="Category1" runat="server" />
             </td>
         </tr>
     </table>
