@@ -40,16 +40,16 @@ public partial class ProShow : System.Web.UI.Page
         }
         else
         {
-            if (!string.IsNullOrEmpty(suppId))
+            if (!string.IsNullOrEmpty(categoryId))
             {
-                return (from p in db.Product
-                        where p.SuppId == int.Parse(suppId)
+               return (from p in db.Product
+                        where p.SuppId == int.Parse(categoryId)
                         select p).ToList();
             }
             else
             {
-                return (from p in db.Product
-                        where p.SuppId == int.Parse(categoryId)
+                 return (from p in db.Product
+                        where p.SuppId == int.Parse(suppId)
                         select p).ToList();
             }
         }
