@@ -25,19 +25,12 @@ namespace Example
             this.LoadStuDepartments();
             this.LoadYearAndTerm();
             this.LoadCampus();
-            this.LoadTeacherScore();
         }
-        private void LoadTeacherScore()//向教学评价里载入教师得分
-        {
-            string command = $@"SELECT SS.StudentNo,SS.StartTerm,SS.CourseNo,SS.CourseName,SS.CourseNature,SS.TestWay,SS.FacultyRate 
-		                               FROM tb_StudentScore AS SS
-		                               ORDER BY SS.FacultyRate";
-            SqlHelper sql = new SqlHelper();
-            sql.QuickFill(command, dgvTeacherScore);
-        }
-
+        
         private void LoadStanza()//向教室借用申请里载入节次
         {
+            cbxRoomStanza1.Items.Clear();
+            cbxRoomStanza2.Items.Clear();
             string commandText = " SELECT  Name FROM tb_Stanza";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
@@ -50,6 +43,8 @@ namespace Example
 
         private void LoadWeek()//向教室借用申请里载入周次
         {
+            cbxRoomWeek1.Items.Clear();
+            cbxRoomWeek2.Items.Clear();
             string commandText = " SELECT  Name FROM tb_Week";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
@@ -62,6 +57,8 @@ namespace Example
 
         private void LoadWeekDay()//向教室借用申请里载入星期
         {
+            cbxRoomWeekDay1.Items.Clear();
+            cbxRoomWeekDay2.Items.Clear();
             string commandText = " SELECT  Name FROM tb_WeekDay";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
@@ -74,6 +71,7 @@ namespace Example
 
         private void LoadRoomDepartment()//向教室借用申请里载入借用院系
         {
+            cbxRoomBorrowDepartment.Items.Clear();
             string commandText = " SELECT Name FROM tb_StuDepartment";
             var sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText);
@@ -199,12 +197,12 @@ namespace Example
             //修改个人信息页面
             this.StudentNo = studentNo;
             string commandText1 =
-                $@"SELECT * FROM tb_StudentInformation WHERE No='{studentNo}';";
+                $@"SELECT * FROM tb_StudentInformation WHERE No='{StudentNo}';";
             SqlHelper sqlHelper = new SqlHelper();
             sqlHelper.QuickRead(commandText1);
             if (sqlHelper.HasRecord)
             {
-                this.txt_StudentNo.Text = sqlHelper["No"].ToString();
+                this.txt_StudentNo.Text = StudentNo.ToString();
                 this.txt_Name.Text = sqlHelper["Name"].ToString();
                 this.txt_PasswordProtectProblem1.Text = sqlHelper["PasswordProtectProblem_1"].ToString();
                 this.txt_PasswordProtectProblem2.Text = sqlHelper["PasswordProtectProblem_2"].ToString();
@@ -253,6 +251,17 @@ namespace Example
             }
             this.LoadNotice();
             this.LoadMessage();
+            this.LoadTeacherScore();
+        }
+
+        private void LoadTeacherScore()//向教学评价里载入教师得分
+        {
+            string command = $@"SELECT SS.StudentNo,SS.StartTerm,SS.CourseNo,SS.CourseName,SS.CourseNature,SS.TestWay,SS.FacultyRate,SS.StudentComments  
+		                               FROM tb_StudentScore AS SS
+                                       WHERE SS.StudentNo='{StudentNo}' 
+		                               ORDER BY SS.FacultyRate";
+            SqlHelper sql = new SqlHelper();
+            sql.QuickFill(command, dgvTeacherScore);
         }
 
         private void button_PickCourse_Click(object sender, EventArgs e)
@@ -292,7 +301,7 @@ namespace Example
         {
             SqlHelper sql = new SqlHelper();
             string command = $@"SELECT COUNT(FacultyRate) FROM tb_StudentScore
-                             WHERE FacultyRate =0";
+                             WHERE FacultyRate =0 AND StudentNo='{StudentNo}'";
             int result= sql.QuickReturn<int>(command);
             if (result == 0) 
             {
@@ -437,8 +446,12 @@ namespace Example
 
         private void button_MySocialTestRegistration_Click(object sender, EventArgs e)
         {
-            //社会考试报名 she会考试报名 = new 社会考试报名();
-            //she会考试报名.ShowDialog();
+            SqlHelper sql = new SqlHelper();
+            string command1 = $@" SELECT * FROM tb_ComunityTest where Status='已报名'";
+            string command2 = $@"SELECT * FROM tb_ComunityTest where Status='未报名'";
+            sql.QuickFill(command1,dgvRankTest1);
+            sql.QuickFill(command2,dgvRankTest2);
+            tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[7];
         }
 
         private void button_MyStatusManagement_Click(object sender, EventArgs e)
@@ -583,8 +596,7 @@ namespace Example
         
         private void button_ExperimentAppointManagement_Click(object sender, EventArgs e)
         {
-            //实验预约管理 shi验预约管理 = new 实验预约管理();
-            //shi验预约管理.ShowDialog();
+            tcExperiment.SelectedTab = tcExperiment.TabPages[0];
         }
 
         private void button_OpenPracticeAppointment_Click(object sender, EventArgs e)
@@ -619,7 +631,7 @@ namespace Example
 
         private void button_TestArrangementInquire_Click(object sender, EventArgs e)
         {
-            
+            tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[5];
         }
 
         private void button_MidtermTestInquire_Click(object sender, EventArgs e)
@@ -1027,6 +1039,7 @@ namespace Example
             sqlHelper.QuickFill(commandText, dgvNotice);
             this.LoadNotice();
             MessageBox.Show("回复成功！");
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[0];
         }
 
         private void btnAnswerMessage_Click(object sender, EventArgs e)
@@ -1043,20 +1056,22 @@ namespace Example
             }
             if (status2 == "已读" && status1 == "")
             {
-                tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[5];
+                tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[6];
             }
         }
 
-        private void btnReplyMessage_Click(object sender, EventArgs e)      //回复留言
+        private void btnReplyMessage_Click_1(object sender, EventArgs e)//回复留言
         {
             String Number = this.dgvMessage.CurrentRow.Cells["No"].Value.ToString();
             string commandText = $@"UPDATE tb_NoticeAndMessageDetails
-                                            SET Answer='{txtReplay.Text}'
+                                            SET Answer='{txtReplyMessage.Text}'
                                             WHERE No='{int.Parse(Number)}'";
             SqlHelper sqlHelper = new SqlHelper();
             sqlHelper.QuickFill(commandText, dgvMessage);
             this.LoadMessage();
             MessageBox.Show("回复成功！");
+            tcMyDesktop.SelectedTab = tcMyDesktop.TabPages[1];
+
         }
 
         private void LoadAllCourse()          //载入选课
@@ -1248,19 +1263,37 @@ namespace Example
             }
             else
             {
-                if (cbxRoomTerm.Text == "2020-2021-1" && cbxRoomCampus.Text=="旗山校区" && cbxRoomStatus.SelectedIndex != -1)
+                if (cbxRoomTerm.Text == "2020-2021-1" && cbxRoomCampus.Text == "旗山校区" && cbxRoomStatus.SelectedIndex != -1)
                 {
-                    SqlHelper sql = new SqlHelper();
-                    string commandText = $@"SELECT  D.Name AS 教学楼,R.Name AS 教室名称,R.People AS 人数,W.Name AS 周次, WD.Name AS 星期 ,S.Name AS 节次,
+                    if (cbxRoomStatus.Text != " ")
+                    {
+                        SqlHelper sql = new SqlHelper();
+                        string commandText = $@"SELECT  D.Name AS 教学楼,R.Name AS 教室名称,R.People AS 人数,W.Name AS 周次, WD.Name AS 星期 ,S.Name AS 节次,
 		                          R.RoomStatus  AS 教室状态
 		                          FROM tb_Room AS R
 		                          JOIN tb_Department AS D ON R.DepartmentNo=D.No
 		                          JOIN tb_Week AS W ON R.WeekNo=W.No
 		                          JOIN tb_WeekDay AS WD ON R.WeekDayNo=WD.No
 		                          JOIN tb_Stanza AS S ON R.StanzaNo=S.No
-		                          WHERE R.RoomStatus='{cbxRoomStatus.Text}'
+		                          WHERE R.RoomStatus LIKE '{cbxRoomStatus.Text}%'
 		                          ORDER BY  R.RoomNo,W.No ,WD.No,S.No";
-                    sql.QuickFill(commandText, dgvRoomRoom);
+                        sql.QuickFill(commandText, dgvRoomRoom);
+                    }
+                    else
+                    {
+                        SqlHelper sql = new SqlHelper();
+                        string commandText = $@"SELECT  D.Name AS 教学楼,R.Name AS 教室名称,R.People AS 人数,W.Name AS 周次, WD.Name AS 星期 ,S.Name AS 节次,
+		                          R.RoomStatus  AS 教室状态
+		                          FROM tb_Room AS R
+		                          JOIN tb_Department AS D ON R.DepartmentNo=D.No
+		                          JOIN tb_Week AS W ON R.WeekNo=W.No
+		                          JOIN tb_WeekDay AS WD ON R.WeekDayNo=WD.No
+		                          JOIN tb_Stanza AS S ON R.StanzaNo=S.No
+		                          WHERE R.RoomStatus LIKE ''
+		                          ORDER BY  R.RoomNo,W.No ,WD.No,S.No";
+                        sql.QuickFill(commandText, dgvRoomRoom);
+                    }
+                    
                 }
             }
         }
@@ -1393,6 +1426,7 @@ namespace Example
             String currentCourseNo = this.dgvCourse.CurrentRow.Cells["CourseNo"].Value.ToString();
             SqlHelper sql = new SqlHelper();
             SqlHelper sql2 = new SqlHelper();
+            SqlHelper sql3 = new SqlHelper();
             sql.QuickRead($@"SELECT * FROM tb_Course  WHERE No='{currentCourseNo}'");
             if (sql.HasRecord)
             {
@@ -1405,6 +1439,15 @@ namespace Example
                                       VALUES('{StudentNo}','{currentCourseNo}','{txtReason.Text.Trim()}','待审','{currentTime.ToString()}')");
                     MessageBox.Show("申请成功！");
                     txtReason.Clear();
+                    sql3.QuickFill($@"SELECT   
+                    DEA.StudentNo,DEA.CourseNo,C.Name AS CourseName,YAT.Name AS Term,C.TotalPeriod,C.Credit,ET.Name AS ExamType,
+		            DEA.Reason,DEA.CheckStatus,C.ExamTime,DEA.ApplicateTime
+		            FROM tb_DelayrdExamApplication AS DEA
+					JOIN tb_Course AS C ON DEA.CourseNo=C.No
+					JOIN tb_YearAndTerm AS YAT ON C.TermNo=YAT.No
+					JOIN tb_ExamType AS ET ON C.ExamTypeNo=ET.No
+					WHERE DEA.StudentNo='{StudentNo}' ORDER BY C.ExamTime DESC
+                    ", dgvDelayrdExamApplication);
                     tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[1];
                 }
                 else
@@ -1466,8 +1509,13 @@ namespace Example
 
         private void btnTeacherScore_Click(object sender, EventArgs e)
         {
+            if (txtTeacherScore.Text=="")
+            {
+                MessageBox.Show("评分不能为空！");
+                return;
+            }
             string currentTeacherScore = this.dgvTeacherScore.CurrentRow.Cells["FacultyRate"].Value.ToString();
-            String currentCourseNo = this.dgvTeacherScore.CurrentRow.Cells["CourseNo"].Value.ToString();
+            string currentCourseNo = this.dgvTeacherScore.CurrentRow.Cells["CourseNo"].Value.ToString();
             if (currentTeacherScore != "0") 
             {
                 MessageBox.Show("已为该课程教师评分，不可重复评分！");
@@ -1476,11 +1524,12 @@ namespace Example
             {
                 SqlHelper sql = new SqlHelper();
                 sql.QuickSubmit($@"UPDATE tb_StudentScore 
-                                          SET FacultyRate='{txtTeacherScore.Text}' 
+                                          SET FacultyRate='{txtTeacherScore.Text.Trim()}' ,StudentComments='{txtComments.Text.Trim()}'
                                           WHERE StudentNo='{StudentNo}' AND CourseNo='{currentCourseNo}'");
                 MessageBox.Show("评分成功！");
-                sql.QuickFill($@"SELECT SS.StudentNo,SS.StartTerm,SS.CourseNo,SS.CourseName,SS.CourseNature,SS.TestWay,SS.FacultyRate 
+                sql.QuickFill($@"SELECT SS.StudentNo,SS.StartTerm,SS.CourseNo,SS.CourseName,SS.CourseNature,SS.TestWay,SS.FacultyRate,SS.StudentComments  
 		                               FROM tb_StudentScore AS SS
+                                       WHERE SS.StudentNo='{StudentNo}' 
 		                               ORDER BY SS.FacultyRate", dgvTeacherScore);
                 txtTeacherScore.Clear();
             }
@@ -1488,61 +1537,183 @@ namespace Example
 
         private void btnBorrowRoom_Click(object sender, EventArgs e)
         {
-            string currentStatus = this.dgvRoomRoom.CurrentRow.Cells["教室状态"].Value.ToString();
-            string currentRoom = this.dgvRoomRoom.CurrentRow.Cells["教室名称"].Value.ToString();
-            string currentRoomNo;
-            if (currentRoom=="教室1101")
+            if (cbxRoomBorrowDepartment.SelectedIndex != -1) 
             {
-                currentRoomNo = "01101";
+                string currentStatus = this.dgvRoomRoom.CurrentRow.Cells["教室状态"].Value.ToString();
+                string currentRoom = this.dgvRoomRoom.CurrentRow.Cells["教室名称"].Value.ToString();
+                string currentRoomNo;
+                if (currentRoom == "教室1101")
+                {
+                    currentRoomNo = "01101";
+                }
+                else
+                {
+                    currentRoomNo = "01102";
+                }
+                string currentWeek = this.dgvRoomRoom.CurrentRow.Cells["周次"].Value.ToString();
+                int currentWeekNo = 0;
+                if (currentWeek == "第一周")
+                {
+                    currentWeekNo = 1;
+                }
+                string currentWeekDay = this.dgvRoomRoom.CurrentRow.Cells["星期"].Value.ToString();
+                int currentWeekDayNo = 0;
+                switch (currentWeekDay)
+                {
+                    case "星期一": currentWeekDayNo = 1; break;
+                    case "星期二": currentWeekDayNo = 2; break;
+                    case "星期三": currentWeekDayNo = 3; break;
+                    case "星期四": currentWeekDayNo = 4; break;
+                    case "星期五": currentWeekDayNo = 5; break;
+                    case "星期六": currentWeekDayNo = 6; break;
+                    case "星期日": currentWeekDayNo = 7; break;
+                }
+                string currentStanza = this.dgvRoomRoom.CurrentRow.Cells["节次"].Value.ToString();
+                int currentStanzaNo = 0;
+                switch (currentStanza)
+                {
+                    case "第一节": currentStanzaNo = 1; break;
+                    case "第二节": currentStanzaNo = 2; break;
+                    case "第三节": currentStanzaNo = 3; break;
+                    case "第四节": currentStanzaNo = 4; break;
+                    case "第五节": currentStanzaNo = 5; break;
+                    case "第六节": currentStanzaNo = 6; break;
+                    case "第七节": currentStanzaNo = 7; break;
+                    case "第八节": currentStanzaNo = 8; break;
+                    case "第九节": currentStanzaNo = 9; break;
+                    case "第十节": currentStanzaNo = 10; break;
+                    case "第十一节": currentStanzaNo = 11; break;
+                    case "第十二节": currentStanzaNo = 12; break;
+                }
+                if (currentStatus == "")
+                {
+                    SqlHelper sql = new SqlHelper();
+                    string command = $@"UPDATE tb_Room
+		                            SET RoomStatus='J(借用院系：{cbxRoomBorrowDepartment.Text}) '
+		                            WHERE RoomNo='{currentRoomNo}' AND WeekNo='{currentWeekNo}' 
+                                    AND WeekDayNo='{currentWeekDayNo}' AND StanzaNo='{currentStanzaNo}'";
+                    sql.QuickFill(command, dgvRoomRoom);
+                    MessageBox.Show($@"{cbxRoomBorrowDepartment.SelectedItem.ToString()}教室借用成功！");
+                }
+                else
+                {
+                    MessageBox.Show("该教室已被占用！");
+                }
             }
             else
             {
-                currentRoomNo = "01102";
+                MessageBox.Show("请先选择借用院系！");
+                return;
             }
-            string currentWeek = this.dgvRoomRoom.CurrentRow.Cells["周次"].Value.ToString();
-            int currentWeekNo=0;
-            if (currentWeek=="第一周")
-            {
-                 currentWeekNo = 1;
-            }
-            string currentWeekDay = this.dgvRoomRoom.CurrentRow.Cells["星期"].Value.ToString();
-            int currentWeekDayNo=0;
-            switch (currentWeekDay)
-            {
-                case "星期一":  currentWeekDayNo = 1;break;
-                case "星期二":  currentWeekDayNo = 2; break;
-                case "星期三":  currentWeekDayNo = 3; break;
-                case "星期四":  currentWeekDayNo = 4; break;
-                case "星期五":  currentWeekDayNo = 5; break;
-                case "星期六":  currentWeekDayNo = 6; break;
-                case "星期日":  currentWeekDayNo = 7; break;
-            }
-            string currentStanza = this.dgvRoomRoom.CurrentRow.Cells["节次"].Value.ToString();
-            int currentStanzaNo=0;
-            switch (currentStanza)
-            {
-                case "第一节": currentStanzaNo = 1; break;
-                case "第二节": currentStanzaNo = 2; break;
-                case "第三节": currentStanzaNo = 3; break;
-                case "第四节": currentStanzaNo = 4; break;
-                case "第五节": currentStanzaNo = 5; break;
-                case "第六节": currentStanzaNo = 6; break;
-                case "第七节": currentStanzaNo = 7; break;
-                case "第八节": currentStanzaNo = 8; break;
-                case "第九节": currentStanzaNo = 9; break;
-                case "第十节": currentStanzaNo = 10; break;
-                case "第十一节": currentStanzaNo = 11; break;
-                case "第十二节": currentStanzaNo = 12; break;
-            }
-            if (currentStatus == "") 
+        }
+
+        private void txtTestPlanSelect_Click(object sender, EventArgs e)
+        {
+            if (cbxTestPlanTerm.SelectedIndex != -1 && cbxTestPlanCategory.Text == "期末") 
             {
                 SqlHelper sql = new SqlHelper();
-                string command = $@"UPDATE tb_Room
-		                            SET RoomStatus='◆'
-		                            WHERE RoomNo='{currentRoomNo}' AND WeekNo='{currentWeekNo}' 
-                                    AND WeekDayNo='{currentWeekDayNo}' AND StanzaNo='{currentStanzaNo}'";
-                sql.QuickFill(command,dgvRoomRoom);
-                MessageBox.Show("借用成功！");
+                string command = $@"SELECT      
+            ROW_NUMBER()OVER(ORDER BY C.No) AS 场次,C.No AS 课程号,C.Name AS 课程名称,YAT.Name AS 学期,ET.Name AS 考试类型,ExamTime AS 考试时间
+            FROM tb_Course AS C
+			JOIN tb_YearAndTerm AS YAT ON C.TermNo=YAT.No
+			JOIN tb_ExamType AS ET ON C.ExamTypeNo=ET.No
+			WHERE C.ExamTime!='' AND YAT.Name='{cbxTestPlanTerm.Text}'";
+                sql.QuickFill(command,dgvTestPlanSelect);
+                tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[6];
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tcTestRegistration.SelectedTab = tcTestRegistration.TabPages[5];
+        }
+
+        private void tabPage28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlHelper sql = new SqlHelper();
+            SqlHelper sql2 = new SqlHelper();
+            sql.QuickRead($@" SELECT * FROM tb_ComunityTest where Status='未报名'");
+            string currentTest = this.dgvRankTest2.CurrentRow.Cells["Name"].Value.ToString();
+            if (sql.HasRecord)
+            {
+                if (DateTime.Now.AddMonths(6)>(DateTime)sql["TestTime"]) 
+                {
+                    string command = $@" UPDATE tb_ComunityTest SET Status='已报名' WHERE Name='{currentTest}'";
+                    sql.QuickSubmit(command);
+                    MessageBox.Show("报名成功！");
+                }
+                else
+                {
+                    MessageBox.Show("当前不在报名时间范围内或未启用报名！");
+                }
+            }
+            else
+            {
+                return;
+            }
+            sql2.QuickFill($@" SELECT * FROM tb_ComunityTest where Status='已报名'", dgvRankTest1);
+            sql2.QuickFill($@" SELECT * FROM tb_ComunityTest where Status='未报名'", dgvRankTest2);
+        }
+
+        private void btnToMoney_Click(object sender, EventArgs e)
+        {
+            string currentMoney = this.dgvRankTest1.CurrentRow.Cells["IsGetMoney"].Value.ToString();
+            string currentTest = this.dgvRankTest1.CurrentRow.Cells["Name"].Value.ToString();
+            if (currentMoney == "否") 
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickSubmit($@" UPDATE tb_ComunityTest SET IsGetMoney ='是' WHERE Name='{currentTest}'");
+                MessageBox.Show("缴费成功！");
+                sql.QuickFill($@" SELECT * FROM tb_ComunityTest where Status='已报名'", dgvRankTest1);
+            }
+            else
+            {
+                MessageBox.Show("该考试已经完成过缴费！");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tcExperiment.SelectedTab = tcExperiment.TabPages[0];
+        }
+
+        private void btnExperimentAppoint_Click(object sender, EventArgs e)
+        {
+            if (cbxExperiment.Text == "2020-2021-1") 
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickFill($@"SELECT * FROM tb_Experiment",dgvExperiment);
+                tcExperiment.SelectedTab = tcExperiment.TabPages[1];
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btnPlan_Click(object sender, EventArgs e)
+        {
+            string currentStatus = this.dgvExperiment.CurrentRow.Cells["Status"].Value.ToString();
+            string currentName = this.dgvExperiment.CurrentRow.Cells["Name"].Value.ToString();
+            if (currentStatus == "未预约") 
+            {
+                SqlHelper sql = new SqlHelper();
+                sql.QuickSubmit($@"SELECT * FROM tb_Experiment UPDATE tb_Experiment SET Status='已预约' WHERE Name='{currentName}'");
+                MessageBox.Show("预约成功！");
+                sql.QuickFill($@"SELECT * FROM tb_Experiment", dgvExperiment);
+            }
+            else
+            {
+                MessageBox.Show("该实验时间已过或者已经预约！");
             }
         }
     }

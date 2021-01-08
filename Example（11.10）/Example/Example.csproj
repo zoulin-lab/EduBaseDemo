@@ -86,24 +86,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EduBaseBigHomeworkDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frm_RevisePassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_RevisePassword.Designer.cs">
-      <DependentUpon>frm_RevisePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_NoticesAndMessages.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_NoticesAndMessages.Designer.cs">
-      <DependentUpon>frm_NoticesAndMessages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_ReviseStudentInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ReviseStudentInfo.Designer.cs">
-      <DependentUpon>frm_ReviseStudentInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_SchoolSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,20 +100,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frm_RevisePassword.resx">
-      <DependentUpon>frm_RevisePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_NoticesAndMessages.resx">
-      <DependentUpon>frm_NoticesAndMessages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_ReviseStudentInfo.resx">
-      <DependentUpon>frm_ReviseStudentInfo.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="frm_TeacherManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_TeacherManagement.Designer.cs">
+      <DependentUpon>frm_TeacherManagement.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frm_SchoolSystem.resx">
       <DependentUpon>frm_SchoolSystem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_SignUp.resx">
       <DependentUpon>frm_SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_TeacherManagement.resx">
+      <DependentUpon>frm_TeacherManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
